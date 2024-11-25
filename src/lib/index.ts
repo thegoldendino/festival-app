@@ -1,0 +1,1 @@
+export { default as FestivalApp } from './FestivalApp.svelte';

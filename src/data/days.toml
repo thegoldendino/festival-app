@@ -1,0 +1,41 @@
+["2024-05-31"]
+startTime = "18:00:00"
+endTime = "22:00:00"
+location = "Georgetown"
+stages = ["coffee", "overpass", "electric", "stables", "jules"]
+schedule = [
+	["flyby", "tacomarama", "", "filthy", "neighbors"],
+	["youngfellaz", "agab", "", "vamola", "tmb"],
+	["goodtrouble", "chaotic", "", "", "tmb"],
+	["goodtrouble", "chaotic", "", "", ""],
+]
+scheduleIncrement = 20
+mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
+mapImageUrl = "/maps/0_georgetown-phone.jpg"
+mapPins = [
+	["info", "845", "1040"],
+	["medic", "845", "1130"],
+	["potty", "845", "953"],
+	["potty", "200", "200"],
+]
+
+
+["2024-06-01"]
+startTime = "12:00:00"
+endTime = "20:00:00"
+location = "Columbia City"
+stages = ["columbia_hill", "edmunds", "gateway"]
+schedule = [
+	["future", "", ""],
+	["seismic", "better", "brasscheeks"],
+	["neighbors", "8bit", "artesian"],
+	["allstars", "", ""],
+]
+scheduleIncrement = 30
+mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"
+mapImageUrl = "/maps/1_columbia-city-phone.jpg"
+mapPins = [
+	["info", "480", "1270"],
+	["medic", "480", "1180"],
+	["potty", "410", "1330"],
+]
