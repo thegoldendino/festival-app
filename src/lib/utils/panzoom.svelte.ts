@@ -22,6 +22,7 @@ const TRACKED_DURATION = 120;
 // Some basic 2D geometry
 const distance = (p1: Point, p2: Point) => Math.hypot(p1.x - p2.x, p1.y - p2.y);
 const midpoint = (p1: Point, p2: Point) => ({ x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 });
+const scaledpoint = (p: Point, scale: number) => ({ x: p.x / scale, y: p.y / scale });
 const subtract = (p1: Point, p2: Point) => ({ x: p1.x - p2.x, y: p1.y - p2.y });
 
 export interface Options {
@@ -33,8 +34,9 @@ export interface Options {
 export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
 	const rAF = requestAnimationFrame;
 	let maxZoom = data.maxZoom ?? 16;
-	let scale = data.scale ?? 1;
+	let scale = data.scale ?? 1.0;
 	let friction = data.friction ?? 0.97;
+	let transformOrigin = { x: 0, y: 0 };
 	let translation = { x: 0, y: 0 };
 	let velocity: Velocity = { vx: 0, vy: 0, ts: 0 };
 	let frame = 0;
@@ -48,8 +50,20 @@ export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
 	}
 
 	function updateTransform() {
-		let width = content.getBoundingClientRect().width;
-		console.log("transform", width, node.clientWidth)
+		let offsetX = (node.clientWidth * (1 - scale) / 2);
+		let translationX = translation.x + offsetX;
+
+		// clamp translation to avoid over-scrolling
+		if (translationX > 0) {
+			translation.x = 1 - offsetX;
+		}
+		if (translationX / 2 - offsetX < 0) {
+			translation.x = offsetX;
+		}
+		if (translation.y > 0) {
+			translation.y = 0;
+		}
+
 		content.style.transform = `translate(${translation.x}px, ${translation.y}px) scale(${scale})`;
 	}
 
@@ -109,6 +123,7 @@ export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
 		event.stopPropagation();
 		if (!pointers.has(event.pointerId)) return;
 
+
 		const point = pointFromEvent(event);
 		switch (pointers.size) {
 			case 1: {
@@ -140,7 +155,8 @@ export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
 				translation.x += diff.x;
 				translation.y += diff.y;
 				const zoom = dist / prevDist;
-				scale = Math.min(maxZoom, Math.max(0.1, scale * zoom));
+				scale = Math.min(maxZoom, Math.max(1.0, scale * zoom));
+				transformOrigin = scaledpoint(middle, 1 / zoom);
 				updateTransform();
 				break;
 			}
@@ -152,15 +168,10 @@ export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
 		event.stopPropagation();
 		const point = pointFromEvent(event);
 		const zoom = Math.exp(-event.deltaY / 512);
-		scale = Math.min(maxZoom, Math.max(0.1, scale * zoom));
+		scale = Math.min(maxZoom, Math.max(1.0, scale * zoom));
 		updateTransform();
 	}
 
-
-	function fitWidth() {
-		scale = node.clientWidth / content.clientWidth;
-		updateTransform();
-	}
 
 	function pointFromEvent(event: PointerEvent | WheelEvent): Point {
 		return { x: event.clientX, y: event.clientY };
