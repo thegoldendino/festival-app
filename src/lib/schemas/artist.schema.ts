@@ -3,11 +3,11 @@ import { ScheduleSchema } from './schedule.schema.js';
 
 const baseSchema = z.object({
 	name: z.string(),
-	location: z.string().nullish(),
-	description: z.string().nullish(),
-	infoUrl: z.string().url().nullish().catch(null),
-	imageUrl: z.string().url().nullish().catch(null),
-	imageThumbUrl: z.string().url().nullish().catch(null),
+	location: z.string().optional(),
+	description: z.string().optional(),
+	infoUrl: z.string().url().optional(),
+	imageUrl: z.string().url().optional(),
+	imageThumbUrl: z.string().url().optional(),
 });
 
 export const ConfigArtistSchema = baseSchema;

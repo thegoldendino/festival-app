@@ -1,7 +1,7 @@
-<div class="sub-header-container"></div>
+<div class="subheader-container"></div>
 
 <style>
-	.sub-header-container {
+	.subheader-container {
 		display: flex;
 		justify-content: space-between;
 		background-color: #888888;

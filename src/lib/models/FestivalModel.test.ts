@@ -8,7 +8,6 @@ describe('FestivalModel', () => {
 	const daysMultiValid = {
 		'2025-01-01': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
 			scheduleIncrement: 60,
 			date: '2025-01-01',
 			stageKeys: ["stage-1", "stage-2"],
@@ -16,8 +15,7 @@ describe('FestivalModel', () => {
 		},
 		'2025-01-02': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
-			scheduleIncrement: 60,
+			scheduleIncrement: '20',
 			date: '2025-01-02',
 			stageKeys: ["stage-3", "stage-4"],
 			artistKeys: ["artist-3", "artist-6"],

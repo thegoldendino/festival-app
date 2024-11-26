@@ -4,8 +4,7 @@ export const MapPinEnum = z.enum(['info', 'medic', 'potty']);
 
 const baseSchema = z.object({
 	startTime: z.string().time(),
-	endTime: z.string().time(),
-	scheduleIncrement: z.number(),
+	scheduleIncrement: z.coerce.number().or(z.string().regex(/^\d+$/)),
 	location: z.string().optional(),
 	mapUrl: z.string().url().optional(),
 	mapImageUrl: z.string().optional(),

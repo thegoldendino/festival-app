@@ -1,8 +1,5 @@
 [tbd]
 name = "TBD"
-location = ""
-infoUrl = "#"
-description = ""
 
 [8bit]
 name = "8-Bit Brass Band"
@@ -38,13 +35,11 @@ description = "We play a myriad of tunes, with mobile, mostly unamplified, melod
 name = "Bainbridge High School Spartan Brass Band"
 location = "Bainbridge Island, WA"
 infoUrl = "https://www.bainbridgebands.org/"
-description = ""
 
 [ballard]
 name = "Ballard Brass Band"
 location = "Seattle, WA"
 infoUrl = "https://www.ballardperformingarts.org/"
-description = ""
 
 [baque]
 name = "Baque Maré"
@@ -114,7 +109,6 @@ description = "Founded in June of 2021, Burn Out Brass Band is a Queer HONK! ban
 
 [carnival]
 name = "Carnival Band"
-location = ""
 infoUrl = "http://www.thecarnivalband.com/carnivalband/"
 description = "More fun than your usual amorphous mass of brass instruments, drums and glitter!"
 
@@ -128,11 +122,9 @@ description = "Chaotic Noise is a Seattle based renegade marching band that is d
 name = "Chervona"
 location = "Portland, OR"
 infoUrl = "https://www.facebook.com/ChervonaParty/"
-description = ""
 
 [chunky]
 name = "Chunky Hustle Brass Band"
-location = ""
 infoUrl = "https://chunkyhustlebrassband.com/"
 description = "A brassalicious, bouncy castle of spirited song and sound"
 
@@ -164,7 +156,6 @@ description = "Fly By Brass Band is a diverse group of musicians based in the Bo
 name = "Funkrust Brass Band"
 location = "New York, NY"
 infoUrl = "http://funkrust.com/"
-description = ""
 
 [gansango]
 name = "Gansango Music & Dance"
@@ -176,12 +167,10 @@ description = "Gansango Music & Dance presents traditional and contemporary danc
 name = "Garfield High Varsity Drumline"
 location = "Seattle, WA"
 infoUrl = "https://www.facebook.com/people/Garfield-High-School-Marching-Band/100067840332627/"
-description = ""
 
 [goat]
 name = "G.O.A.T. Band"
 location = "Seattle, WA"
-infoUrl = ""
 description = "Our band consists of students who have played 2-4 years on a wide range of instruments. Everyone is in 7th or 8th grade and dedicated to playing their instruments and bringing joy to our audiences. "
 
 [goodtrouble]
@@ -199,7 +188,6 @@ description = "HONK! All-Stars is a collection of the best and the loudest music
 [future]
 name = "HONK! Future"
 location = "Seattle, WA"
-infoUrl = "#"
 description = "Brilliant musicians from the Future here to perform for us now."
 
 [hungry]
@@ -224,7 +212,6 @@ description = "Kouyaté Arts is a West African Music, Song And Dance Performance
 name = "LA BAMBA"
 location = "Los Angeles, CA"
 infoUrl = "https://labamba.lahonk.org/"
-description = ""
 
 [gozona]
 name = "La Banda Gozona"
@@ -247,8 +234,6 @@ description = "The LOUD Neighbors are a playful group of community minded musici
 [lbcs]
 name = "Louisa Boren & Cleveland STEM Middle School Band"
 location = "Seattle, WA"
-infoUrl = "#"
-description = ""
 
 [lynx]
 name = "Lynxcorps"
@@ -314,7 +299,6 @@ description = "The official pep band for Reign FC. Part of Rainbow City Performi
 name = "Rise Up! Action Band"
 location = "Seattle, WA"
 infoUrl = "https://riseupactionband.com/"
-description = ""
 
 [kokon]
 name = "Seattle Kokon Taiko"
@@ -338,7 +322,6 @@ description = "Seismic Sound is a not-for-profit percussion ensemble for youth a
 name = "Shpilkis!"
 location = "Seattle, WA"
 infoUrl = "https://www.shpilkisseattle.com/"
-description = ""
 
 [jambalaya]
 name = "Soul Jambalaya"
@@ -349,7 +332,6 @@ description = "Performing a musical mélange of jazz, blues, funk, reggae, and g
 [machine]
 name = "SOUND MACHINE"
 location = "Whidbey Island, WA"
-infoUrl = "#"
 description = "Get ready to groove with SOUND MACHINE - Whidbey Island's premier HONK! band! You don't want to miss out on the fun covers of your favorite songs that we jam to at our open practices. We love using our music to make a difference in our community by performing for local non-profits and businesses. You can catch us in action at exciting local events like South Whidbey Pride and the Welcome the Whales Parade. We believe in inclusivity and welcome everyone - regardless of age or ability - to join us in making some awesome music. So get ready to dance your tail off to everything from ABBA to the Isley Brothers!"
 
 [soundwave]
@@ -361,7 +343,6 @@ description = "Sound Wave is the official band of Seattle Sounders FC. In 2009, 
 [southendpep]
 name = "South End Pep"
 location = "Seattle, WA"
-infoUrl = "#"
 description = "The South End Pep Band is a collaboration between three Seattle Public Schools.  It brings together musicians from Franklin, Cleveland, and Rainier Beach to celebrate the musicality in the South End."
 
 [sticks]
@@ -380,7 +361,6 @@ description = "Tacomarama is an all ages, all levels \"anyone can join\" band fr
 name = "The m9"
 location = "Seattle, WA"
 infoUrl = "http://them9.com/"
-description = ""
 
 [tmb]
 name = "TMB"

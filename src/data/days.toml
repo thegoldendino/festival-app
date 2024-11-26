@@ -1,6 +1,5 @@
 ["2024-05-31"]
 startTime = "18:00:00"
-endTime = "22:00:00"
 location = "Georgetown"
 stages = ["coffee", "overpass", "electric", "stables", "jules"]
 schedule = [
@@ -22,7 +21,6 @@ mapPins = [
 
 ["2024-06-01"]
 startTime = "12:00:00"
-endTime = "20:00:00"
 location = "Columbia City"
 stages = ["columbia_hill", "edmunds", "gateway"]
 schedule = [
