@@ -1,5 +1,5 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day } from '$types';
+import type { Days, Stages, Artists, Day, Stage } from '$types';
 
 export default class FestivalModel {
 
@@ -29,5 +29,10 @@ export default class FestivalModel {
 
 	dayByDate(date: string | null): Day {
 		return date && this.days[date] || this.defaultDay;
+	}
+
+	stagesByDate(date: string | null): Stage[] {
+		let day = this.dayByDate(date);
+		return day.stageKeys.map(key => this.stages[key]);
 	}
 }

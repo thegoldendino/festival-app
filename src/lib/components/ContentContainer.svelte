@@ -7,8 +7,9 @@
 	const route: RouteModel = getContext('route');
 
 	let day = $derived(festival.dayByDate(route.date));
+	let stages = $derived(festival.stagesByDate(route.date));
 
 	let View = MapView;
 </script>
 
-<View {day} />
+<View {day} {stages} />

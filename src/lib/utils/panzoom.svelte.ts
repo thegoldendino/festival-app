@@ -31,7 +31,7 @@ export interface Options {
 	scale?: number;
 }
 
-export const panzoom: Action<HTMLElement, Options> = (node, data = {}) => {
+export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {}) => {
 	const rAF = requestAnimationFrame;
 	let maxZoom = data.maxZoom ?? 16;
 	let scale = data.scale ?? 1.0;
