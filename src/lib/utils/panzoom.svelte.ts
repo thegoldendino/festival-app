@@ -22,7 +22,6 @@ const TRACKED_DURATION = 120;
 // Some basic 2D geometry
 const distance = (p1: Point, p2: Point) => Math.hypot(p1.x - p2.x, p1.y - p2.y);
 const midpoint = (p1: Point, p2: Point) => ({ x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 });
-const scaledpoint = (p: Point, scale: number) => ({ x: p.x / scale, y: p.y / scale });
 const subtract = (p1: Point, p2: Point) => ({ x: p1.x - p2.x, y: p1.y - p2.y });
 
 export interface Options {
@@ -34,9 +33,9 @@ export interface Options {
 export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {}) => {
 	const rAF = requestAnimationFrame;
 	let maxZoom = data.maxZoom ?? 16;
+	let minScale = 0;
 	let scale = data.scale ?? 1.0;
 	let friction = data.friction ?? 0.97;
-	let transformOrigin = { x: 0, y: 0 };
 	let translation = { x: 0, y: 0 };
 	let velocity: Velocity = { vx: 0, vy: 0, ts: 0 };
 	let frame = 0;
@@ -49,20 +48,37 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 		throw new Error("Node must have at least one child element to apply panzoom.");
 	}
 
-	function updateTransform() {
-		let offsetX = (node.clientWidth * (1 - scale) / 2);
-		let translationX = translation.x + offsetX;
+	const mapPins = content.querySelectorAll(".map-pin") as NodeListOf<HTMLElement>;
 
-		// clamp translation to avoid over-scrolling
-		if (translationX > 0) {
-			translation.x = 1 - offsetX;
+	function updateTransform() {
+		let offsetX = (content.clientWidth * (1 - scale) / 2);
+		let offsetY = (content.clientHeight * (1 - scale) / 2);
+
+
+		//clamp translation to avoid over-scrolling left side
+		if (translation.x + offsetX > 0) {
+			translation.x = - offsetX;
 		}
-		if (translationX / 2 - offsetX < 0) {
-			translation.x = offsetX;
+
+		//clamp translation to avoid over-scrolling top side
+		if (translation.y + offsetY > 0) {
+			translation.y = - offsetY;
 		}
-		if (translation.y > 0) {
-			translation.y = 0;
+
+		//clamp translation to avoid over-scrolling right side
+		if (translation.x + offsetX < node.clientWidth - content.clientWidth * scale) {
+			translation.x = node.clientWidth - content.clientWidth * scale - offsetX;
 		}
+
+		//can not zoom out more than the original size
+		if (scale < minScale) {
+			scale = minScale;
+		}
+
+		// keep map pin sizes proportional to the viewport
+		mapPins.forEach((pin: HTMLElement) => {
+			pin.style.transform = `scale(${1 / scale})`;
+		});
 
 		content.style.transform = `translate(${translation.x}px, ${translation.y}px) scale(${scale})`;
 	}
@@ -155,8 +171,7 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 				translation.x += diff.x;
 				translation.y += diff.y;
 				const zoom = dist / prevDist;
-				scale = Math.min(maxZoom, Math.max(1.0, scale * zoom));
-				transformOrigin = scaledpoint(middle, 1 / zoom);
+				scale = scale * zoom;
 				updateTransform();
 				break;
 			}
@@ -168,7 +183,7 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 		event.stopPropagation();
 		const point = pointFromEvent(event);
 		const zoom = Math.exp(-event.deltaY / 512);
-		scale = Math.min(maxZoom, Math.max(1.0, scale * zoom));
+		scale = scale * zoom;
 		updateTransform();
 	}
 
@@ -214,6 +229,14 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 		node.addEventListener("pointercancel", onpointerup, makePassive);
 		node.addEventListener("pointermove", onpointermove, makePassive);
 		node.addEventListener("wheel", onwheel);
+
+		scale = node.clientWidth / content.clientWidth;
+		translation.x = -(content.clientWidth * (1 - scale) / 2);
+		translation.y = -(content.clientHeight * (1 - scale) / 2);
+		minScale = scale;
+
+		updateTransform();
+
 
 		return () => {
 			node.removeEventListener("pointerdown", onpointerdown);
