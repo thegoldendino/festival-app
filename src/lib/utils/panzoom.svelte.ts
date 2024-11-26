@@ -70,6 +70,11 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 			translation.x = node.clientWidth - content.clientWidth * scale - offsetX;
 		}
 
+		//clamp translation to avoid over-scrolling bottom side
+		if (translation.y + offsetY < node.clientHeight - content.clientHeight * scale) {
+			translation.y = node.clientHeight - content.clientHeight * scale - offsetY;
+		}
+
 		//can not zoom out more than the original size
 		if (scale < minScale) {
 			scale = minScale;
@@ -230,7 +235,7 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 		node.addEventListener("pointermove", onpointermove, makePassive);
 		node.addEventListener("wheel", onwheel);
 
-		scale = node.clientWidth / content.clientWidth;
+		scale = Math.max(node.clientWidth / content.clientWidth, node.clientHeight / content.clientHeight);
 		translation.x = -(content.clientWidth * (1 - scale) / 2);
 		translation.y = -(content.clientHeight * (1 - scale) / 2);
 		minScale = scale;
