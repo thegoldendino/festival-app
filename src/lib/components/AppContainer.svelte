@@ -1,8 +1,17 @@
 <script lang="ts">
 	import Header from '$lib/components/HeaderContainer.svelte';
 	import Subheader from '$lib/components/SubheaderContainer.svelte';
-	import Content from '$lib/components/ContentContainer.svelte';
 	import Footer from '$lib/components/FooterContainer.svelte';
+	import MapView from '$lib/components/MapView.svelte';
+	import { getContext } from 'svelte';
+	import type { FestivalModel, RouteModel } from '$types';
+
+	const festival: FestivalModel = getContext('festival');
+	const route: RouteModel = getContext('route');
+
+	$inspect(route.view);
+
+	let day = $derived(festival.dayByDate(route.date));
 </script>
 
 <div class="app-container">
@@ -11,7 +20,13 @@
 		<Subheader></Subheader>
 	</header>
 	<main>
-		<Content></Content>
+		{#if route.view === 'map'}
+			<MapView {day} />
+		{:else if route.view === 'stages'}
+			<h1>TODO STAGES</h1>
+		{:else if route.view === 'artists'}
+			<h1>TODO ARTISTS</h1>
+		{/if}
 	</main>
 	<footer>
 		<Footer></Footer>

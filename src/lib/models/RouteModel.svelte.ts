@@ -14,7 +14,7 @@ export default class RouteModel {
 		}
 		let route = RouteSchema.parse(params)
 		this.date = route[0]
-		this.view = route[1] as RouteView
+		this.view = route[1] || RouteViewDefault as RouteView
 		this.key = route[2]
 	}
 }
