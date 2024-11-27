@@ -18,7 +18,7 @@
 	.header-container {
 		display: flex;
 		justify-content: space-between;
-		background-color: #555555;
+		background-color: var(--header-bg-color);
 		height: var(--header-height);
 	}
 </style>

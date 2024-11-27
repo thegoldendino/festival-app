@@ -40,10 +40,12 @@
 		justify-content: center;
 		align-items: center;
 		text-decoration: none;
+		color: var(--date-selection-text-color);
 	}
 
 	a.selected {
-		background-color: red;
+		background-color: var(--date-selection-selected-bg-color);
+		color: var(--date-selection-selected-text-color);
 	}
 
 	.day {

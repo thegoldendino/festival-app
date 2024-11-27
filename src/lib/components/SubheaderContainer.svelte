@@ -4,7 +4,7 @@
 	.subheader-container {
 		display: flex;
 		justify-content: space-between;
-		background-color: #888888;
+		background-color: var(--subheader-bg-color);
 		height: var(--subheader-height);
 	}
 </style>

@@ -1,8 +1,27 @@
+@import './styles/shadows.css';
+
 :root {
+	
 	--breakpoint-sm: 600px;
 	--breakpoint-xl: 1200px;
 
 	--header-height: 60px;
 	--subheader-height: 60px;
 	--footer-height: 60px;
+
+	--color-primary: rgb(0, 0, 0);
+	--color-secondary: rgb(17, 226, 27);
+	--color-tertiary: rgb(226, 176, 26);
+	--color-white: rgb(255, 255, 255);
+
+	--header-bg-color: var(--color-primary);
+	--subheader-bg-color: var(--color-secondary);
+
+	--date-selection-text-color: var(--color-white);
+	--date-selection-selected-text-color: var(--color-primary);
+	--date-selection-selected-bg-color: var(--color-secondary);
+
+	
+	--map-stage-bg-color: var(--color-tertiary);
+	--map-stage-text-color: var(--color-white);
 }

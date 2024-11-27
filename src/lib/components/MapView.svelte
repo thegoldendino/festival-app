@@ -14,14 +14,15 @@
 </script>
 
 {#snippet stagePin(stage: Stage, idx: number)}
-	<div
+	<a
 		class="map-pin pin-stage"
 		style:top="{stage.y}px"
 		style:left="{stage.x}px"
 		style:transform="scale({1 / transform.scale})"
+		href="#/stages/{stage.key}"
 	>
-		{idx}
-	</div>
+		{idx + 1}
+	</a>
 {/snippet}
 
 {#snippet content()}
@@ -66,14 +67,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: rgba(178, 39, 232, 0.5);
-		border: 1px solid rgba(0, 0, 0, 0.5);
+		background-color: var(--map-stage-bg-color);
+		color: var(--map-stage-text-color);
+		text-decoration: none;
 		border-radius: 5px;
 		width: 2rem;
 		height: 2rem;
-	}
-
-	.map-pin {
-		transform-origin: center;
+		box-shadow: var(--shadow-4);
 	}
 </style>

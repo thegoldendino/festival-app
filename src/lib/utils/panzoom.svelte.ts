@@ -146,8 +146,6 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	}
 
 	function ontouchend(event: TouchEvent) {
-		event.preventDefault();
-		event.stopPropagation();
 		pointers.clear();
 
 		const currentTime = new Date().getTime();
