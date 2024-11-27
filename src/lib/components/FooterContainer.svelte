@@ -2,7 +2,7 @@
 
 <style>
 	.footer-container {
-		background-color: #555555;
+		background-color: var(--footer-bg-color);
 		height: var(--footer-height);
 	}
 </style>

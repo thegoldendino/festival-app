@@ -36,13 +36,16 @@
 		container: festival-app / inline-size;
 		background-color: #f0f0f0;
 		height: 100%;
-		display: grid;
-		grid-template-rows:
-			calc(var(--header-height) + var(--subheader-height))
-			1fr
-			var(--footer-height);
+		display: flex;
+		flex-direction: column;
 	}
+	header,
+	footer {
+		flex: none;
+	}
+
 	main {
+		flex: 1;
 		overflow-y: auto;
 	}
 </style>
