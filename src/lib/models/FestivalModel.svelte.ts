@@ -8,7 +8,9 @@ export default class FestivalModel {
 		public stages: Stages,
 		public artists: Artists,
 		public errors: ZodIssue[] = []
-	) { }
+	) {
+		this.stages = stages;
+	}
 
 	get defaultDay(): Day {
 		const today = new Date().toISOString().split('T')[0];

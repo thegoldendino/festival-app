@@ -30,12 +30,13 @@ export interface Options {
 	scale?: number;
 }
 
-export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {}) => {
+
+
+export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEvent) => void }> = (node) => {
 	const rAF = requestAnimationFrame;
-	let maxZoom = data.maxZoom ?? 16;
 	let minScale = 0;
-	let scale = data.scale ?? 1.0;
-	let friction = data.friction ?? 0.97;
+	let scale = 1.0;
+	let friction = 0.97;
 	let translation = { x: 0, y: 0 };
 	let velocity: Velocity = { vx: 0, vy: 0, ts: 0 };
 	let frame = 0;
@@ -47,8 +48,6 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 	if (!content) {
 		throw new Error("Node must have at least one child element to apply panzoom.");
 	}
-
-	const mapPins = content.querySelectorAll(".map-pin") as NodeListOf<HTMLElement>;
 
 	function updateTransform() {
 		let offsetX = (content.clientWidth * (1 - scale) / 2);
@@ -80,10 +79,7 @@ export const panzoom: Action<HTMLElement, Options | undefined> = (node, data = {
 			scale = minScale;
 		}
 
-		// keep map pin sizes proportional to the viewport
-		mapPins.forEach((pin: HTMLElement) => {
-			pin.style.transform = `scale(${1 / scale})`;
-		});
+		node.dispatchEvent(new CustomEvent("transform", { detail: { scale, translation } }));
 
 		content.style.transform = `translate(${translation.x}px, ${translation.y}px) scale(${scale})`;
 	}

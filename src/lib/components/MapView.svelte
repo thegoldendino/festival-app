@@ -3,16 +3,27 @@
 	import { panzoom } from '$utils/panzoom.svelte.js';
 
 	let { day, stages }: { day: Day; stages: Stage[] } = $props();
+
+	let scale = $state(1);
+
+	let ontransform = (e: CustomEvent) => (scale = e.detail.scale);
 </script>
 
-{#if day.mapImageUrl}
-	<div use:panzoom class="map-view">
+{#snippet stagePin(stage: Stage, idx: number)}
+	<div
+		class="map-pin pin-stage"
+		style="top: {stage.y}px; left: {stage.x}px; transform: scale({1 / scale})"
+	>
+		{idx}
+	</div>
+{/snippet}
+
+{#if day && day.mapImageUrl}
+	<div use:panzoom {ontransform} class="map-view">
 		<div class="map-elements">
 			<img class="map-image" src={day.mapImageUrl} alt="Map" />
 			{#each stages as stage, idx}
-				<div class="map-pin pin-stage" style="top: {stage.y}px; left: {stage.x}px;">
-					{idx}
-				</div>
+				{@render stagePin(stage, idx)}
 			{/each}
 		</div>
 	</div>
