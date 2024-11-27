@@ -9,8 +9,6 @@
 	const festival: FestivalModel = getContext('festival');
 	const route: RouteModel = getContext('route');
 
-	$inspect(route.view);
-
 	let day = $derived(festival.dayByDate(route.date));
 </script>
 

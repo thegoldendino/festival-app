@@ -33,13 +33,10 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	const rAF = requestAnimationFrame;
 	let minScale = 0;
 	let scale = 1.0;
-	let friction = 0.97;
 	let translation = { x: 0, y: 0 };
-	let velocity: Velocity = { vx: 0, vy: 0, ts: 0 };
-	let frame = 0;
+	let lastTouchEndTime = 0;
 
 	const pointers = new Map<number, Point>();
-	const tracked: TrackedPoint[] = [];
 
 	const content = node.firstElementChild as HTMLElement;
 	if (!content) {
@@ -79,56 +76,16 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 		node.dispatchEvent(new CustomEvent<Transform>("transform", { detail: { scale, translation } }));
 	}
 
-	function track(point: Point) {
-		const t = performance.now();
-		prune(t);
-		tracked.push({ point, t });
-	}
-
-	function prune(t: number) {
-		while (tracked.length && t - tracked[0].t > TRACKED_DURATION) {
-			tracked.shift();
-		}
-	}
-
-	function stopMovement() {
-		if (frame) {
-			cancelAnimationFrame(frame);
-			frame = 0;
-		}
-		velocity.vx = 0;
-		velocity.vy = 0;
-		tracked.length = 0;
-	}
-
 	function onpointerdown(event: PointerEvent) {
 		event.stopPropagation();
 		node.setPointerCapture(event.pointerId);
 		pointers.set(event.pointerId, pointFromEvent(event));
-		stopMovement();
 	}
 
 	function onpointerup(event: PointerEvent) {
 		event.stopPropagation();
 		node.releasePointerCapture(event.pointerId);
 		pointers.delete(event.pointerId);
-
-		if (pointers.size === 0) {
-			prune(performance.now());
-			if (tracked.length > 1) {
-				const oldest = tracked[0];
-				const latest = tracked[tracked.length - 1];
-				const x = latest.point.x - oldest.point.x;
-				const y = latest.point.y - oldest.point.y;
-				const t = latest.t - oldest.t;
-				velocity = {
-					vx: x / t,
-					vy: y / t,
-					ts: performance.now(),
-				};
-				scheduleRender();
-			}
-		}
 	}
 
 	function onpointermove(event: PointerEvent) {
@@ -140,7 +97,6 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 		switch (pointers.size) {
 			case 1: {
 				const curr = point;
-				track(curr);
 				const prev = pointers.get(event.pointerId)!;
 				const diff = subtract(curr, prev);
 				translation.x += diff.x;
@@ -177,44 +133,37 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	function onwheel(event: WheelEvent) {
 		event.preventDefault();
 		event.stopPropagation();
-		const point = pointFromEvent(event);
 		const zoom = Math.exp(-event.deltaY / 512);
 		scale = scale * zoom;
 		updateTransform();
 	}
 
-
-	function pointFromEvent(event: PointerEvent | WheelEvent): Point {
-		return { x: event.clientX, y: event.clientY };
+	function resetScale() {
+		scale = Math.max(node.clientWidth / content.clientWidth, node.clientHeight / content.clientHeight);
+		translation.x = -(content.clientWidth * (1 - scale) / 2);
+		translation.y = -(content.clientHeight * (1 - scale) / 2);
+		minScale = scale;
 	}
 
-	function scheduleRender() {
-		if (!frame) {
-			frame = rAF(renderFrame);
-		}
-	}
+	function ontouchend(event: TouchEvent) {
+		event.preventDefault();
+		event.stopPropagation();
+		pointers.clear();
 
-	function renderFrame(t: number) {
-		const distance = Math.sqrt(velocity.vx * velocity.vx + velocity.vy * velocity.vy);
-		const moving = distance > MIN_VELOCITY;
+		const currentTime = new Date().getTime();
+		const tapLength = currentTime - lastTouchEndTime;
 
-		if (moving) {
-			const ts = t - velocity.ts;
-			const x = velocity.vx * ts;
-			const y = velocity.vy * ts;
-			translation.x += x;
-			translation.y += y;
-			velocity.vx *= friction;
-			velocity.vy *= friction;
-			velocity.ts = t;
+		if (tapLength < 300 && tapLength > 0) {
+			resetScale();
 			updateTransform();
 		}
 
-		if (moving) {
-			frame = rAF(renderFrame);
-		} else {
-			frame = 0;
-		}
+		lastTouchEndTime = currentTime;
+	}
+
+
+	function pointFromEvent(event: PointerEvent | WheelEvent): Point {
+		return { x: event.clientX, y: event.clientY };
 	}
 
 	$effect(() => {
@@ -224,12 +173,10 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 		node.addEventListener("pointerup", onpointerup, makePassive);
 		node.addEventListener("pointercancel", onpointerup, makePassive);
 		node.addEventListener("pointermove", onpointermove, makePassive);
+		node.addEventListener("touchend", ontouchend);
 		node.addEventListener("wheel", onwheel);
 
-		scale = Math.max(node.clientWidth / content.clientWidth, node.clientHeight / content.clientHeight);
-		translation.x = -(content.clientWidth * (1 - scale) / 2);
-		translation.y = -(content.clientHeight * (1 - scale) / 2);
-		minScale = scale;
+		resetScale();
 
 		updateTransform();
 
