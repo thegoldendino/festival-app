@@ -1,31 +1,41 @@
 <script lang="ts">
 	import type { Day, Stage } from '$types';
-	import { panzoom } from '$utils/panzoom.svelte.js';
+	import { panzoom, type Transform } from '$utils/panzoom.svelte.js';
 
 	let { day, stages }: { day: Day; stages: Stage[] } = $props();
 
-	let scale = $state(1);
+	let transform: Transform = $state({ scale: 1, translation: { x: 0, y: 0 } });
 
-	let ontransform = (e: CustomEvent) => (scale = e.detail.scale);
+	let ontransform = (e: CustomEvent) => (transform = e.detail);
+
+	let contentTransform = $derived(
+		`translate(${transform.translation.x}px, ${transform.translation.y}px) scale(${transform.scale})`
+	);
 </script>
 
 {#snippet stagePin(stage: Stage, idx: number)}
 	<div
 		class="map-pin pin-stage"
-		style="top: {stage.y}px; left: {stage.x}px; transform: scale({1 / scale})"
+		style:top="{stage.y}px"
+		style:left="{stage.x}px"
+		style:transform="scale({1 / transform.scale})"
 	>
 		{idx}
 	</div>
 {/snippet}
 
+{#snippet content()}
+	<div class="content" style:transform={contentTransform}>
+		<img class="map-image" src={day.mapImageUrl} alt="Map" />
+		{#each stages as stage, idx}
+			{@render stagePin(stage, idx)}
+		{/each}
+	</div>
+{/snippet}
+
 {#if day && day.mapImageUrl}
 	<div use:panzoom {ontransform} class="map-view">
-		<div class="map-elements">
-			<img class="map-image" src={day.mapImageUrl} alt="Map" />
-			{#each stages as stage, idx}
-				{@render stagePin(stage, idx)}
-			{/each}
-		</div>
+		{@render content()}
 	</div>
 {:else}
 	<p>mapImageUrl undefined</p>
@@ -46,7 +56,7 @@
 		-webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
 	}
 
-	.map-elements {
+	.content {
 		width: fit-content;
 		height: fit-content;
 	}

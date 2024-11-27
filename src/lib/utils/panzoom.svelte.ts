@@ -5,6 +5,11 @@ export interface Point {
 	y: number;
 }
 
+export interface Transform {
+	scale: number;
+	translation: Point;
+}
+
 interface TrackedPoint {
 	point: Point;
 	t: number; // time
@@ -23,14 +28,6 @@ const TRACKED_DURATION = 120;
 const distance = (p1: Point, p2: Point) => Math.hypot(p1.x - p2.x, p1.y - p2.y);
 const midpoint = (p1: Point, p2: Point) => ({ x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 });
 const subtract = (p1: Point, p2: Point) => ({ x: p1.x - p2.x, y: p1.y - p2.y });
-
-export interface Options {
-	maxZoom?: number;
-	friction?: number;
-	scale?: number;
-}
-
-
 
 export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEvent) => void }> = (node) => {
 	const rAF = requestAnimationFrame;
@@ -79,9 +76,7 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 			scale = minScale;
 		}
 
-		node.dispatchEvent(new CustomEvent("transform", { detail: { scale, translation } }));
-
-		content.style.transform = `translate(${translation.x}px, ${translation.y}px) scale(${scale})`;
+		node.dispatchEvent(new CustomEvent<Transform>("transform", { detail: { scale, translation } }));
 	}
 
 	function track(point: Point) {
