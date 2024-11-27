@@ -15,10 +15,13 @@ export default class FestivalBuilder {
 		if (!this.config.data) {
 			return new FestivalModel({}, {}, {}, this.errors);
 		}
+
+		const stages = this.importStages(this.config.data);
+		const artists = this.importArtists(this.config.data);
+		const days = this.importDays(this.config.data, stages, artists);
+
 		return new FestivalModel(
-			this.importDays(this.config.data),
-			this.importStages(this.config.data),
-			this.importArtists(this.config.data),
+			days, stages, artists,
 			this.errors
 		);
 	}
@@ -31,17 +34,18 @@ export default class FestivalBuilder {
 		return this.config.error && this.config.error.issues || [];
 	}
 
-	private importDays({ days }: ConfigParams): Days {
+	private importDays({ days }: ConfigParams, stages: Stages, artists: Artists): Days {
 		return Object.entries(days).reduce((acc: Days, [key, day]) => {
 			acc[key] = {
 				...day,
 				date: key,
-				stageKeys: day.stages,
-				artistKeys:
+				stages: day.stages.map(stageKey => stages[stageKey]),
+				artists:
 					day.schedule
 						.flat()
 						.filter((key, idx, arr) => arr.indexOf(key) === idx)
 						.filter(Boolean)
+						.map(key => artists[key]),
 			};
 			return acc;
 		}, {})
@@ -54,7 +58,6 @@ export default class FestivalBuilder {
 					key,
 					name: stage.name,
 					mapUrl: stage.mapUrl,
-					pinEl: null,
 					x: stage.x,
 					y: stage.y,
 					schedule: [],

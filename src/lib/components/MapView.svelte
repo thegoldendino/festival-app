@@ -2,7 +2,7 @@
 	import type { Day, Stage } from '$types';
 	import { panzoom, type Transform } from '$utils/panzoom.svelte.js';
 
-	let { day, stages }: { day: Day; stages: Stage[] } = $props();
+	let { day }: { day: Day } = $props();
 
 	let transform: Transform = $state({ scale: 1, translation: { x: 0, y: 0 } });
 
@@ -27,7 +27,7 @@
 {#snippet content()}
 	<div class="content" style:transform={contentTransform}>
 		<img class="map-image" src={day.mapImageUrl} alt="Map" />
-		{#each stages as stage, idx}
+		{#each day.stages as stage, idx}
 			{@render stagePin(stage, idx)}
 		{/each}
 	</div>

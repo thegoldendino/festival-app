@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { StageSchema } from "./stage.schema.js";
+import { ArtistSchema } from "./artist.schema.js";
 
 export const MapPinEnum = z.enum(['info', 'medic', 'potty']);
 
@@ -32,8 +34,8 @@ export const ConfigDaySchema = baseSchema.merge(
 export const DaySchema = baseSchema.merge(
 	z.object({
 		date: z.string().date(),
-		stageKeys: z.array(z.string()),
-		artistKeys: z.array(z.string()),
-		unscheduledKeys: z.array(z.string()).optional(),
+		stages: z.array(StageSchema),
+		artists: z.array(ArtistSchema),
+		unscheduled: z.array(ArtistSchema).optional(),
 	})
 );

@@ -32,9 +32,4 @@ export default class FestivalModel {
 	dayByDate(date: string | null): Day {
 		return date && this.days[date] || this.defaultDay;
 	}
-
-	stagesByDate(date: string | null): Stage[] {
-		let day = this.dayByDate(date);
-		return day.stageKeys.map(key => this.stages[key]);
-	}
 }
