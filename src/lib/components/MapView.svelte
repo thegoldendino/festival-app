@@ -6,12 +6,6 @@
 	let { day }: { day: Day } = $props();
 
 	let map = $derived(new MapModel(day));
-
-	let ontransform = (e: CustomEvent) => (map.transform = e.detail as Transform);
-
-	let contentTransform = $derived(
-		`translate(${map.transform.translation.x}px, ${map.transform.translation.y}px) scale(${map.transform.scale})`
-	);
 </script>
 
 {#snippet stagePin(stage: Stage, idx: number)}
@@ -19,7 +13,7 @@
 		class="map-pin pin-stage"
 		style:top="{stage.y}px"
 		style:left="{stage.x}px"
-		style:transform="scale({1 / map.transform.scale})"
+		style:transform={map.stageTransform}
 		href="#/stages/{stage.key}"
 	>
 		{idx + 1}
@@ -27,7 +21,7 @@
 {/snippet}
 
 {#snippet content()}
-	<div class="content" style:transform={contentTransform}>
+	<div class="content" style:transform={map.contentTransform}>
 		<img class="map-image" width={map.width} height={map.height} src={map.imageUrl} alt="Map" />
 		{#each map.stages as stage, idx}
 			{@render stagePin(stage, idx)}
@@ -36,7 +30,7 @@
 {/snippet}
 
 {#if map.imageUrl}
-	<div use:panzoom {ontransform} class="map-view">
+	<div use:panzoom ontransform={(e) => map.ontransform(e.detail)} class="map-view">
 		{@render content()}
 	</div>
 {:else}
