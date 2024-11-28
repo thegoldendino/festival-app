@@ -8,8 +8,6 @@
 
 	const festival: FestivalModel = getContext('festival');
 	const route: RouteModel = getContext('route');
-
-	let day = $derived(festival.dayByDate(route.date));
 </script>
 
 <div class="app-container">
@@ -19,7 +17,11 @@
 	</header>
 	<main>
 		{#if route.view === 'map'}
-			<MapView {day} />
+			{#each Object.entries(festival.days) as [date, day]}
+				{#if date === route.date}
+					<MapView {day} />
+				{/if}
+			{/each}
 		{:else if route.view === 'stages'}
 			<h1>TODO STAGES</h1>
 		{:else if route.view === 'artists'}

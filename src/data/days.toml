@@ -11,6 +11,7 @@ schedule = [
 scheduleIncrement = 20
 mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
 mapImageUrl = "/maps/0_georgetown-phone.jpg"
+mapImageSize = [1350,1800]
 mapPins = [
 	["info", "845", "1040"],
 	["medic", "845", "1130"],
@@ -32,6 +33,7 @@ schedule = [
 scheduleIncrement = 30
 mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"
 mapImageUrl = "/maps/1_columbia-city-phone.jpg"
+mapImageSize = [1350,1800]
 mapPins = [
 	["info", "480", "1270"],
 	["medic", "480", "1180"],

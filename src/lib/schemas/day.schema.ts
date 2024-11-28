@@ -10,6 +10,7 @@ const baseSchema = z.object({
 	location: z.string().optional(),
 	mapUrl: z.string().url().optional(),
 	mapImageUrl: z.string().optional(),
+	mapImageSize: z.tuple([z.coerce.number(), z.coerce.number()]).optional(),
 	mapPins: z.array(z.tuple([MapPinEnum, z.coerce.number(), z.coerce.number()])).default([]).optional(),
 });
 

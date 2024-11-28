@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { Day, Stage } from '$types';
 	import { panzoom, type Transform } from '$utils/panzoom.svelte.js';
+	import MapModel from '$lib/models/MapModel.svelte.js';
 
 	let { day }: { day: Day } = $props();
 
-	let transform: Transform = $state({ scale: 1, translation: { x: 0, y: 0 } });
+	let map = $derived(new MapModel(day));
 
-	let ontransform = (e: CustomEvent) => (transform = e.detail);
+	let ontransform = (e: CustomEvent) => (map.transform = e.detail as Transform);
 
 	let contentTransform = $derived(
-		`translate(${transform.translation.x}px, ${transform.translation.y}px) scale(${transform.scale})`
+		`translate(${map.transform.translation.x}px, ${map.transform.translation.y}px) scale(${map.transform.scale})`
 	);
 </script>
 
@@ -18,7 +19,7 @@
 		class="map-pin pin-stage"
 		style:top="{stage.y}px"
 		style:left="{stage.x}px"
-		style:transform="scale({1 / transform.scale})"
+		style:transform="scale({1 / map.transform.scale})"
 		href="#/stages/{stage.key}"
 	>
 		{idx + 1}
@@ -27,14 +28,14 @@
 
 {#snippet content()}
 	<div class="content" style:transform={contentTransform}>
-		<img class="map-image" src={day.mapImageUrl} alt="Map" />
-		{#each day.stages as stage, idx}
+		<img class="map-image" width={map.width} height={map.height} src={map.imageUrl} alt="Map" />
+		{#each map.stages as stage, idx}
 			{@render stagePin(stage, idx)}
 		{/each}
 	</div>
 {/snippet}
 
-{#if day && day.mapImageUrl}
+{#if map.imageUrl}
 	<div use:panzoom {ontransform} class="map-view">
 		{@render content()}
 	</div>

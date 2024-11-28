@@ -139,6 +139,7 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	}
 
 	function resetScale() {
+		console.log(node.clientWidth, content.clientWidth);
 		scale = Math.max(node.clientWidth / content.clientWidth, node.clientHeight / content.clientHeight);
 		translation.x = -(content.clientWidth * (1 - scale) / 2);
 		translation.y = -(content.clientHeight * (1 - scale) / 2);
@@ -184,6 +185,7 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 			node.removeEventListener("pointerup", onpointerup);
 			node.removeEventListener("pointercancel", onpointerup);
 			node.removeEventListener("pointermove", onpointermove);
+			node.removeEventListener("touchend", ontouchend);
 			node.removeEventListener("wheel", onwheel);
 		};
 	});
