@@ -14,7 +14,7 @@
 		style:top="{stage.y}px"
 		style:left="{stage.x}px"
 		style:transform={map.stageTransform}
-		href="#/stages/{stage.key}"
+		href="#/{day.date}/stages/{stage.key}"
 	>
 		{idx + 1}
 	</a>

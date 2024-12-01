@@ -3,7 +3,7 @@ import { DaySchema, MapPinEnum, ConfigDaySchema } from "./schemas/day.schema.js"
 import { StageSchema, ConfigStageSchema } from "./schemas/stage.schema.js";
 import { ArtistSchema, ArtistScheduleSchema, ConfigArtistSchema } from "./schemas/artist.schema.js";
 import { ScheduleSchema } from "./schemas/schedule.schema.js";
-import { RouteViewEnum, RouteSchema } from "./schemas/route.schema.js";
+import { RouteViewEnum, RouteParamsSchema } from "./schemas/routeParams.schema.js";
 import { ConfigSchema, ConfigDaysSchema, ConfigArtistsSchema, ConfigStagesSchema } from "./schemas/config.schema.js";
 import { default as RouteModelType } from "./models/RouteModel.svelte.js";
 import { default as FestivalModelType } from "./models/FestivalModel.svelte.js";
@@ -13,7 +13,7 @@ export type Stage = z.infer<typeof StageSchema>;
 export type Artist = z.infer<typeof ArtistSchema>;
 export type ArtistSchedule = z.infer<typeof ArtistScheduleSchema>;
 export type Schedule = z.infer<typeof ScheduleSchema>;
-export type Route = z.infer<typeof RouteSchema>;
+export type RouteParams = z.infer<typeof RouteParamsSchema>;
 
 export type ConfigParams = z.infer<typeof ConfigSchema>;
 export type ConfigArtists = z.infer<typeof ConfigArtistsSchema>;

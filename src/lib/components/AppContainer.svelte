@@ -1,35 +1,22 @@
 <script lang="ts">
-	import Header from '$lib/components/HeaderContainer.svelte';
-	import Subheader from '$lib/components/SubheaderContainer.svelte';
-	import Footer from '$lib/components/FooterContainer.svelte';
-	import MapView from '$lib/components/MapView.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import { getContext } from 'svelte';
-	import type { FestivalModel, RouteModel } from '$types';
 
-	const festival: FestivalModel = getContext('festival');
-	const route: RouteModel = getContext('route');
+	let { infoHeader, children, footer } = $props();
 </script>
 
 <div class="app-container">
 	<header>
 		<Header></Header>
-		<Subheader></Subheader>
+		<div class="info-header">
+			{@render infoHeader()}
+		</div>
 	</header>
 	<main>
-		{#if route.view === 'map'}
-			{#each Object.entries(festival.days) as [date, day]}
-				{#if date === route.date}
-					<MapView {day} />
-				{/if}
-			{/each}
-		{:else if route.view === 'stages'}
-			<h1>TODO STAGES</h1>
-		{:else if route.view === 'artists'}
-			<h1>TODO ARTISTS</h1>
-		{/if}
+		{@render children()}
 	</main>
 	<footer>
-		<Footer></Footer>
+		{@render footer()}
 	</footer>
 </div>
 
@@ -46,8 +33,20 @@
 		flex: none;
 	}
 
+	.info-header {
+		display: flex;
+		justify-content: space-between;
+		background-color: var(--subheader-bg-color);
+		height: var(--subheader-height);
+	}
+
 	main {
 		flex: 1;
 		overflow-y: auto;
+	}
+
+	footer {
+		background-color: var(--footer-bg-color);
+		height: var(--footer-height);
 	}
 </style>

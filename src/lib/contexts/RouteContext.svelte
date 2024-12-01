@@ -13,11 +13,14 @@
 	});
 
 	function updateRoute() {
-		let hash = window.location.hash;
-		route.navigateTo(hash);
+		route.currentHash = window.location.hash;
 	}
 </script>
 
 <svelte:window onhashchange={updateRoute} />
 
 {@render children()}
+
+{#if route.view}
+	{@render route.view()}
+{/if}

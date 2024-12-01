@@ -6,7 +6,7 @@
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
 
-	let daySelected = $derived(festival.dayByDate(route.date));
+	let daySelected = $derived(festival.dayByDate(route.params.date));
 </script>
 
 <div class="header-container">
