@@ -12,11 +12,12 @@ const baseSchema = z.object({
 
 export const ConfigArtistSchema = baseSchema;
 
-export const ArtistScheduleSchema = z.record(ScheduleSchema);
+export const ArtistScheduleSchema = z.record(z.string().date(), ScheduleSchema);
 
 export const ArtistSchema = baseSchema.merge(
 	z.object({
 		key: z.string(),
 		scheduleByDay: ArtistScheduleSchema,
-	}));
+	})
+);
 

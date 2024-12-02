@@ -5,8 +5,6 @@
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
-
-	$inspect(route.params);
 </script>
 
 <AppContainer>

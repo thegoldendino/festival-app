@@ -1,6 +1,7 @@
 <script lang="ts">
 	import RouteModel from '$lib/models/RouteModel.svelte.js';
-	import { onMount, setContext } from 'svelte';
+	import FestivalModel from '$lib/models/FestivalModel.svelte.js';
+	import { onMount, setContext, getContext } from 'svelte';
 
 	let { children } = $props();
 

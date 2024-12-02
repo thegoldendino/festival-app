@@ -10,10 +10,12 @@ const baseSchema = z.object({
 
 export const ConfigStageSchema = baseSchema;
 
+export const StageScheduleSchema = z.record(z.string().date(), ScheduleSchema);
+
 export const StageSchema = baseSchema.merge(
 	z.object({
 		key: z.string(),
-		schedule: ScheduleSchema.default([]).optional(),
+		scheduleByDay: StageScheduleSchema,
 	})
 );
 

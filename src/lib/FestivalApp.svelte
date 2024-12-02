@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './styles.css';
 
+	import type { ConfigParams } from '$types';
 	import FestivalContext from '$lib/contexts/FestivalContext.svelte';
 	import RouteContext from '$lib/contexts/RouteContext.svelte';
 	import Route from '$lib/components/Route.svelte';
@@ -8,7 +9,6 @@
 	import ArtistView from '$lib/views/ArtistView.svelte';
 	import StageView from '$lib/views/StageView.svelte';
 	import MapView from '$lib/views/MapView.svelte';
-	import type { ConfigParams } from '$types';
 
 	let { config }: { config: ConfigParams } = $props();
 </script>

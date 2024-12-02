@@ -60,15 +60,15 @@ export default class FestivalBuilder {
 					mapUrl: stage.mapUrl,
 					x: stage.x,
 					y: stage.y,
-					schedule: [],
+					scheduleByDay: {},
 				};
 				return acc;
 			}, {});
 
-		Object.values(days).forEach(day => {
+		Object.entries(days).forEach(([date, day]) => {
 			day.stages.forEach((stageKey, idx) => {
 				if (processedStages[stageKey]) {
-					processedStages[stageKey].schedule =
+					processedStages[stageKey].scheduleByDay[date] =
 						Object.entries(day.schedule).map(([time, artistKeys]) => {
 							const artistKey = artistKeys[idx];
 							return {
