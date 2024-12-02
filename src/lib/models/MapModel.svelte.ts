@@ -1,4 +1,4 @@
-import type { Stage, Day } from '$types';
+import type { Stage, Day, Stages } from '$types';
 
 export default class MapModel {
 	private transform = $state({ scale: 1, translation: { x: 0, y: 0 } });
@@ -16,8 +16,8 @@ export default class MapModel {
 		`scale(${1 / this.transform.scale})`
 	);
 
-	constructor({ stages, mapImageUrl, mapImageSize }: Day) {
-		this.stages = stages;
+	constructor({ stageKeys, mapImageUrl, mapImageSize }: Day, stages: Stages) {
+		this.stages = stageKeys.map((key) => stages[key]);
 		this.imageUrl = mapImageUrl;
 		this.width = mapImageSize ? mapImageSize[0] : 0;
 		this.height = mapImageSize ? mapImageSize[1] : 0;

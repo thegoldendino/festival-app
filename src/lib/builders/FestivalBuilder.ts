@@ -39,13 +39,12 @@ export default class FestivalBuilder {
 			acc[key] = {
 				...day,
 				date: key,
-				stages: day.stages.map(stageKey => stages[stageKey]),
-				artists:
+				stageKeys: day.stages,
+				artistKeys:
 					day.schedule
 						.flat()
 						.filter((key, idx, arr) => arr.indexOf(key) === idx)
 						.filter(Boolean)
-						.map(key => artists[key]),
 			};
 			return acc;
 		}, {})
@@ -60,7 +59,7 @@ export default class FestivalBuilder {
 					mapUrl: stage.mapUrl,
 					x: stage.x,
 					y: stage.y,
-					scheduleByDay: {},
+					scheduleByDate: {},
 				};
 				return acc;
 			}, {});
@@ -68,7 +67,7 @@ export default class FestivalBuilder {
 		Object.entries(days).forEach(([date, day]) => {
 			day.stages.forEach((stageKey, idx) => {
 				if (processedStages[stageKey]) {
-					processedStages[stageKey].scheduleByDay[date] =
+					processedStages[stageKey].scheduleByDate[date] =
 						Object.entries(day.schedule).map(([time, artistKeys]) => {
 							const artistKey = artistKeys[idx];
 							return {
@@ -85,13 +84,13 @@ export default class FestivalBuilder {
 
 	private importArtists({ days, artists }: ConfigParams): Artists {
 		return Object.entries(artists).reduce((acc: Artists, [key, artist]) => {
-			acc[key] = { ...artist, key, scheduleByDay: this.importArtistSchedule(days, key) };
+			acc[key] = { ...artist, key, scheduleByDate: this.importArtistSchedule(days, key) };
 			return acc;
 		}, {})
 	}
 
 	private importArtistSchedule(days: ConfigDays, artistKey: string): Record<string, Schedule> {
-		return Object.entries(days).reduce((acc: Record<string, Schedule>, [key, day]) => {
+		return Object.entries(days).reduce((acc: Record<string, Schedule>, [date, day]) => {
 			let processedSchedule: Schedule = [];
 			Object.entries(day.schedule).forEach(([time, artistKeys]) => {
 				artistKeys.forEach((key, idx) => {
@@ -103,7 +102,7 @@ export default class FestivalBuilder {
 					}
 				});
 			});
-			acc[key] = processedSchedule
+			acc[date] = processedSchedule
 			return acc;
 		}, {});
 	}

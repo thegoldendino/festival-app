@@ -15,7 +15,7 @@ export const StageScheduleSchema = z.record(z.string().date(), ScheduleSchema);
 export const StageSchema = baseSchema.merge(
 	z.object({
 		key: z.string(),
-		scheduleByDay: StageScheduleSchema,
+		scheduleByDate: StageScheduleSchema,
 	})
 );
 

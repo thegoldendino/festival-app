@@ -1,4 +1,3 @@
-import type { RouteParams } from "$types";
 import type { Snippet } from "svelte"
 
 export default class RouteModel {
@@ -12,8 +11,8 @@ export default class RouteModel {
 		const parts = this.currentHash.substring(1).split('/').slice(1);
 		const date = parts[0];
 		const view = parts[1];
-		const id = parts[2];
-		return { date, view, id };
+		const key = parts[2];
+		return { date, view, key };
 	});
 
 	defineRoute(path: string, view: Snippet) {

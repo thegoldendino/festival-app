@@ -8,23 +8,25 @@ describe('FestivalModel', () => {
 	const stage1 = {
 		name: 'Stage 1',
 		key: 'stage-1',
+		scheduleByDate: {}
 	}
 
 	const stage2 = {
 		name: 'Stage 2',
 		key: 'stage-2',
+		scheduleByDate: {}
 	}
 
 	const artist1 = {
 		name: 'Artist 1',
 		key: 'artist-1',
-		scheduleByDay: {}
+		scheduleByDate: {}
 	}
 
 	const artist2 = {
 		name: 'Artist 2',
 		key: 'artist-2',
-		scheduleByDay: {}
+		scheduleByDate: {}
 	}
 
 	const daysMultiValid = {
@@ -32,15 +34,15 @@ describe('FestivalModel', () => {
 			startTime: '10:00:00',
 			scheduleIncrement: 60,
 			date: '2025-01-01',
-			stages: [stage1, stage2],
-			artists: [artist1, artist2],
+			stageKeys: ['stage-1', 'stage-2'],
+			artistKeys: ['artist-1', 'artist-2'],
 		},
 		'2025-01-02': {
 			startTime: '10:00:00',
 			scheduleIncrement: 20,
 			date: '2025-01-02',
-			stages: [stage1, stage2],
-			artists: [artist1, artist2],
+			stageKeys: ['stage-1', 'stage-2'],
+			artistKeys: ['artist-1', 'artist-2'],
 		}
 	};
 

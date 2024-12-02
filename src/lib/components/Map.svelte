@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { Day, Stage } from '$types';
+	import type { Day, Stage, Stages } from '$types';
 	import { panzoom, type Transform } from '$utils/panzoom.svelte.js';
 	import MapModel from '$lib/models/MapModel.svelte.js';
 
-	let { day }: { day: Day } = $props();
+	let { day, stages }: { day: Day; stages: Stages } = $props();
 
-	let map = $derived(new MapModel(day));
+	let map = $derived(new MapModel(day, stages));
 </script>
 
 {#snippet stagePin(stage: Stage, idx: number)}
