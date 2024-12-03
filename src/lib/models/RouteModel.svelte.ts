@@ -3,10 +3,12 @@ import type { Snippet } from "svelte"
 export default class RouteModel {
 	#definedRoutes: Array<{ path: string, view: Snippet }> = [];
 	#currentHash: string = $state('');
+
 	view: Snippet | undefined = $derived(
 		(this.#currentHash && this.#definedRoutes.find((definedRoute) =>
 			definedRoute.path && this.matchPath(definedRoute.path, this.#currentHash)
 		) || {}).view);
+
 	params = $derived.by(() => {
 		const parts = this.#currentHash.substring(1).split('/').slice(1);
 		const date = parts[0];
@@ -20,7 +22,7 @@ export default class RouteModel {
 	}
 
 	set currentHash(hash: string) {
-		this.#currentHash = hash && hash.length > 0 ? hash : '#/';
+		this.#currentHash = hash && hash.length > 0 && hash !== '#' ? hash : '#/';
 	}
 
 	matchPath(pathExpression: string, testPath: string): boolean {

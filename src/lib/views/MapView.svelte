@@ -11,7 +11,7 @@
 <AppContainer>
 	{#snippet infoHeader()}<p>#todo</p>{/snippet}
 	{#each Object.entries(festival.days) as [date, day]}
-		{#if date === route.params.date}
+		{#if date === route.params.date || (!route.params.date && date === festival.defaultDay.date)}
 			<Map {day} stages={festival.stages} />
 		{/if}
 	{/each}
