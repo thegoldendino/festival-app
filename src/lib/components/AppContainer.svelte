@@ -8,9 +8,7 @@
 <div class="app-container">
 	<header>
 		<Header></Header>
-		<div class="info-header">
-			{@render infoHeader()}
-		</div>
+		{@render infoHeader()}
 	</header>
 	<main>
 		{@render children()}
@@ -31,13 +29,6 @@
 	header,
 	footer {
 		flex: none;
-	}
-
-	.info-header {
-		display: flex;
-		justify-content: space-between;
-		background-color: var(--subheader-bg-color);
-		height: var(--subheader-height);
 	}
 
 	main {

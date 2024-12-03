@@ -1,8 +1,8 @@
+@import './styles/reset.css';
 @import './styles/shadows.css';
 @import './styles/colors.css';
 
 :root {
-
 	--color-primary-hue: var(--hue-green);
 	--color-secondary-hue: var(--hue-blue);
 	--color-tertiary-hue: var(--hue-orange);
@@ -10,9 +10,9 @@
 	--breakpoint-sm: 600px;
 	--breakpoint-xl: 1200px;
 
-	--header-height: 60px;
-	--subheader-height: 60px;
-	--footer-height: 60px;
+	--header-height: 76px;
+	--subheader-height: 76px;
+	--footer-height: 76px;
 
 
 
