@@ -2,29 +2,46 @@
 	import type { Day, Stage, Stages } from '$types';
 	import { panzoom, type Transform } from '$utils/panzoom.svelte.js';
 	import MapModel from '$lib/models/MapModel.svelte.js';
+	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
 
 	let { day, stages }: { day: Day; stages: Stages } = $props();
 
 	let map = $derived(new MapModel(day, stages));
 </script>
 
-{#snippet stagePin(stage: Stage, idx: number)}
-	<a
-		class="map-pin pin-stage"
-		style:top="{stage.y}px"
-		style:left="{stage.x}px"
-		style:transform={map.stageTransform}
-		href="#/{day.date}/stages/{stage.key}"
-	>
-		{idx + 1}
-	</a>
+{#snippet stagePin(location: MapLocation, idx: number)}
+	{#if location.type === '_stage'}
+		<a
+			class={location.type}
+			style:top="{location.y}px"
+			style:left="{location.x}px"
+			style:transform={map.locationTransform}
+			href="#/{day.date}/stages/{location.key}"
+		>
+			{location.stageIdx}
+		</a>
+	{/if}
+{/snippet}
+
+{#snippet locationPin(location: MapLocation, idx: number)}
+	{#if location.type === '_misc'}
+		<div
+			class={location.type}
+			style:top="{location.y}px"
+			style:left="{location.x}px"
+			style:transform={map.locationTransform}
+		>
+			{location.key}
+		</div>
+	{/if}
 {/snippet}
 
 {#snippet content()}
 	<div class="content" style:transform={map.contentTransform}>
 		<img class="map-image" width={map.width} height={map.height} src={map.imageUrl} alt="Map" />
-		{#each map.stages as stage, idx}
-			{@render stagePin(stage, idx)}
+		{#each map.locations as location, idx}
+			{@render stagePin(location, idx)}
+			{@render locationPin(location, idx)}
 		{/each}
 	</div>
 {/snippet}
@@ -57,7 +74,21 @@
 		height: fit-content;
 	}
 
-	.pin-stage {
+	._stage {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: var(--map-stage-bg-color);
+		color: var(--map-stage-text-color);
+		text-decoration: none;
+		border-radius: 5px;
+		width: 2rem;
+		height: 2rem;
+		box-shadow: var(--shadow-4);
+	}
+
+	._misc {
 		position: absolute;
 		display: flex;
 		justify-content: center;

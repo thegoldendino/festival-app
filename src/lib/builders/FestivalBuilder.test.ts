@@ -8,7 +8,6 @@ describe('FestivalBuilder', () => {
 	const daysValid = {
 		'2025-01-01': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
 			scheduleIncrement: 60,
 			stages: ["stage-1", "stage-2"],
 			schedule: [

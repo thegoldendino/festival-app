@@ -1,8 +1,6 @@
 import { z } from "zod";
-import { StageSchema } from "./stage.schema.js";
-import { ArtistSchema } from "./artist.schema.js";
 
-export const MapPinEnum = z.enum(['info', 'medic', 'potty']);
+
 
 const baseSchema = z.object({
 	startTime: z.string().time(),
@@ -11,7 +9,7 @@ const baseSchema = z.object({
 	mapUrl: z.string().url().optional(),
 	mapImageUrl: z.string().optional(),
 	mapImageSize: z.tuple([z.coerce.number(), z.coerce.number()]).optional(),
-	mapPins: z.array(z.tuple([MapPinEnum, z.coerce.number(), z.coerce.number()])).default([]).optional(),
+	mapLocations: z.array(z.tuple([z.string(), z.coerce.number(), z.coerce.number()])).default([]).optional(),
 });
 
 export const ConfigDaySchema = baseSchema.merge(

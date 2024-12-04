@@ -57,8 +57,6 @@ export default class FestivalBuilder {
 					key,
 					name: stage.name,
 					mapUrl: stage.mapUrl,
-					x: stage.x,
-					y: stage.y,
 					scheduleByDate: {},
 				};
 				return acc;
