@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { ConfigArtistSchema } from './artist.schema.js';
 import { ConfigDaySchema } from './day.schema.js';
 import { ConfigStageSchema } from './stage.schema.js';
+import { MapLocationKeys, type MapLocationType } from '$types';
 
 export const ConfigStagesSchema = z.record(
 	z.string(),
@@ -49,6 +50,18 @@ export const ConfigSchema = z.object({
 					received: artistKey,
 				});
 		});
+
+		day.mapLocations && day.mapLocations.forEach(([key]) => {
+			!key.trim().length || stageKeys.includes(key) || MapLocationKeys.includes(key as MapLocationType) ||
+				ctx.addIssue({
+					code: z.ZodIssueCode.invalid_enum_value,
+					options: artistKeys,
+					path: ['days', key, 'mapLocations'],
+					message: `Missing artist data for key: ${key}`,
+					received: key,
+				});
+		});
+
 	});
 });
 

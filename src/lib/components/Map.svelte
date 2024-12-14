@@ -6,13 +6,18 @@
 
 	let { day, stages }: { day: Day; stages: Stages } = $props();
 
-	let map = $derived(new MapModel(day, stages));
+	let map = $derived(new MapModel(day));
+
+	// remove '*' prefix from location.type
+	function locationClass(location: MapLocation): string {
+		return `${location.type.replace(/^\*/, '')}-pin`;
+	}
 </script>
 
-{#snippet stagePin(location: MapLocation, idx: number)}
-	{#if location.type === '_stage'}
+{#snippet mapPin(location: MapLocation)}
+	{#if location.type === '*stage'}
 		<a
-			class={location.type}
+			class={locationClass(location)}
 			style:top="{location.y}px"
 			style:left="{location.x}px"
 			style:transform={map.locationTransform}
@@ -20,13 +25,9 @@
 		>
 			{location.stageIdx}
 		</a>
-	{/if}
-{/snippet}
-
-{#snippet locationPin(location: MapLocation, idx: number)}
-	{#if location.type === '_misc'}
+	{:else}
 		<div
-			class={location.type}
+			class={locationClass(location)}
 			style:top="{location.y}px"
 			style:left="{location.x}px"
 			style:transform={map.locationTransform}
@@ -36,19 +37,18 @@
 	{/if}
 {/snippet}
 
-{#snippet content()}
-	<div class="content" style:transform={map.contentTransform}>
+{#snippet mapBox(map: MapModel)}
+	<div class="map-box" style:transform={map.contentTransform}>
 		<img class="map-image" width={map.width} height={map.height} src={map.imageUrl} alt="Map" />
-		{#each map.locations as location, idx}
-			{@render stagePin(location, idx)}
-			{@render locationPin(location, idx)}
+		{#each map.locations as location}
+			{@render mapPin(location)}
 		{/each}
 	</div>
 {/snippet}
 
 {#if map.imageUrl}
 	<div use:panzoom ontransform={(e) => map.ontransform(e.detail)} class="map-view">
-		{@render content()}
+		{@render mapBox(map)}
 	</div>
 {:else}
 	<p>mapImageUrl undefined</p>
@@ -69,12 +69,12 @@
 		-webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
 	}
 
-	.content {
+	.map-box {
 		width: fit-content;
 		height: fit-content;
 	}
 
-	._stage {
+	.stage-pin {
 		position: absolute;
 		display: flex;
 		justify-content: center;
@@ -88,7 +88,9 @@
 		box-shadow: var(--shadow-4);
 	}
 
-	._misc {
+	.potty-pin,
+	.info-pin,
+	.medic-pin {
 		position: absolute;
 		display: flex;
 		justify-content: center;

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { DaySchema, MapPinEnum, ConfigDaySchema } from "./schemas/day.schema.js";
+import { DaySchema, ConfigDaySchema } from "./schemas/day.schema.js";
 import { StageSchema, ConfigStageSchema } from "./schemas/stage.schema.js";
 import { ArtistSchema, ArtistScheduleSchema, ConfigArtistSchema } from "./schemas/artist.schema.js";
 import { ScheduleSchema } from "./schemas/schedule.schema.js";
@@ -27,11 +27,15 @@ export type Days = Record<string, Day>
 export type Stages = Record<string, Stage>
 export type Artists = Record<string, Artist>
 
-export type MapPin = z.infer<typeof MapPinEnum>;
 export type RouteView = z.infer<typeof RouteViewEnum>;
 
 export type RouteModel = RouteModelType;
 export type FestivalModel = FestivalModelType;
+
+export const MapLocationKeys = ['*stage', '*info', '*medic', '*potty'] as const;
+const MapLocationKeyEnum = z.enum(MapLocationKeys);
+export type MapLocationType = z.infer<typeof MapLocationKeyEnum>;
+
 
 
 
