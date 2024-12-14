@@ -28,13 +28,13 @@ export const ConfigSchema = z.object({
 	const artistKeys = Object.keys(data.artists);
 	const stageKeys = Object.keys(data.stages);
 
-	Object.entries(data.days).forEach(([key, day]) => {
+	Object.entries(data.days).forEach(([date, day]) => {
 		day.stages.forEach(stageKey => {
 			!stageKey.trim().length || stageKeys.includes(stageKey) ||
 				ctx.addIssue({
 					code: z.ZodIssueCode.invalid_enum_value,
 					options: stageKeys,
-					path: ['days', key, 'stages'],
+					path: ['days', date, 'stages'],
 					message: `Missing stage data for key: ${stageKey}`,
 					received: stageKey,
 				});
@@ -45,20 +45,20 @@ export const ConfigSchema = z.object({
 				ctx.addIssue({
 					code: z.ZodIssueCode.invalid_enum_value,
 					options: artistKeys,
-					path: ['days', key, 'schedule'],
+					path: ['days', date, 'schedule'],
 					message: `Missing artist data for key: ${artistKey}`,
 					received: artistKey,
 				});
 		});
 
-		day.mapLocations && day.mapLocations.forEach(([key]) => {
-			!key.trim().length || stageKeys.includes(key) || MapLocationKeys.includes(key as MapLocationType) ||
+		day.mapLocations && day.mapLocations.forEach(([mapLocation]) => {
+			!mapLocation.trim().length || stageKeys.includes(mapLocation) || MapLocationKeys.includes(mapLocation as MapLocationType) ||
 				ctx.addIssue({
 					code: z.ZodIssueCode.invalid_enum_value,
 					options: artistKeys,
-					path: ['days', key, 'mapLocations'],
-					message: `Missing artist data for key: ${key}`,
-					received: key,
+					path: ['days', date, 'mapLocations', mapLocation],
+					message: `Missing stage or location data for key: ${mapLocation}`,
+					received: mapLocation,
 				});
 		});
 

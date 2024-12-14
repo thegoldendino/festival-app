@@ -65,7 +65,6 @@ describe('FestivalBuilder', () => {
 	const daysErrorScheduleLength = {
 		'2025-01-01': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
 			scheduleIncrement: 60,
 			stages: ["stage-1", "stage-2"],
 			schedule: [
@@ -89,7 +88,6 @@ describe('FestivalBuilder', () => {
 	const daysErrorStageKey = {
 		'2025-01-01': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
 			scheduleIncrement: 60,
 			stages: ["stage-1", "stage-WRONG"],
 			schedule: [
@@ -113,7 +111,6 @@ describe('FestivalBuilder', () => {
 	const daysErrorArtistKey = {
 		'2025-01-01': {
 			startTime: '10:00:00',
-			endTime: '16:00:00',
 			scheduleIncrement: 60,
 			stages: ["stage-1", "stage-2"],
 			schedule: [
@@ -126,6 +123,34 @@ describe('FestivalBuilder', () => {
 	it('should error when day.schedule[[artistKey]] is invalid', () => {
 		const params = {
 			days: daysErrorArtistKey,
+			stages: stagesValid,
+			artists: artistsValid,
+		};
+		const festival = new FestivalBuilder(params).build();
+		expect(festival.isValid).toBe(false);
+		expect(festival.errors.length).toBeGreaterThan(0);
+	});
+
+	const daysErrorMapLocationKey = {
+		'2025-01-01': {
+			startTime: '10:00:00',
+			scheduleIncrement: 60,
+			stages: ["stage-1", "stage-2"],
+			schedule: [
+				["artist-1", "artist-2"],
+				["artist-1", "artist-4"]
+			],
+			mapLocations: [
+				["stage-1", 0, 0],
+				["stage-2", 0, 0],
+				["stage-WRONG", 0, 0],
+			] as [string, number, number][],
+		},
+	};
+
+	it('should error when day.mapLocations[[mapLocation]] is invalid', () => {
+		const params = {
+			days: daysErrorMapLocationKey,
 			stages: stagesValid,
 			artists: artistsValid,
 		};
