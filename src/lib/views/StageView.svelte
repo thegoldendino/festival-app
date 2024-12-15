@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AppContainer from '$lib/components/AppContainer.svelte';
+	import InfoHeader from '$lib/components/InfoHeader.svelte';
 	import type { FestivalModel, RouteModel, Day, Stage, Schedule } from '$types';
 	import { getContext } from 'svelte';
 
@@ -10,11 +11,12 @@
 </script>
 
 <AppContainer>
-	{#snippet infoHeader()}<p>#todo</p>{/snippet}
+	{#snippet infoHeader()}
+		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} />{/snippet}
 	<ul>
 		{#each schedule as slot}
 			<li>
-				<a href={`#/${route.params.date}/artists/${slot.key}`}>
+				<a class="time-slot" href={`#/${route.params.date}/artists/${slot.key}`}>
 					{festival.artists[slot.key]?.name}
 				</a>
 			</li>
@@ -22,3 +24,16 @@
 	</ul>
 	{#snippet footer()}<p>#todo</p>{/snippet}
 </AppContainer>
+
+<style>
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	.time-slot {
+		display: flex;
+		justify-content: space-between;
+		border-radius: 50%;
+		padding: 8px 12px;
+	}
+</style>

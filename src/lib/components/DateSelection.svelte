@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatDate, formatShortDay } from './dateFormat.js';
+	import { formatDate, formatShortDay } from '$utils/dateFormat.js';
 	import type { Day } from '$types';
 	let { days, daySelected } = $props();
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { title, subtitle, backButton = false, mapUrl = null } = $props();
+	let { title, subtitle = null, backButton = false, mapUrl = null } = $props();
 </script>
 
 <div class="info-header">
@@ -10,7 +10,9 @@
 	<div class="right-side">
 		<div class="col">
 			<h2>{title}</h2>
-			<h3>{subtitle}</h3>
+			{#if subtitle}
+				<h3>{subtitle}</h3>
+			{/if}
 		</div>
 		{#if mapUrl}
 			<button aria-label="map" type="button" onclick={() => (window.location.href = mapUrl)}>
