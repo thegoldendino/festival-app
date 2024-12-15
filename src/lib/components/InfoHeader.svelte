@@ -13,7 +13,7 @@
 			<h3>{subtitle}</h3>
 		</div>
 		{#if mapUrl}
-			<button type="button" onclick={() => (window.location = mapUrl)}>Map</button>
+			<button type="button" onclick={() => (window.location.href = mapUrl)}>Map</button>
 		{/if}
 	</div>
 </div>

@@ -4,6 +4,7 @@
 	import InfoHeader from '$lib/components/InfoHeader.svelte';
 	import AppContainer from '$lib/components/AppContainer.svelte';
 	import Map from '$lib/components/Map.svelte';
+	import { timeRange } from '$utils/dateFormat.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -24,10 +25,11 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={selectedDay.location} subtitle={'todo'} mapUrl={selectedDay.mapUrl} />
-		{#if festival.mapUrl}
-			<button type="button" onclick={() => (window.location = selectedDay.mapUrl)}>Map</button>
-		{/if}
+		<InfoHeader
+			title={selectedDay.location}
+			subtitle={timeRange(selectedDay.date, selectedDay.startTime, selectedDay.endTime)}
+			mapUrl={selectedDay.mapUrl}
+		/>
 	{/snippet}
 	{#each Object.entries(festival.days) as [date, day]}
 		{#if routeMatches(date) || (routeMissingDate() && defaultMatches(date))}

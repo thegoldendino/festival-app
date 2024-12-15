@@ -33,6 +33,7 @@ export const ConfigDaySchema = baseSchema.merge(
 export const DaySchema = baseSchema.merge(
 	z.object({
 		date: z.string().date(),
+		endTime: z.string().time(),
 		stageKeys: z.array(z.string()),
 		artistKeys: z.array(z.string()),
 	})

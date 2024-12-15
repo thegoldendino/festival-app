@@ -39,6 +39,7 @@ export default class FestivalBuilder {
 			acc[key] = {
 				...day,
 				date: key,
+				endTime: this.calcEndTime(day.startTime, day.scheduleIncrement, day.schedule),
 				stageKeys: day.stages,
 				artistKeys:
 					day.schedule
@@ -48,6 +49,20 @@ export default class FestivalBuilder {
 			};
 			return acc;
 		}, {})
+	}
+
+	private calcEndTime(startTime: string, scheduleIncrement: number | string, schedule: string[][]): string {
+		const [hours, minutes, seconds] = startTime.split(':').map(Number);
+		const increment = Number(scheduleIncrement);
+		const totalMinutes = schedule.reduce((acc, timeSlot) => acc + timeSlot.length, 0) * increment;
+		const totalHours = Math.floor(totalMinutes / 60);
+		const totalMinutesRemainder = totalMinutes % 60;
+		const newMinutes = minutes + totalMinutesRemainder;
+		const newHours = hours + totalHours;
+		const newHoursWithMinutes = newHours + Math.floor(newMinutes / 60);
+		const newMinutesRemainder = newMinutes % 60;
+		const newHoursRemainder = newHoursWithMinutes % 24;
+		return `${String(newHoursRemainder).padStart(2, '0')}:${String(newMinutesRemainder).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 	}
 
 	private importStages({ days, stages }: ConfigParams): Stages {

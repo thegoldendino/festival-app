@@ -12,7 +12,7 @@ export function shortTime(time: Date, smartMer: boolean = false): string {
 }
 
 export function formatShortDay(date: string): string {
-	return new Date(Date.parse(`${date}T00:00`))
+	return newDate(date)
 		.toLocaleDateString('en-US', { weekday: 'short' });
 };
 
@@ -28,12 +28,15 @@ export const formatDate = (date: string): string => {
 		});
 };
 
-export const timeRange = (from: Date, to: Date): string => {
-	const formattedFrom = from.toLocaleTimeString('en-US', {
+export const timeRange = (date: string, from: string, to: string): string => {
+	const fromDate = newDate(date, from);
+	const toDate = newDate(date, to);
+
+	const formattedFrom = fromDate.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 	});
-	const formattedTo = to.toLocaleTimeString('en-US', {
+	const formattedTo = toDate.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 	});
@@ -54,3 +57,8 @@ function splitTime(timeString: string): [string, string, string] {
 
 	return [hours, minutes, meridiem];
 }
+
+function newDate(date: string, time?: string): Date {
+	return new Date(Date.parse(`${date}T${time || '00:00'}`));
+}
+
