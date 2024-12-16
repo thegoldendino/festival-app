@@ -1,12 +1,12 @@
 ["2024-05-31"]
-startTime = "18:00:00"
+startTime = "11:30:00"
 location = "Georgetown"
 stages = ["coffee", "overpass", "electric", "stables", "jules"]
 schedule = [
-	["flyby", "tacomarama", "", "filthy", "neighbors"],
-	["youngfellaz", "agab", "", "vamola", "tmb"],
-	["goodtrouble", "chaotic", "", "", "tmb"],
-	["goodtrouble", "chaotic", "", "", ""],
+	["step", "vamola", "8bit", "mission", "baque"],
+	["kokon", "soundwave", "hungry", "vamola", "baque"],
+	["kokon", "chaotic", "analog", "soundwave", "brasscheeks"],
+	["vamola", "chaotic", "neon", "soundwave", ""],
 ]
 scheduleIncrement = 20
 mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
@@ -29,10 +29,10 @@ startTime = "12:00:00"
 location = "Columbia City"
 stages = ["columbia_hill", "edmunds", "gateway"]
 schedule = [
-	["future", "", ""],
-	["seismic", "better", "brasscheeks"],
-	["neighbors", "8bit", "artesian"],
-	["allstars", "", ""],
+	["8bit", "", ""],
+	["allstars", "filthy", "vamola"],
+	["analog", "8bit", "step"],
+	["baque", "", ""],
 ]
 scheduleIncrement = 30
 mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"

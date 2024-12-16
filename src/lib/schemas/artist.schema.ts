@@ -6,7 +6,7 @@ const baseSchema = z.object({
 	location: z.string().optional(),
 	description: z.string().optional(),
 	infoUrl: z.string().url().optional(),
-	imageUrl: z.string().url().optional(),
+	imageUrl: z.string().optional(),
 	imageThumbUrl: z.string().url().optional(),
 });
 

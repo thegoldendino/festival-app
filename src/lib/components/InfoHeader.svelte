@@ -4,7 +4,9 @@
 
 <div class="info-header">
 	{#if backButton}
-		<button type="button" onclick={() => history.back()}>back</button>
+		<div class="left-side">
+			<button type="button" onclick={() => history.back()}>back</button>
+		</div>
 	{/if}
 
 	<div class="right-side">
@@ -38,6 +40,11 @@
 		padding: 8px 12px;
 		background-color: var(--subheader-bg-color);
 		height: var(--subheader-height);
+	}
+
+	.left-side {
+		display: flex;
+		flex: 1;
 	}
 
 	.right-side {
