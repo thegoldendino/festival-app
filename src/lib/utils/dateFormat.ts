@@ -7,7 +7,7 @@ export function shortTime(time: Date, smartMer: boolean = false): string {
 	let [hours, minutes, meridiem] = splitTime(formatted)
 
 	return smartMer
-		? `${hours}:${minutes} ${eitherGtZero(minutes, '', meridiem)}`
+		? `${hours}${minutes !== '00' ? ':' + minutes : ''} ${eitherGtZero(minutes, '', meridiem)}`
 		: `${hours}:${minutes} ${meridiem}`;
 }
 
@@ -58,7 +58,7 @@ function splitTime(timeString: string): [string, string, string] {
 	return [hours, minutes, meridiem];
 }
 
-function newDate(date: string, time?: string): Date {
+export function newDate(date: string, time?: string): Date {
 	return new Date(Date.parse(`${date}T${time || '00:00'}`));
 }
 
