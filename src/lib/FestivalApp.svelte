@@ -5,10 +5,10 @@
 	import FestivalContext from '$lib/contexts/FestivalContext.svelte';
 	import RouteContext from '$lib/contexts/RouteContext.svelte';
 	import Route from '$lib/components/Route.svelte';
-	import ArtistsView from '$lib/views/ArtistsView.svelte';
-	import ArtistView from '$lib/views/ArtistView.svelte';
-	import StageView from '$lib/views/StageView.svelte';
-	import MapView from '$lib/views/MapView.svelte';
+	import ArtistsView from '$lib/components/ArtistsView.svelte';
+	import ArtistView from '$lib/components/ArtistView.svelte';
+	import StageView from '$lib/components/StageView.svelte';
+	import MapView from '$lib/components/MapView.svelte';
 
 	let { config }: { config: ConfigParams } = $props();
 </script>

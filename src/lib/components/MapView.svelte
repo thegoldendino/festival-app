@@ -5,10 +5,13 @@
 	import AppContainer from '$lib/components/AppContainer.svelte';
 	import Map from '$lib/components/Map.svelte';
 	import { timeRange } from '$utils/dateFormat.js';
+	import StageList from './StageList.svelte';
 
-	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
+	let festival: FestivalModel = getContext('festival');
 	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
+	let showStages = $state(false);
+	let stages = $derived(selectedDay.stageKeys.map((key) => festival.stages[key]));
 
 	function routeMatches(date: string): boolean {
 		return date === route.params.date;
@@ -23,7 +26,7 @@
 	}
 </script>
 
-<AppContainer>
+<AppContainer openDrawer={showStages}>
 	{#snippet infoHeader()}
 		<InfoHeader
 			title={selectedDay.location}
@@ -36,5 +39,22 @@
 			<Map {day} stages={festival.stages} />
 		{/if}
 	{/each}
-	{#snippet footer()}<p>#todo</p>{/snippet}
+	{#snippet footer()}
+		<button class="footer-button" type="button" onclick={() => (showStages = true)}>Stages</button>
+	{/snippet}
+
+	{#snippet drawer()}
+		<StageList date={selectedDay.date} {stages} />
+	{/snippet}
 </AppContainer>
+
+<style>
+	.footer-button {
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+		background-color: transparent;
+		border: none;
+		font-size: 1.5rem;
+	}
+</style>
