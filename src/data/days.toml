@@ -10,7 +10,7 @@ schedule = [
 ]
 scheduleIncrement = 20
 mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
-mapImageUrl = "/maps/0_georgetown-phone.jpg"
+mapImageSrc = "/maps/0_georgetown-phone.jpg"
 mapImageSize = [1350,1800]
 mapLocations = [
 	["coffee", "930", "835"],
@@ -36,7 +36,7 @@ schedule = [
 ]
 scheduleIncrement = 30
 mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"
-mapImageUrl = "/maps/1_columbia-city-phone.jpg"
+mapImageSrc = "/maps/1_columbia-city-phone.jpg"
 mapImageSize = [1350,1800]
 mapLocations = [
 	["columbia_hill", "385", "900"],

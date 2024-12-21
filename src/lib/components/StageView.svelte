@@ -20,7 +20,8 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} backButton />{/snippet}
+		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} backButton />
+	{/snippet}
 	<ul>
 		{#each schedule as slot, idx}
 			<li>

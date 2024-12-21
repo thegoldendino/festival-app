@@ -7,7 +7,7 @@ const baseSchema = z.object({
 	scheduleIncrement: z.coerce.number().or(z.string().regex(/^\d+$/)),
 	location: z.string().optional(),
 	mapUrl: z.string().url().optional(),
-	mapImageUrl: z.string().optional(),
+	mapImageSrc: z.string().optional(),
 	mapImageSize: z.tuple([z.coerce.number(), z.coerce.number()]).optional(),
 	mapLocations: z.array(z.tuple([z.string(), z.coerce.number(), z.coerce.number()])).default([]).optional(),
 });

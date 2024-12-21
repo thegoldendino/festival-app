@@ -90,7 +90,7 @@
 		{@render mapBox(map)}
 	</div>
 {:else}
-	<p>mapImageUrl undefined</p>
+	<p>mapImageSrc undefined</p>
 {/if}
 
 <style>

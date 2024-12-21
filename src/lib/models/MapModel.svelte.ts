@@ -18,9 +18,9 @@ export default class MapModel {
 		`scale(${1 / this.transform.scale})`
 	);
 
-	constructor({ mapLocations, mapImageUrl, mapImageSize }: Day) {
+	constructor({ mapLocations, mapImageSrc, mapImageSize }: Day) {
 		this.locations = this.buildLocations(mapLocations || [])
-		this.imageUrl = mapImageUrl;
+		this.imageUrl = mapImageSrc;
 		this.width = mapImageSize ? mapImageSize[0] : 0;
 		this.height = mapImageSize ? mapImageSize[1] : 0;
 	}
