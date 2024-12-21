@@ -1,7 +1,7 @@
 
 import type { ZodIssue, SafeParseReturnType } from 'zod';
 import { ConfigSchema } from '$lib/schemas/config.schema.js';
-import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDays } from '$types';
+import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDays, Options } from '$types';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
 
 export default class FestivalBuilder {
@@ -13,15 +13,16 @@ export default class FestivalBuilder {
 
 	public build(): FestivalModel {
 		if (!this.config.data) {
-			return new FestivalModel({}, {}, {}, this.errors);
+			return new FestivalModel({}, {}, {}, {}, this.errors);
 		}
 
 		const stages = this.importStages(this.config.data);
 		const artists = this.importArtists(this.config.data);
 		const days = this.importDays(this.config.data, stages, artists);
+		const options = this.config.data.options;
 
 		return new FestivalModel(
-			days, stages, artists,
+			days, stages, artists, options,
 			this.errors
 		);
 	}

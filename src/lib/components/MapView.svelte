@@ -43,9 +43,11 @@
 
 	{#snippet footer()}
 		<div class="button-group">
-			<a class="footer-button" href={`#/${selectedDay.date}/artists`}> Bands </a>
+			<a class="footer-button" href={`#/${selectedDay.date}/artists`}>
+				{festival.options.text.artists}
+			</a>
 			<button class="footer-button" type="button" onclick={() => (showStages = true)}>
-				Stages
+				{festival.options.text.stages}
 			</button>
 		</div>
 	{/snippet}

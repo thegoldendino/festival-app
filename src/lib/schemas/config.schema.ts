@@ -19,11 +19,30 @@ export const ConfigDaysSchema = z.record(
 	ConfigDaySchema
 );
 
+
+export const ConfigOptionsSchema = z.object({
+	logoImageSrc: z.string().optional(),
+	text: z.object({
+		artist: z.string().optional(),
+		artists: z.string().optional(),
+		stages: z.string().optional(),
+	}).optional(),
+});
+
+export const OptionsSchema = z.object({
+	logoImageSrc: z.string().optional(),
+	text: z.object({
+		artist: z.string(),
+		artists: z.string(),
+		stages: z.string(),
+	})
+});
+
 export const ConfigSchema = z.object({
-	logoUrl: z.string().url().optional(),
 	days: ConfigDaysSchema,
 	stages: ConfigStagesSchema,
 	artists: ConfigArtistsSchema,
+	options: ConfigOptionsSchema.optional(),
 }).superRefine((data, ctx) => {
 	const artistKeys = Object.keys(data.artists);
 	const stageKeys = Object.keys(data.stages);
@@ -64,10 +83,3 @@ export const ConfigSchema = z.object({
 
 	});
 });
-
-export type ConfigParams = z.infer<typeof ConfigSchema>;
-export type ConfigDays = z.infer<typeof ConfigDaysSchema>;
-export type ConfigStages = z.infer<typeof ConfigStagesSchema>;
-export type ConfigArtists = z.infer<typeof ConfigArtistsSchema>;
-
-

@@ -6,10 +6,10 @@
 	let { data }: { data: PageData } = $props();
 
 	let config: ConfigParams = {
-		logoUrl: 'https://festival-app.s3.amazonaws.com/logo.png',
 		days: data.days,
 		artists: data.artists,
-		stages: data.stages
+		stages: data.stages,
+		options: data.options
 	};
 </script>
 

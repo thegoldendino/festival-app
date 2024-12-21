@@ -1,0 +1,5 @@
+logoImageSrc = 'https://festival-app.s3.amazonaws.com/logo.png'
+
+[text]
+artist = "Band"
+artists = "Bands"

@@ -1,5 +1,5 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, Stage } from '$types';
+import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$types';
 
 export default class FestivalModel {
 
@@ -7,6 +7,7 @@ export default class FestivalModel {
 		public days: Days,
 		public stages: Stages,
 		public artists: Artists,
+		private _options: ConfigOptions | undefined,
 		public errors: ZodIssue[] = []
 	) {
 		this.stages = stages;
@@ -15,7 +16,7 @@ export default class FestivalModel {
 	get defaultDay(): Day {
 		const today = new Date().toISOString().split('T')[0];
 
-		return this.days[today] || this.daysSorted[0];
+		return this.days[today] ?? this.daysSorted[0];
 	}
 
 	get daysSorted(): Day[] {
@@ -31,5 +32,16 @@ export default class FestivalModel {
 
 	dayByDate(date: string | null): Day {
 		return date && this.days[date] || this.defaultDay;
+	}
+
+	get options(): Options {
+		return {
+			logoImageSrc: this._options?.logoImageSrc ?? '',
+			text: {
+				artist: this._options?.text?.artist ?? 'Artist',
+				artists: this._options?.text?.artists ?? 'Artists',
+				stages: this._options?.text?.stages ?? 'Stages',
+			}
+		};
 	}
 }
