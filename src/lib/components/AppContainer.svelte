@@ -6,14 +6,12 @@
 		infoHeader,
 		children,
 		footer,
-		drawer,
-		openDrawer = false
+		drawer
 	}: {
 		infoHeader: Snippet;
 		children: Snippet;
-		footer: Snippet;
+		footer?: Snippet;
 		drawer?: Snippet;
-		openDrawer?: boolean;
 	} = $props();
 </script>
 
@@ -25,15 +23,13 @@
 	<main>
 		{@render children()}
 	</main>
-	<footer>
-		{@render footer()}
-	</footer>
-
-	{#if drawer}
-		<dialog class="drawer" open={openDrawer}>
-			{@render drawer()}
-		</dialog>
+	{#if footer}
+		<footer>
+			{@render footer?.()}
+		</footer>
 	{/if}
+
+	{@render drawer?.()}
 </div>
 
 <style>
@@ -58,17 +54,5 @@
 	footer {
 		background-color: var(--footer-bg-color);
 		height: var(--footer-height);
-	}
-
-	.drawer {
-		position: absolute;
-		bottom: 0;
-		width: 100%; /* Adjust as needed */
-		border: none;
-		padding: 0;
-		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-		border-radius: 10px 10px 0 0;
-		background-color: var(--footer-bg-color);
-		color: var(--footer-text-color);
 	}
 </style>

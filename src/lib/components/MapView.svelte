@@ -6,6 +6,9 @@
 	import AppContainer from './AppContainer.svelte';
 	import Map from './Map.svelte';
 	import StageList from './StageList.svelte';
+	import Drawer from './Drawer.svelte';
+	import ActionButtonGroup from './ActionButtonGroup.svelte';
+	import ActionButton from './ActionButton.svelte';
 
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
@@ -26,7 +29,7 @@
 	}
 </script>
 
-<AppContainer openDrawer={showStages}>
+<AppContainer>
 	{#snippet infoHeader()}
 		<InfoHeader
 			title={selectedDay.location}
@@ -42,66 +45,19 @@
 	{/each}
 
 	{#snippet footer()}
-		<div class="button-group">
-			<a class="footer-button" href={`#/${selectedDay.date}/artists`}>
+		<ActionButtonGroup>
+			<ActionButton href={`#/${selectedDay.date}/artists`}>
 				{festival.options.text.artists}
-			</a>
-			<button class="footer-button" type="button" onclick={() => (showStages = true)}>
+			</ActionButton>
+			<ActionButton onclick={() => (showStages = true)}>
 				{festival.options.text.stages}
-			</button>
-		</div>
+			</ActionButton>
+		</ActionButtonGroup>
 	{/snippet}
 
 	{#snippet drawer()}
-		<div class="drawer-header">
-			<button class="close-button" type="button" onclick={() => (showStages = false)}>
-				&times;
-			</button>
-		</div>
-		<StageList date={selectedDay.date} {stages} />
+		<Drawer bind:open={showStages}>
+			<StageList date={selectedDay.date} {stages} />
+		</Drawer>
 	{/snippet}
 </AppContainer>
-
-<style>
-	.drawer-header {
-		display: flex;
-		justify-content: end;
-		align-items: center;
-		padding: 1rem;
-		background-color: var(--footer-background-color);
-		color: var(--footer-text-color);
-	}
-
-	.close-button {
-		background-color: transparent;
-		border: none;
-		font-size: 2rem;
-		color: var(--footer-text-color);
-	}
-	.footer-button {
-		flex: 1;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 100%;
-		padding: 1rem;
-		background-color: transparent;
-		border: none;
-		font-size: 1.5rem;
-		text-decoration: none;
-		color: var(--footer-text-color);
-	}
-
-	.button-group {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.button-group > * + * {
-		border-left: 1px solid var(--footer-text-color);
-		border-right-width: 0;
-	}
-</style>
