@@ -4,7 +4,6 @@
 	let { date, stages }: { date: string; stages: Stage[] } = $props();
 </script>
 
-<h3>Stages</h3>
 <ul class="stage-list">
 	{#each stages as stage, idx}
 		<li>
@@ -21,15 +20,10 @@
 </ul>
 
 <style>
-	h3 {
-		margin: 0;
-		padding: 1rem;
-		text-align: right;
-	}
-
 	.stage-list {
 		list-style-type: none;
 		padding: 0;
+		margin: 0;
 	}
 
 	.stage-list > * + * {
@@ -38,8 +32,12 @@
 	}
 
 	.stage-list a {
+		color: var(--footer-text-color);
 		display: flex;
 		justify-content: space-between;
 		padding: 1rem;
+		font-size: 1.5rem;
+
+		text-decoration: none;
 	}
 </style>

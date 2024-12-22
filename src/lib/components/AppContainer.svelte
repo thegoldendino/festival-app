@@ -30,7 +30,7 @@
 	</footer>
 
 	{#if drawer}
-		<dialog open={openDrawer}>
+		<dialog class="drawer" open={openDrawer}>
 			{@render drawer()}
 		</dialog>
 	{/if}
@@ -60,7 +60,7 @@
 		height: var(--footer-height);
 	}
 
-	dialog {
+	.drawer {
 		position: absolute;
 		bottom: 0;
 		width: 100%; /* Adjust as needed */
@@ -68,5 +68,7 @@
 		padding: 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 10px 10px 0 0;
+		background-color: var(--footer-bg-color);
+		color: var(--footer-text-color);
 	}
 </style>

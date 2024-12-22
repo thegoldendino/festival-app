@@ -53,11 +53,31 @@
 	{/snippet}
 
 	{#snippet drawer()}
+		<div class="drawer-header">
+			<button class="close-button" type="button" onclick={() => (showStages = false)}>
+				&times;
+			</button>
+		</div>
 		<StageList date={selectedDay.date} {stages} />
 	{/snippet}
 </AppContainer>
 
 <style>
+	.drawer-header {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		padding: 1rem;
+		background-color: var(--footer-background-color);
+		color: var(--footer-text-color);
+	}
+
+	.close-button {
+		background-color: transparent;
+		border: none;
+		font-size: 2rem;
+		color: var(--footer-text-color);
+	}
 	.footer-button {
 		flex: 1;
 		display: flex;
