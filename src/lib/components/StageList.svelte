@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Stage } from '$types';
+	import MapPin from './MapPin.svelte';
 
 	let { date, stages }: { date: string; stages: Stage[] } = $props();
 </script>
@@ -8,11 +9,14 @@
 	{#each stages as stage, idx}
 		<li>
 			<a href={`#/${date}/stages/${stage.key}`}>
-				<span class="stage-number">
-					{idx + 1}
-				</span>
 				<span class="stage-name">
 					{stage.name}
+				</span>
+				<span class="stage-number">
+					<MapPin
+						location={{ type: '*stage', stageIdx: idx + 1, x: 0, y: 0, key: stage.key }}
+						--box-shadow="none"
+					></MapPin>
 				</span>
 			</a>
 		</li>
@@ -35,7 +39,7 @@
 		color: var(--footer-text-color);
 		display: flex;
 		justify-content: space-between;
-		padding: 1rem;
+		padding: 1rem 1.5rem;
 		font-size: 1.5rem;
 
 		text-decoration: none;

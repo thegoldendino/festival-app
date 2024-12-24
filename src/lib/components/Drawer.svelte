@@ -14,7 +14,7 @@
 
 <dialog class="drawer" {open}>
 	<div class="drawer-header">
-		<button class="close-button" type="button" onclick={() => (open = false)}> &times; </button>
+		<button class="close-button" type="button" onclick={() => (open = false)}> &equals; </button>
 	</div>
 	{@render children()}
 </dialog>
@@ -34,9 +34,9 @@
 
 	.drawer-header {
 		display: flex;
-		justify-content: end;
+		justify-content: center;
 		align-items: center;
-		padding: 1rem;
+		padding: 0.5rem 1rem 0 1rem;
 		background-color: var(--footer-background-color);
 		color: var(--footer-text-color);
 	}
