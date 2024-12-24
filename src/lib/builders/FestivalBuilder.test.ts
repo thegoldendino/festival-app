@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import FestivalBuilder from './FestivalBuilder.js';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
-import type { ConfigArtists, ConfigStages } from '$lib/schemas/config.schema.js';
+import type { ConfigArtists, ConfigStages } from '$types';
 
 describe('FestivalBuilder', () => {
 
