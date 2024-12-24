@@ -1,7 +1,8 @@
 
 import type { ZodIssue, SafeParseReturnType } from 'zod';
 import { ConfigSchema } from '$lib/schemas/config.schema.js';
-import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDays, Options } from '$types';
+import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDays } from '$types';
+import { newDate, shortTime } from '$utils/dateFormat.js';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
 
 export default class FestivalBuilder {
@@ -106,11 +107,13 @@ export default class FestivalBuilder {
 	private importArtistSchedule(days: ConfigDays, artistKey: string): Record<string, Schedule> {
 		return Object.entries(days).reduce((acc: Record<string, Schedule>, [date, day]) => {
 			let processedSchedule: Schedule = [];
-			Object.entries(day.schedule).forEach(([time, artistKeys]) => {
+			Object.entries(day.schedule).forEach(([slotidx, artistKeys]) => {
+				const start = newDate(date, day.startTime)
+				start.setMinutes(start.getMinutes() + Number(slotidx) * Number(day.scheduleIncrement));
 				artistKeys.forEach((key, idx) => {
 					if (artistKey === key) {
 						processedSchedule.push({
-							time: time,
+							time: shortTime(start),
 							key: day.stages[idx]
 						});
 					}
