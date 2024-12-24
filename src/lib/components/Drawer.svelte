@@ -1,5 +1,15 @@
-<script>
+<script lang="ts">
+	import type { RouteModel } from '$types';
+	import { getContext } from 'svelte';
+
 	let { children, open = $bindable() } = $props();
+
+	let route: RouteModel = getContext('route');
+
+	// Close the drawer when the route changes
+	$effect(() => {
+		open = route.params && false;
+	});
 </script>
 
 <dialog class="drawer" {open}>

@@ -31,7 +31,6 @@
 			</a>
 		{/each}
 	</div>
-	{#snippet footer()}<p>#todo</p>{/snippet}
 </AppContainer>
 
 <style>
