@@ -5,10 +5,12 @@
 	import InfoHeader from './InfoHeader.svelte';
 	import AppContainer from './AppContainer.svelte';
 	import Map from './Map.svelte';
-	import StageList from './StageList.svelte';
+	import ItemList from './ItemList.svelte';
 	import Drawer from './Drawer.svelte';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
 	import ActionButton from './ActionButton.svelte';
+	import MapPin from './MapPin.svelte';
+	import StagePinItem from './StagePinItem.svelte';
 
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
@@ -57,7 +59,16 @@
 
 	{#snippet drawer()}
 		<Drawer bind:open={showStages}>
-			<StageList date={selectedDay.date} {stages} />
+			<ItemList keys={stages.map((s) => s.key)}>
+				{#snippet item(key, idx)}
+					<StagePinItem
+						href={`#/${selectedDay.date}/stages/${key}`}
+						name={festival.stages[key].name}
+						{idx}
+						{key}
+					/>
+				{/snippet}
+			</ItemList>
 		</Drawer>
 	{/snippet}
 </AppContainer>

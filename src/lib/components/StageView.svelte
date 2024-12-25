@@ -4,10 +4,12 @@
 	import { newDate, shortTime } from '$utils/dateFormat.js';
 	import AppContainer from './AppContainer.svelte';
 	import InfoHeader from './InfoHeader.svelte';
-	import StageList from './StageList.svelte';
 	import Drawer from './Drawer.svelte';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
 	import ActionButton from './ActionButton.svelte';
+	import ItemList from './ItemList.svelte';
+	import StagePinItem from './StagePinItem.svelte';
+	import TimeArtistItem from './TimeArtistItem.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -28,18 +30,17 @@
 	{#snippet infoHeader()}
 		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} backButton />
 	{/snippet}
-	<ul>
-		{#each schedule as slot, idx}
-			<li>
-				<a class="time-slot" href={`#/${route.params.date}/artists/${slot.key}`}>
-					<span class="time">{timeFor(idx)}</span>
-					<span class="artist">
-						{festival.artists[slot.key]?.name}
-					</span>
-				</a>
-			</li>
-		{/each}
-	</ul>
+
+	<ItemList keys={schedule.map((s) => s.key)}>
+		{#snippet item(key, idx)}
+			<TimeArtistItem
+				href={`#/${day.date}/artists/${key}`}
+				name={festival.artists[key].name}
+				time={timeFor(idx)}
+			/>
+		{/snippet}
+	</ItemList>
+
 	{#snippet footer()}
 		<ActionButtonGroup>
 			<ActionButton href={`#/${day.date}/artists`}>
@@ -53,7 +54,16 @@
 
 	{#snippet drawer()}
 		<Drawer bind:open={showStages}>
-			<StageList date={day.date} {stages} />
+			<ItemList keys={stages.map((s) => s.key)}>
+				{#snippet item(key, idx)}
+					<StagePinItem
+						href={`#/${day.date}/stages/${key}`}
+						name={festival.stages[key].name}
+						{idx}
+						{key}
+					/>
+				{/snippet}
+			</ItemList>
 		</Drawer>
 	{/snippet}
 </AppContainer>

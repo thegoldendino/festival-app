@@ -6,7 +6,8 @@
 	import AppContainer from './AppContainer.svelte';
 	import InfoHeader from './InfoHeader.svelte';
 	import Drawer from './Drawer.svelte';
-	import ScheduleList from './ScheduleList.svelte';
+	import ItemList from './ItemList.svelte';
+	import StageTimeItem from './StageTimeItem.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -15,8 +16,6 @@
 	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
 
 	let schedule = $derived(artist.scheduleByDate[route.params.date]);
-
-	$inspect(artist.scheduleByDate[route.params.date]);
 </script>
 
 <AppContainer>
@@ -38,7 +37,15 @@
 
 	{#snippet drawer()}
 		<Drawer bind:open={showSchedule}>
-			<ScheduleList date={selectedDay.date} stages={festival.stages} {schedule} />
+			<ItemList keys={schedule.map((s) => s.key)}>
+				{#snippet item(key, idx)}
+					<StageTimeItem
+						href={`#/${selectedDay.date}/stages/${key}`}
+						name={festival.stages[key].name}
+						time={schedule[idx].time}
+					/>
+				{/snippet}
+			</ItemList>
 		</Drawer>
 	{/snippet}
 </AppContainer>

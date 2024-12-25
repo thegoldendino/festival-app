@@ -3,6 +3,8 @@
 @import './styles/colors.css';
 
 :root {
+	--app-bg-color: var(--color-primary-4);
+
 	--color-primary-hue: var(--hue-green);
 	--color-secondary-hue: var(--hue-blue);
 	--color-tertiary-hue: var(--hue-orange);

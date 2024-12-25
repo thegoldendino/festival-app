@@ -25,7 +25,7 @@
 		bottom: 0;
 		width: 100%; /* Adjust as needed */
 		border: none;
-		padding: 0;
+		padding: 0 0 var(--footer-height) 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 10px 10px 0 0;
 		background-color: var(--footer-bg-color);

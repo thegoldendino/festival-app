@@ -36,7 +36,7 @@
 	.app-container {
 		position: relative;
 		container: festival-app / inline-size;
-		background-color: #f0f0f0;
+		background-color: var(--app-bg-color);
 		height: 100%;
 		display: flex;
 		flex-direction: column;
