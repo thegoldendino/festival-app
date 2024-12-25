@@ -88,6 +88,7 @@
 		text-align: end;
 		overflow: hidden;
 		white-space: nowrap;
+		letter-spacing: 0.06rem;
 	}
 
 	h2,

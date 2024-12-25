@@ -24,11 +24,13 @@
 		border-width: 3px;
 		border-color: var(--button-border-color);
 		border-radius: var(--button-border-radius);
-		font-size: 1.5rem;
-		font-weight: 500;
+		font-size: 1.25rem;
+		font-weight: 600;
 		text-decoration: none;
 		color: var(--button-text-color);
 		text-shadow: var(--button-text-shadow-color) 0 0 10px;
 		box-shadow: var(--box-shadow, var(--shadow-4));
+		letter-spacing: 0.06rem;
+		text-transform: uppercase;
 	}
 </style>
