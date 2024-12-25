@@ -5,7 +5,16 @@
 <div class="info-header">
 	{#if backButton}
 		<div class="left-side">
-			<button type="button" onclick={() => history.back()}>back</button>
+			<button class="back-button" aria-label="back" type="button" onclick={() => history.back()}>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="32px"
+					viewBox="0 -960 960 960"
+					width="32px"
+					fill="currentColor"
+					><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" /></svg
+				>
+			</button>
 		</div>
 	{/if}
 
@@ -17,7 +26,12 @@
 			{/if}
 		</div>
 		{#if mapUrl}
-			<button aria-label="map" type="button" onclick={() => (window.location.href = mapUrl)}>
+			<button
+				class="map-button"
+				aria-label="map"
+				type="button"
+				onclick={() => (window.location.href = mapUrl)}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					height="24px"
@@ -51,7 +65,7 @@
 		flex: none;
 		width: calc(100% - 48px);
 		display: flex;
-		gap: 12px;
+		gap: 1.25rem;
 		justify-content: flex-end;
 		align-items: center;
 	}
@@ -60,13 +74,14 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
+		gap: 2px;
 		align-items: flex-end;
 	}
 
 	h2 {
 		width: 100%;
 		line-height: 32px;
-		font-weight: 700;
+		font-weight: 600;
 		font-size: 24px;
 		text-overflow: ellipsis;
 		text-align: end;
@@ -78,5 +93,37 @@
 	h3 {
 		margin: 0;
 		padding: 0;
+		color: var(--subheader-text-color);
+	}
+
+	h3 {
+		font-weight: 500;
+	}
+
+	.back-button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0 0 0 8px;
+		color: var(--button-text-color);
+	}
+
+	.map-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 80%;
+		padding: 0 8px;
+		background-color: var(--button-bg-color);
+		border-style: solid;
+		border-width: 3px;
+		border-color: var(--button-border-color);
+		border-radius: var(--button-border-radius);
+		font-size: 1.5rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--button-text-color);
+		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+		box-shadow: var(--box-shadow, var(--shadow-1));
 	}
 </style>

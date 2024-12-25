@@ -14,17 +14,21 @@
 
 <style>
 	.action-button {
-		flex: 1;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		height: 100%;
-		padding: 1rem;
-		background-color: transparent;
-		border: none;
+		background-color: var(--button-bg-color);
+		border-style: solid;
+		border-width: 3px;
+		border-color: var(--button-border-color);
+		border-radius: var(--button-border-radius);
 		font-size: 1.5rem;
+		font-weight: 600;
 		text-decoration: none;
-		color: var(--footer-text-color);
+		color: var(--button-text-color);
+		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+		box-shadow: var(--box-shadow, var(--shadow-4));
 	}
 </style>

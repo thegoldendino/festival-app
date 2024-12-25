@@ -34,7 +34,7 @@
 
 	a {
 		height: 100%;
-		padding-inline: 1em;
+		padding-inline: 1.5em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

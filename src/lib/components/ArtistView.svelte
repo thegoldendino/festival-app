@@ -61,6 +61,7 @@
 		line-height: 1.5;
 		font-size: 1.25rem;
 		padding: 0 0.75rem;
+		color: var(--artist-content-text-color);
 	}
 
 	.content p::first-line {
