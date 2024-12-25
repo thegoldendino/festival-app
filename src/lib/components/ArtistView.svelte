@@ -57,6 +57,7 @@
 	}
 
 	.content p {
+		text-align: justify;
 		line-height: 1.5;
 		font-size: 1.25rem;
 		padding: 0 0.75rem;
