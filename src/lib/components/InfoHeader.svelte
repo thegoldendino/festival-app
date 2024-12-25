@@ -48,6 +48,8 @@
 	}
 
 	.right-side {
+		flex: none;
+		width: calc(100% - 48px);
 		display: flex;
 		gap: 12px;
 		justify-content: flex-end;
@@ -55,15 +57,21 @@
 	}
 
 	.col {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
 	}
 
 	h2 {
+		width: 100%;
 		line-height: 32px;
 		font-weight: 700;
 		font-size: 24px;
+		text-overflow: ellipsis;
+		text-align: end;
+		overflow: hidden;
+		white-space: nowrap;
 	}
 
 	h2,
