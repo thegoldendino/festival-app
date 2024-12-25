@@ -95,6 +95,14 @@
 		border-radius: 10%;
 		box-shadow: var(--box-shadow, var(--shadow-4));
 		background-color: var(--map-stage-bg-color);
+		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+
+		border-style: solid;
+		border-width: 3px;
+		border-color: var(--button-border-color);
+		border-radius: var(--button-border-radius);
+		height: 2.25rem;
+		width: 2.25rem;
 	}
 
 	.potty-pin,
