@@ -51,11 +51,20 @@
 </AppContainer>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 16px;
+	.content img {
+		width: 100%;
+		height: auto;
+	}
+
+	.content p {
+		line-height: 1.5;
+		font-size: 1.25rem;
+		padding: 0 0.75rem;
+	}
+
+	.content p::first-line {
+		text-transform: uppercase;
+		letter-spacing: 3px;
 	}
 	img {
 		width: 60%;
