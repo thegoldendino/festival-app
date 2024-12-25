@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { RouteModel } from '$types';
 	import { getContext } from 'svelte';
+	import { fly } from 'svelte/transition';
 
 	let { children, open = $bindable() } = $props();
 

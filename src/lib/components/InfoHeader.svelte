@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fly } from 'svelte/transition';
 	let { title, subtitle = null, backButton = false, mapUrl = null } = $props();
 </script>
 
@@ -19,7 +20,7 @@
 	{/if}
 
 	<div class="right-side">
-		<div class="col">
+		<div class="col" in:fly={{ x: 10, duration: 220, delay: 40 }}>
 			<h2>{title}</h2>
 			{#if subtitle}
 				<h3>{subtitle}</h3>
@@ -65,7 +66,6 @@
 		flex: none;
 		width: calc(100% - 48px);
 		display: flex;
-		gap: 1.25rem;
 		justify-content: flex-end;
 		align-items: center;
 	}
@@ -76,6 +76,7 @@
 		flex-direction: column;
 		gap: 2px;
 		align-items: flex-end;
+		margin-inline-end: 1rem;
 	}
 
 	h2 {

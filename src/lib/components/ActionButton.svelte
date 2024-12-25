@@ -25,10 +25,10 @@
 		border-color: var(--button-border-color);
 		border-radius: var(--button-border-radius);
 		font-size: 1.5rem;
-		font-weight: 600;
+		font-weight: 500;
 		text-decoration: none;
 		color: var(--button-text-color);
-		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+		text-shadow: var(--button-text-shadow-color) 0 0 10px;
 		box-shadow: var(--box-shadow, var(--shadow-4));
 	}
 </style>

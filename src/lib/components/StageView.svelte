@@ -33,15 +33,17 @@
 		<InfoHeader {title} mapUrl={stage.mapUrl} backButton />
 	{/snippet}
 
-	<ItemList keys={schedule.map((s) => s.key)}>
-		{#snippet item(key, idx)}
-			<TimeArtistItem
-				href={`#/${day.date}/artists/${key}`}
-				name={festival.artists[key].name}
-				time={timeFor(idx)}
-			/>
-		{/snippet}
-	</ItemList>
+	<div class="content">
+		<ItemList keys={schedule.map((s) => s.key)}>
+			{#snippet item(key, idx)}
+				<TimeArtistItem
+					href={`#/${day.date}/artists/${key}`}
+					name={festival.artists[key].name}
+					time={timeFor(idx)}
+				/>
+			{/snippet}
+		</ItemList>
+	</div>
 
 	{#snippet footer()}
 		<ActionButtonGroup>
@@ -71,14 +73,7 @@
 </AppContainer>
 
 <style>
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	.time-slot {
-		display: flex;
-		justify-content: space-between;
-		border-radius: 50%;
-		padding: 8px 12px;
+	.content {
+		margin-block: 1rem;
 	}
 </style>
