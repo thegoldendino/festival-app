@@ -3,6 +3,7 @@
 	import InfoHeader from '$lib/components/InfoHeader.svelte';
 	import type { FestivalModel, Day, RouteModel } from '$types';
 	import { getContext } from 'svelte';
+	import { formatLongDay } from '$utils/dateFormat.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -12,11 +13,13 @@
 			.map((key) => festival.artists[key])
 			.sort((a, b) => a.name.localeCompare(b.name))
 	);
+
+	let title = $derived(`${formatLongDay(selectedDay.date)} ${festival.options.text.artists}`);
 </script>
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={festival.options.text.artists} backButton />
+		<InfoHeader {title} backButton />
 	{/snippet}
 	<div class="content">
 		{#each artists as artist}

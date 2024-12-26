@@ -20,7 +20,7 @@
 	}
 
 	.item-list li + li {
-		border-top: 1px solid #ccc;
+		border-top: 2px solid rgba(255, 255, 255, 0.25);
 		border-bottom-width: 0;
 	}
 
@@ -28,8 +28,10 @@
 		color: var(--footer-text-color);
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 1rem 1.5rem;
 		font-size: 1.25rem;
+		height: 4rem;
 
 		text-decoration: none;
 	}

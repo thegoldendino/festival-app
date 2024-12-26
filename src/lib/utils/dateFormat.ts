@@ -17,8 +17,9 @@ export function formatShortDay(date: string): string {
 		.toLocaleDateString('en-US', { weekday: 'short' });
 };
 
-export function formatLongDay(date: Date): string {
-	return date.toLocaleDateString('en-US', { weekday: 'long' });
+export function formatLongDay(date: string): string {
+	return newDate(date)
+		.toLocaleDateString('en-US', { weekday: 'long' });
 };
 
 export const formatDate = (date: string): string => {

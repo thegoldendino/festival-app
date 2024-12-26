@@ -19,5 +19,6 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
+		font-weight: 600;
 	}
 </style>
