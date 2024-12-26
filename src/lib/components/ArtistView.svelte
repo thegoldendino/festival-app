@@ -30,7 +30,7 @@
 
 	{#snippet footer()}
 		<ActionButtonGroup>
-			<ActionButton href={artist.infoUrl}>&lt;&lt; info</ActionButton>
+			<ActionButton href={artist.infoUrl}>Info</ActionButton>
 			<ActionButton onclick={() => (showSchedule = true)}>Schedule</ActionButton>
 		</ActionButtonGroup>
 	{/snippet}

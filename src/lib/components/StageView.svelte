@@ -19,18 +19,16 @@
 	let stages = $derived(day.stageKeys.map((key) => festival.stages[key]));
 	let showStages = $state(false);
 
-	let title = $derived(`${stages.indexOf(stage) + 1}: ${stage.name}`);
-
 	function timeFor(idx: number): string {
 		const start = newDate(day.date, day.startTime);
 		start.setMinutes(start.getMinutes() + idx * Number(day.scheduleIncrement));
-		return shortTime(start, true);
+		return shortTime(start, idx > 0);
 	}
 </script>
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader {title} mapUrl={stage.mapUrl} backButton />
+		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} backButton />
 	{/snippet}
 
 	<div class="content">

@@ -1,4 +1,5 @@
 export function shortTime(time: Date, smartMer: boolean = false): string {
+	console.log({ smartMer })
 	const formatted = time.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
@@ -6,9 +7,9 @@ export function shortTime(time: Date, smartMer: boolean = false): string {
 
 	let [hours, minutes, meridiem] = splitTime(formatted)
 
-	return smartMer
-		? `${hours}${minutes !== '00' ? ':' + minutes : ''} ${eitherGtZero(minutes, '', meridiem)}`
-		: `${hours}:${minutes} ${meridiem}`;
+	return smartMer &&
+		`${hours}:${minutes} ${eitherGtZero(minutes, '', meridiem)}` ||
+		`${hours}:${minutes} ${meridiem}`;
 }
 
 export function formatShortDay(date: string): string {
