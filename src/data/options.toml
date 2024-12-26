@@ -1,4 +1,4 @@
-logoImageSrc = 'https://festival-app.s3.amazonaws.com/logo.png'
+logoImageSrc = '/logo-white.png'
 
 [text]
 artist = "Band"

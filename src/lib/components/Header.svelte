@@ -10,7 +10,11 @@
 </script>
 
 <div class="header-container">
-	<div class="logo-container"></div>
+	<div class="logo-container">
+		<a href="#/">
+			<img src={festival.options.logoImageSrc} alt="home" />
+		</a>
+	</div>
 	<DateSelection days={festival.daysSorted} {daySelected} />
 </div>
 
@@ -18,7 +22,25 @@
 	.header-container {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		background-color: var(--header-bg-color);
 		height: var(--header-height);
+	}
+
+	.logo-container {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding-inline: 1rem;
+		padding-block: 0.5rem;
+	}
+	a {
+		text-decoration: none;
+		display: block;
+		height: 100%;
+	}
+	img {
+		height: 100%;
+		width: auto;
 	}
 </style>
