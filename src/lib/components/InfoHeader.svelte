@@ -52,22 +52,25 @@
 	.info-header {
 		display: flex;
 		justify-content: flex-end;
-		padding: 8px 12px;
 		background-color: var(--subheader-bg-color);
 		height: var(--subheader-height);
+		padding-inline: 1rem;
 	}
 
 	.left-side {
 		display: flex;
-		flex: 1;
+		flex: none;
+		width: fit-content;
+		margin-inline-end: 1rem;
 	}
 
 	.right-side {
-		flex: none;
-		width: calc(100% - 48px);
+		flex: 1;
+		width: calc(100% - 5rem);
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+		gap: 1rem;
 	}
 
 	.col {
@@ -76,7 +79,6 @@
 		flex-direction: column;
 		gap: 2px;
 		align-items: flex-end;
-		margin-inline-end: 1rem;
 	}
 
 	h2 {
@@ -106,7 +108,7 @@
 		background: none;
 		border: none;
 		cursor: pointer;
-		padding: 0 0 0 8px;
+		padding: 0;
 		color: var(--button-text-color);
 	}
 
@@ -114,7 +116,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 80%;
+		height: 60%;
 		padding: 0 8px;
 		background-color: var(--button-bg-color);
 		border-style: solid;
