@@ -14,7 +14,7 @@
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
 	let stage: Stage = $derived(festival.stages[route.params.key]);
-	let schedule: Schedule = $derived(stage.scheduleByDate[route.params.date]);
+	let schedule: Schedule = $derived(stage.scheduleByDate[route.params.date] || []);
 	let day: Day = $derived(festival.dayByDate(route.params.date));
 	let stages = $derived(day.stageKeys.map((key) => festival.stages[key]));
 	let showStages = $state(false);
@@ -36,7 +36,7 @@
 			{#snippet item(key, idx)}
 				<TimeArtistItem
 					href={`#/${day.date}/artists/${key}`}
-					name={festival.artists[key].name}
+					name={festival.artists[key]?.name || ''}
 					time={timeFor(idx)}
 				/>
 			{/snippet}
@@ -60,7 +60,7 @@
 				{#snippet item(key, idx)}
 					<StagePinItem
 						href={`#/${day.date}/stages/${key}`}
-						name={festival.stages[key].name}
+						name={festival.stages[key]?.name || ''}
 						{idx}
 						{key}
 					/>

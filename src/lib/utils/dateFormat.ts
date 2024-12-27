@@ -1,5 +1,4 @@
 export function shortTime(time: Date, smartMer: boolean = false): string {
-	console.log({ smartMer })
 	const formatted = time.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
