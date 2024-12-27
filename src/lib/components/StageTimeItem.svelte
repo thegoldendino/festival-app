@@ -13,19 +13,21 @@
 
 <style>
 	.item {
-		padding: 1rem 1.25rem;
 		align-items: center;
+		gap: 1rem;
 	}
 	.time {
 		border-radius: 10px;
-		padding: 0.25rem 0.35rem;
 		font-size: 1rem;
 		font-weight: 600;
+		padding: 0.25rem 0.35rem;
 		background-color: var(--color-primary-8);
 	}
 	.stage-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
+		padding-block-end: 0.25rem;
+		border-bottom: dashed 3px var(--color-primary-5);
 	}
 </style>

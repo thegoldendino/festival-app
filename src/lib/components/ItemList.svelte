@@ -15,12 +15,12 @@
 <style>
 	.item-list {
 		list-style-type: none;
-		padding: 0 1rem;
+		padding: 0 2rem;
 		margin: 0;
 	}
 
 	.item-list li + li {
-		border-top: 2px solid rgba(255, 255, 255, 0.15);
+		/* border-top: 2px solid rgba(255, 255, 255, 0.15); */
 		border-bottom-width: 0;
 	}
 

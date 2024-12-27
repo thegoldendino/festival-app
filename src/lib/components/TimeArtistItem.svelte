@@ -13,8 +13,8 @@
 
 <style>
 	.item {
-		padding: 1rem 1.25rem;
 		align-items: center;
+		gap: 1rem;
 	}
 	.time {
 		border-radius: 10px;
@@ -27,5 +27,7 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
+		padding-block-end: 0.25rem;
+		border-bottom: dashed 3px var(--color-primary-7);
 	}
 </style>
