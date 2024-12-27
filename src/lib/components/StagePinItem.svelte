@@ -14,3 +14,9 @@
 		></MapPin>
 	</span>
 </a>
+
+<style>
+	.item {
+		align-items: center;
+	}
+</style>

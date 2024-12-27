@@ -12,13 +12,20 @@
 </a>
 
 <style>
+	.item {
+		padding: 1rem 1.25rem;
+		align-items: center;
+	}
 	.time {
-		padding-inline-start: 1rem;
+		border-radius: 10px;
+		padding: 0.25rem 0.35rem;
+		font-size: 1rem;
+		font-weight: 600;
+		background-color: var(--color-primary-7);
 	}
 	.artist-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
-		font-weight: 600;
 	}
 </style>

@@ -28,7 +28,7 @@
 	}
 
 	.logo-container {
-		height: 100%;
+		height: 90%;
 		display: flex;
 		align-items: center;
 		padding-inline: 1rem;

@@ -17,13 +17,16 @@
 	<div class="drawer-header">
 		<button class="close-button" type="button" onclick={() => (open = false)}> &equals; </button>
 	</div>
-	{@render children()}
+	<div class="drawer-content" transition:fly={{ y: 100 }}>
+		{@render children()}
+	</div>
 </dialog>
 
 <style>
 	.drawer {
 		position: absolute;
 		bottom: 0;
+		max-height: calc(100dvh - var(--header-height) - var(--subheader-height));
 		width: 100%; /* Adjust as needed */
 		border: none;
 		padding: 0 0 var(--footer-height) 0;
@@ -40,6 +43,10 @@
 		padding: 0.5rem 1rem 0 1rem;
 		background-color: var(--footer-background-color);
 		color: var(--footer-text-color);
+	}
+
+	.drawer-content {
+		overflow-y: auto;
 	}
 
 	.close-button {

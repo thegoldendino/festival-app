@@ -15,12 +15,12 @@
 <style>
 	.item-list {
 		list-style-type: none;
-		padding: 0;
+		padding: 0 1rem;
 		margin: 0;
 	}
 
 	.item-list li + li {
-		border-top: 2px solid rgba(255, 255, 255, 0.25);
+		border-top: 2px solid rgba(255, 255, 255, 0.15);
 		border-bottom-width: 0;
 	}
 
@@ -28,10 +28,9 @@
 		color: var(--footer-text-color);
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
-		padding: 1rem 1.5rem;
+
 		font-size: 1.25rem;
-		height: 4rem;
+		height: 4.25rem;
 
 		text-decoration: none;
 	}
