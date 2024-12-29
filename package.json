@@ -1,5 +1,5 @@
 {
-	"name": "festival-app",
+	"name": "@thegoldendino/festival-app",
 	"version": "0.0.1",
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
