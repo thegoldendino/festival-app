@@ -2,17 +2,22 @@
 	import type { Day, Stages } from '$types';
 	import { panzoom } from '$utils/panzoom.svelte.js';
 	import MapModel from '$lib/models/MapModel.svelte.js';
-	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
 	import MapPin from './MapPin.svelte';
 
-	let { day, stages }: { day: Day; stages: Stages } = $props();
+	let { day }: { day: Day } = $props();
 
 	let map = $derived(new MapModel(day));
 </script>
 
 {#snippet mapBox(map: MapModel)}
 	<div class="map-box" style:transform={map.contentTransform}>
-		<img class="map-image" width={map.width} height={map.height} src={map.imageUrl} alt="Map" />
+		<img
+			class="map-image"
+			width={map.image?.width}
+			height={map.image?.height}
+			src={map.image?.src}
+			alt="Map"
+		/>
 		{#each map.locations as location}
 			{#if location.type === '*stage'}
 				<MapPin
@@ -27,7 +32,7 @@
 	</div>
 {/snippet}
 
-{#if map.imageUrl}
+{#if map.image?.src}
 	<div use:panzoom ontransform={(e) => map.ontransform(e.detail)} class="map-view">
 		{@render mapBox(map)}
 	</div>

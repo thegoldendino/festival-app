@@ -5,6 +5,7 @@ import { ArtistSchema, ArtistScheduleSchema, ConfigArtistSchema } from "./schema
 import { ScheduleSchema } from "./schemas/schedule.schema.js";
 import { RouteViewEnum, RouteParamsSchema } from "./schemas/routeParams.schema.js";
 import { ConfigSchema, ConfigDaysSchema, ConfigArtistsSchema, ConfigStagesSchema, ConfigOptionsSchema, OptionsSchema } from "./schemas/config.schema.js";
+import { ImageSchema } from "./schemas/image.schema.js";
 import { default as RouteModelType } from "./models/RouteModel.svelte.js";
 import { default as FestivalModelType } from "./models/FestivalModel.svelte.js";
 
@@ -14,6 +15,7 @@ export type Artist = z.infer<typeof ArtistSchema>;
 export type ArtistSchedule = z.infer<typeof ArtistScheduleSchema>;
 export type Schedule = z.infer<typeof ScheduleSchema>;
 export type RouteParams = z.infer<typeof RouteParamsSchema>;
+export type Image = z.infer<typeof ImageSchema>;
 
 export type ConfigParams = z.infer<typeof ConfigSchema>;
 export type ConfigArtists = z.infer<typeof ConfigArtistsSchema>;

@@ -1,4 +1,4 @@
-import type { MapLocationType, Day, Stages } from '$types';
+import type { MapLocationType, Day, Image } from '$types';
 import { MapLocationKeys } from "$types";
 export type MapLocation = { key: string, x: number, y: number, type: MapLocationType, stageIdx: number };
 
@@ -6,9 +6,7 @@ export default class MapModel {
 	private transform = $state({ scale: 1, translation: { x: 0, y: 0 } });
 
 	public locations: MapLocation[];
-	public imageUrl: string | undefined;
-	public width: number;
-	public height: number;
+	public image: Image | undefined;
 
 	public contentTransform = $derived(
 		`translate(${this.transform.translation.x}px, ${this.transform.translation.y}px) scale(${this.transform.scale})`
@@ -18,11 +16,9 @@ export default class MapModel {
 		`scale(${1 / this.transform.scale})`
 	);
 
-	constructor({ mapLocations, mapImageSrc, mapImageSize }: Day) {
+	constructor({ mapLocations, mapImage }: Day) {
 		this.locations = this.buildLocations(mapLocations || [])
-		this.imageUrl = mapImageSrc;
-		this.width = mapImageSize ? mapImageSize[0] : 0;
-		this.height = mapImageSize ? mapImageSize[1] : 0;
+		this.image = mapImage;
 	}
 
 	public ontransform({ scale, translation }: { scale: number; translation: { x: number; y: number } }) {

@@ -24,7 +24,12 @@
 	{/snippet}
 
 	<div class="content">
-		<img src={artist.imageUrl} alt={artist.name} />
+		<img
+			src={artist.image?.src}
+			alt={artist.name}
+			width={artist.image?.width}
+			height={artist.image?.height}
+		/>
 		<p>{artist.description}</p>
 	</div>
 

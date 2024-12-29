@@ -1,5 +1,6 @@
 ["2024-05-31"]
 startTime = "11:30:00"
+scheduleIncrement = 20
 location = "Georgetown"
 stages = ["coffee", "overpass", "electric", "stables", "jules"]
 schedule = [
@@ -8,10 +9,7 @@ schedule = [
 	["kokon", "chaotic", "analog", "soundwave", "brasscheeks"],
 	["vamola", "chaotic", "neon", "soundwave", ""],
 ]
-scheduleIncrement = 20
 mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
-mapImageSrc = "/maps/0_georgetown-phone.jpg"
-mapImageSize = [1350,1800]
 mapLocations = [
 	["coffee", "930", "835"],
 	["overpass", "920", "1480"],
@@ -23,9 +21,15 @@ mapLocations = [
 	["*potty", "845", "953"],
 	["*potty", "200", "200"],
 ]
+["2024-05-31".mapImage]
+src = "/images/maps/0_georgetown-phone.jpg"
+width = 1350
+height = 1800
+format = 'jpg'
 
 ["2024-06-01"]
 startTime = "12:00:00"
+scheduleIncrement = 30
 location = "Columbia City"
 stages = ["columbia_hill", "edmunds", "gateway"]
 schedule = [
@@ -34,10 +38,7 @@ schedule = [
 	["analog", "8bit", "step"],
 	["baque", "", ""],
 ]
-scheduleIncrement = 30
 mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"
-mapImageSrc = "/maps/1_columbia-city-phone.jpg"
-mapImageSize = [1350,1800]
 mapLocations = [
 	["columbia_hill", "385", "900"],
 	["edmunds", "180", "1380"],
@@ -46,4 +47,9 @@ mapLocations = [
 	["*medic", "480", "1180"],
 	["*potty", "410", "1330"],
 ]
+["2024-06-01".mapImage]
+src = "/images/maps/1_columbia-city-phone.jpg"
+width = 1350
+height = 1800
+format = 'jpg'
 

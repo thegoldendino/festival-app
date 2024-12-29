@@ -9,7 +9,6 @@
 	import Drawer from './Drawer.svelte';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
 	import ActionButton from './ActionButton.svelte';
-	import MapPin from './MapPin.svelte';
 	import StagePinItem from './StagePinItem.svelte';
 
 	let route: RouteModel = getContext('route');
@@ -42,7 +41,7 @@
 
 	{#each Object.entries(festival.days) as [date, day]}
 		{#if routeMatches(date) || (routeMissingDate() && defaultMatches(date))}
-			<Map {day} stages={festival.stages} />
+			<Map {day} />
 		{/if}
 	{/each}
 

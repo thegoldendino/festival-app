@@ -26,7 +26,7 @@
 			<a
 				class="artist"
 				href={`#/${selectedDay.date}/artists/${artist.key}`}
-				style="background-image: url({artist.imageUrl})"
+				style="background-image: url({artist.image?.src})"
 				><div class="gradient-overlay">
 					<h2>{artist.name}</h2>
 					<p>{artist.location}</p>

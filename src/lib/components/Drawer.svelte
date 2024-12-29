@@ -26,7 +26,7 @@
 	.drawer {
 		position: absolute;
 		bottom: 0;
-		max-height: calc(100dvh - var(--header-height) - var(--subheader-height));
+		max-height: calc(100% - var(--header-height) - var(--subheader-height));
 		width: 100%; /* Adjust as needed */
 		border: none;
 		padding: 0 0 var(--footer-height) 0;
