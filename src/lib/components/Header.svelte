@@ -12,7 +12,12 @@
 <div class="header-container">
 	<div class="logo-container">
 		<a href="#/">
-			<img src={festival.options.logoImageSrc} alt="home" />
+			<img
+				src={festival.options.logoImage?.src}
+				width={festival.options.logoImage?.width}
+				height={festival.options.logoImage?.height}
+				alt="home"
+			/>
 		</a>
 	</div>
 	<DateSelection days={festival.daysSorted} {daySelected} />

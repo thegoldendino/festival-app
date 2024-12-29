@@ -1,4 +1,5 @@
-logoImageSrc = '/logo-white.png'
+[logoImage]
+src = '/images/logo-white.png'
 
 [text]
 artist = "Band"

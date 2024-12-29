@@ -36,7 +36,7 @@ export default class FestivalModel {
 
 	get options(): Options {
 		return {
-			logoImageSrc: this._options?.logoImageSrc ?? '',
+			logoImage: this._options?.logoImage ?? { src: '' },
 			text: {
 				artist: this._options?.text?.artist ?? 'Artist',
 				artists: this._options?.text?.artists ?? 'Artists',
