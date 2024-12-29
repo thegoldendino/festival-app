@@ -5,6 +5,11 @@ import { ConfigDaySchema } from './day.schema.js';
 import { MapLocationKeys, type MapLocationType } from '../types.js';
 import { ImageSchema } from './image.schema.js';
 
+export { ConfigDaySchema } from './day.schema.js';
+export { ConfigStageSchema } from './stage.schema.js';
+export { ConfigArtistSchema } from './artist.schema.js';
+export { ImageSchema } from './image.schema.js';
+
 export const ConfigStagesSchema = z.record(
 	z.string(),
 	ConfigStageSchema

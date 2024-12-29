@@ -1,8 +1,10 @@
 # Festival App
 
-A Svelte component that provides a mobile kiosk application for festival information.
-Multiple days can be created, each with a map of stage locations and schedules. All schedule information
+A Svelte component that provides a mobile kiosk for festival information.
+Multiple days can be shown, each with a map of stage locations and schedules. All schedule information
 links to artist information.
+
+
 
 ## Installing
 
@@ -52,6 +54,13 @@ npm install --save-dev @thegoldendino/festival-app
 
 [docs/config.md](./docs/config.md)
 
+### TOML Example
+
+- [days](./src/data/days.toml): schedule and map data for a festival day
+- [artists](./src/data/artists.toml): artist information
+- [stages](./src/data/stages.toml): stage information
+- [options](./src/data/options.toml): application specific options
+
 
 ## Developing
 
@@ -93,3 +102,7 @@ To publish your library to [npm](https://www.npmjs.com):
 ```bash
 npm publish
 ```
+
+## License
+
+[MIT](LICENSE.md)

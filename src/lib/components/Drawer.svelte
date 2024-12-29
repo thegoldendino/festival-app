@@ -27,7 +27,7 @@
 		position: absolute;
 		bottom: 0;
 		max-height: calc(100% - var(--header-height) - var(--subheader-height));
-		width: 100%; /* Adjust as needed */
+		width: 100%;
 		border: none;
 		padding: 0 0 var(--footer-height) 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
