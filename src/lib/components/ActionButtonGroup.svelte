@@ -15,9 +15,4 @@
 		gap: 0.8rem;
 		padding: 0.6rem 0.8rem;
 	}
-
-	/* .action-button-group :global(.action-button + .action-button) {
-		border-left: 1px solid var(--footer-text-color);
-		border-right-width: 0;
-	} */
 </style>

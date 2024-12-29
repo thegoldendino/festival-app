@@ -1,8 +1,8 @@
 import { z } from 'zod';
+import { ConfigStageSchema } from './stage.schema.js';
 import { ConfigArtistSchema } from './artist.schema.js';
 import { ConfigDaySchema } from './day.schema.js';
-import { ConfigStageSchema } from './stage.schema.js';
-import { MapLocationKeys, type MapLocationType } from '$types';
+import { MapLocationKeys, type MapLocationType } from '../types.js';
 import { ImageSchema } from './image.schema.js';
 
 export const ConfigStagesSchema = z.record(
@@ -19,7 +19,6 @@ export const ConfigDaysSchema = z.record(
 	z.string().date(),
 	ConfigDaySchema
 );
-
 
 export const ConfigOptionsSchema = z.object({
 	logoImage: ImageSchema.optional(),

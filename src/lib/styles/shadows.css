@@ -1,3 +1,8 @@
+/*
+  This code was originally sourced from:
+  https://github.com/argyleink/open-props/blob/main/src/props.shadows.css
+*/
+
 :where(html) {
   --shadow-color: 220 3% 15%;
   --shadow-strength: 1%;

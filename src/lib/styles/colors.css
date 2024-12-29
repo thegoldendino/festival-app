@@ -1,3 +1,8 @@
+/*
+  This code was originally sourced from:
+  https://github.com/argyleink/open-props/blob/main/src/props.colors-oklch.css
+*/
+
 :where(*) {
 
 	--color-primary-0: oklch(99% .03 var(--color-primary-hue, 0));

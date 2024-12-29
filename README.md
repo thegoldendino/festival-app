@@ -1,20 +1,57 @@
-# create-svelte
+# Festival App
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A Svelte component that provides a mobile kiosk application for festival information.
+Multiple days can be created, each with a map of stage locations and schedules. All schedule information
+links to artist information.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Installing
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+```sh
+npm install --save-dev @thegoldendino/festival-app
 ```
+
+## Usage
+
+```html
+<script lang="ts">
+	import FestivalApp from '@thegoldendino/festival-app';
+	import type { ConfigParams } from '@thegoldendino/festival-app';
+	import type { PageData } from './$types.js';
+
+	let { data }: { data: PageData } = $props();
+
+	let config: ConfigParams = {
+		days: data.days,
+		artists: data.artists,
+		stages: data.stages,
+		options: data.options
+	};
+</script>
+
+<div class="fullscreen-preview">
+	<FestivalApp {config} />
+</div>
+
+<style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+	}
+	.fullscreen-preview {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100dvw;
+		height: 100dvh;
+	}
+</style>
+
+```
+
+## Config Schema
+
+[docs/config.md](./docs/config.md)
+
 
 ## Developing
 
