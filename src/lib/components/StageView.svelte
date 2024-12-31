@@ -35,8 +35,8 @@
 		<ItemList keys={schedule.map((s) => s.key)}>
 			{#snippet item(key, idx)}
 				<TimeArtistItem
-					href={`#/${day.date}/artists/${key}`}
-					name={festival.artists[key]?.name || ''}
+					href={key && `#/${day.date}/artists/${key}`}
+					name={festival.artists[key]?.name}
 					time={timeFor(idx)}
 				/>
 			{/snippet}

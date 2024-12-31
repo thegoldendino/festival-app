@@ -1,15 +1,25 @@
-<script>
+<script lang="ts">
 	let { href, name, time } = $props();
 </script>
 
-<a class="item" {href}>
+{#snippet item(name: string, time: string)}
 	<span class="artist-name">
 		{name}
 	</span>
 	<span class="time">
 		{time}
 	</span>
-</a>
+{/snippet}
+
+{#if href}
+	<a class="item" {href}>
+		{@render item(name, time)}
+	</a>
+{:else}
+	<div class="item">
+		{@render item(name, time)}
+	</div>
+{/if}
 
 <style>
 	.item {
