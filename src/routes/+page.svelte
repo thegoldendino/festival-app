@@ -21,6 +21,6 @@
 <style>
 	.mobile-preview {
 		width: 400px;
-		height: 600px;
+		height: 700px;
 	}
 </style>

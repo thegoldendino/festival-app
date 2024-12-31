@@ -26,11 +26,13 @@ const artistImages = import.meta.glob(
 
 
 export const load: PageServerLoad = async () => {
+  // Import data from TOML files
   const daysPath = path.resolve('src/data/days.toml');
   const artistsPath = path.resolve('src/data/artists.toml');
   const stagesPath = path.resolve('src/data/stages.toml');
   const optionsPath = path.resolve('src/data/options.toml');
 
+  // Parse TOML files
   const days = toml.parse(fs.readFileSync(daysPath, 'utf-8'));
   const artists = toml.parse(fs.readFileSync(artistsPath, 'utf-8'));
   const stages = toml.parse(fs.readFileSync(stagesPath, 'utf-8'));

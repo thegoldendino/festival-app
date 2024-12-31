@@ -34,13 +34,21 @@
 
 <style>
 	.app-container {
-		position: relative;
-		container: festival-app / inline-size;
-		background-color: var(--app-bg-color);
-		height: 100%;
+		position: fixed;
+		inset: 0 0;
 		display: flex;
 		flex-direction: column;
+		background-color: var(--app-bg-color);
 	}
+	@media (min-width: 650px) {
+		.app-container {
+			position: relative;
+			container: festival-app / inline-size;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
 	header,
 	footer {
 		flex: none;
