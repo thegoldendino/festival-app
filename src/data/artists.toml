@@ -6,8 +6,6 @@ name = "8-Bit Brass Band"
 location = "Seattle, WA"
 infoUrl = "http://8bitbrassband.com/"
 description = "8-Bit Brass Band is a cosplaying, mobile party band specializing in video game tunes, anime anthems, movie mashups, and fandom favorites, celebrating everyone’s inner nerd on the streets and stages of Seattle – and beyond!"
-[8bit.image]
-src = "/images/artists/8bit.png"
 
 [adefua]
 name = "ADEFUA"
@@ -20,24 +18,18 @@ name = "AGAB"
 location = "Seattle, WA"
 infoUrl = "https://aga.band"
 description = "AGAB is a queer joy rebellion playing brass bangers for the theys and gays of every generation in Seattle and beyond."
-[agab.image]
-src = "/images/artists/agab.png"
 
 [analog]
 name = "Analog Brass"
 location = "Bellingham, WA"
 infoUrl = "https://www.youtube.com/channel/UCWIBHfojz6xboF6FIICSz4w"
 description = "We make music and like goddamn it's loud."
-[analog.image]
-src = "/images/artists/analog.jpg"
 
 [artesian]
 name = "Artesian Rumble"
 location = "Olympia, WA"
 infoUrl = "https://oly-wa.us/artesianrumble/"
 description = "We play a myriad of tunes, with mobile, mostly unamplified, melodic and percussive instruments to enliven our spirits, working towards peace and social justice."
-[artesian.image]
-src = "/images/artists/artesian.jpg"
 
 [bainbridge]
 name = "Bainbridge High School Spartan Brass Band"
@@ -54,16 +46,12 @@ name = "Baque Maré"
 location = "Seattle, WA"
 infoUrl = "https://www.instagram.com/baquemare/"
 description = "Seattle-based Maracatu de Baque Virado drumming group. We bring Northeastern Afro-Brazilian drumming traditions: Brazil beyond samba!"
-[baque.image]
-src = "/images/artists/baque.png"
 
 [better]
 name = "Better as Brass"
 location = "Seattle, WA"
 infoUrl = "https://betterasbrass.band"
 description = "Do you sometimes hear a song and think, “ya know, that would sound better as brass”? Same here! We play tunes that span multiple decades that fill any street or venue to the brim with sonic satisfaction!"
-[better.image]
-src = "/images/artists/better.jpg"
 
 [bigblitz]
 name = "Big Blitz"
@@ -100,8 +88,6 @@ name = "Brass Cheeks"
 location = "Seattle, WA"
 infoUrl = "https://www.facebook.com/profile.php?id=61554147362162"
 description = "Brass Cheeks is a 9-piece brass band featuring UW Alumni specializing in funk, soul, pop, and sometimes metal when we're feeling intense."
-[brasscheeks.image]
-src = "/images/artists/brasscheeks.jpg"
 
 [brassless]
 name = "Brassless Chaps"
@@ -131,8 +117,6 @@ name = "Chaotic Noise Marching Corps"
 location = "Seattle, WA"
 infoUrl = "http://chaoticnoise.com/"
 description = "Chaotic Noise is a Seattle based renegade marching band that is dedicated to keeping the tradition of music, performance, energy, havoc, discipline, and sheer stupid fun alive in Seattle's streets. Heavily influenced by past projects as well as the likes of the Infernal Noise Brigade, Extra Action Marching Band, and HONK bands from around the world, Chaotic Noise assures that you will have lots of fun forgetting how to think, breathe, and act in your everyday lives."
-[chaotic.image]
-src = "/images/artists/chaotic.jpg"
 
 [chervona]
 name = "Chervona"
@@ -202,8 +186,6 @@ name = "HONK! All-Stars (open jam)"
 location = "Everywhere"
 infoUrl = "https://drive.google.com/drive/folders/1WO2k6tIspmt4BY8wz62tWIBVZOIPIftP?usp=share_link"
 description = "HONK! All-Stars is a collection of the best and the loudest musicians from all over. Anyone who can play is welcome to participate."
-[allstars.image]
-src = "/images/artists/allstars.jpg"
 
 [future]
 name = "HONK! Future"
@@ -215,8 +197,6 @@ name = "Hungry March Band"
 location = "Brooklyn, NYC"
 infoUrl = "http://hungrymarchband.com"
 description = "Celebrating over 20 years of bringing live musical spectacle to the people of New York City and beyond"
-[hungry.image]
-src = "/images/artists/hungry.jpg"
 
 [khmer]
 name = "Khmer Amarak Performing Arts"
@@ -274,24 +254,18 @@ name = "Mission Delirium"
 location = "San Francisco, CA"
 infoUrl = "https://missiondelirium.com/"
 description = "A love letter to your feet from the dance floor, Mission Delirium is an invitation to revel in pounding drums and facemelting brass."
-[mission.image]
-src = "/images/artists/mission.jpg"
 
 [neon]
 name = "Neon Brass Party"
 location = "Seattle, WA"
 infoUrl = "https://www.neonbrassparty.com/"
 description = "Neon Brass Party is a street band based out of Seattle, WA.  We believe in creating space in the world to celebrate our individuality together and amplify joy throughout the community through our music. Our goal is to be the party and get people movin and groovin with us wherever we might show up. We play various styles of music ranging from Latin to funk to hip-hop, so long as it grooves, we'll play it!"
-[neon.image]
-src = "/images/artists/neon.jpg"
 
 [step]
 name = "Northside Step Team"
 location = "Seattle, WA"
 infoUrl = "https://www.facebook.com/northsidedrill/"
 description = "Northside Drill and Step Team. Established in 2000 from Seattle, Wa"
-[step.image]
-src = "/images/artists/step.jpg"
 
 [onelove]
 name = "One Love"
@@ -333,8 +307,6 @@ name = "Seattle Kokon Taiko"
 location = "Seattle, WA"
 infoUrl = "https://seattlekokontaiko.org/"
 description = "Whether dancing at a festival, praying in a temple, watching a theater performance or fighting a battle, the sound of the taiko could be heard as part of everyday Japanese life for hundreds, perhaps thousands, of years."
-[kokon.image]
-src = "/images/artists/kokon.jpg"
 
 [seattleu]
 name = "Seattle University Drumline"
@@ -369,8 +341,6 @@ name = "Sound Wave"
 location = "Seattle, WA"
 infoUrl = "https://www.soundersfc.com/matchday/sound-wave"
 description = "Sound Wave is the official band of Seattle Sounders FC. In 2009, minority owner Drew Carey conceptualized an ensemble made up of traditional marching percussion and brass instruments to bring the spirit of Sounders FC to life. Sound Wave can be found at Sounders FC home matchdays and entertaining the local community at parades, charitable events, and corporate functions."
-[soundwave.image]
-src = "/images/artists/soundwave.png"
 
 [southendpep]
 name = "South End Pep"
@@ -411,8 +381,6 @@ name = "VamoLá"
 location = "Seattle, WA"
 infoUrl = "https://vamola.org/"
 description = "VamoLá is Seattle's Brazilian blast, bringing fiery percussion rhythms and sun-drenched energy straight to the streets. Prepare for infectious grooves, dazzling costumes, and enough samba spirit to turn every possible puddle into a mini Copacabana beach. Get ready to shake, shimmy, and celebrate your way across Brazil, right here in the heart of the Northwest!"
-[vamola.image]
-src = "/images/artists/vamola.jpg"
 
 [window]
 name = "Window Smashing Job Creators"

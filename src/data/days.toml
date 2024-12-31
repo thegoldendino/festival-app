@@ -21,11 +21,6 @@ mapLocations = [
 	["*potty", "845", "953"],
 	["*potty", "200", "200"],
 ]
-["2024-05-31".mapImage]
-src = "/images/maps/0_georgetown-phone.jpg"
-width = 1350
-height = 1800
-format = 'jpg'
 
 ["2024-06-01"]
 startTime = "12:00:00"
@@ -47,9 +42,4 @@ mapLocations = [
 	["*medic", "480", "1180"],
 	["*potty", "410", "1330"],
 ]
-["2024-06-01".mapImage]
-src = "/images/maps/1_columbia-city-phone.jpg"
-width = 1350
-height = 1800
-format = 'jpg'
 
