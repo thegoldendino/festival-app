@@ -3,11 +3,11 @@
 </script>
 
 {#snippet item(name: string, time: string)}
-	<span class="artist-name">
-		{name}
-	</span>
 	<span class="time">
 		{time}
+	</span>
+	<span class="artist-name">
+		{name}
 	</span>
 {/snippet}
 
@@ -25,6 +25,7 @@
 	.item {
 		align-items: center;
 		gap: 1rem;
+		padding-inline: 2rem;
 	}
 	.time {
 		border-radius: 10px;

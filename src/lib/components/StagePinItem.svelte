@@ -1,9 +1,9 @@
 <script>
 	import MapPin from './MapPin.svelte';
-	let { href, name, idx, key } = $props();
+	let { href, name, idx, key, active = false } = $props();
 </script>
 
-<a class="item" {href}>
+<a class="item" {href} class:active>
 	<span class="stage-name">
 		{name}
 	</span>
@@ -19,6 +19,7 @@
 	.item {
 		align-items: center;
 		gap: 1rem;
+		padding-inline: 2rem;
 	}
 
 	.stage-name {
@@ -27,5 +28,10 @@
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
 		border-bottom: dashed 3px var(--color-primary-5);
+	}
+
+	.item.active {
+		background-color: var(--color-primary-5);
+		height: 4rem;
 	}
 </style>

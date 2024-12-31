@@ -15,6 +15,7 @@
 	.item {
 		align-items: center;
 		gap: 1rem;
+		padding-inline: 2rem;
 	}
 	.time {
 		border-radius: 10px;

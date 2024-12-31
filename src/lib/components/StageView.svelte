@@ -61,6 +61,7 @@
 					<StagePinItem
 						href={`#/${day.date}/stages/${key}`}
 						name={festival.stages[key]?.name || ''}
+						active={key === stage.key}
 						{idx}
 						{key}
 					/>

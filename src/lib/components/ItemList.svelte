@@ -15,7 +15,7 @@
 <style>
 	.item-list {
 		list-style-type: none;
-		padding: 0 2rem;
+		padding: 0 0;
 		margin: 0;
 	}
 
