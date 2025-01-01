@@ -10,6 +10,8 @@
 	import ItemList from './ItemList.svelte';
 	import StagePinItem from './StagePinItem.svelte';
 	import TimeArtistItem from './TimeArtistItem.svelte';
+	import StageIcon from './StageIcon.svelte';
+	import ArtistsIcon from './ArtistsIcon.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -46,9 +48,11 @@
 	{#snippet footer()}
 		<ActionButtonGroup>
 			<ActionButton href={`#/${day.date}/artists`}>
+				<ArtistsIcon></ArtistsIcon>
 				{festival.options.text.artists}
 			</ActionButton>
 			<ActionButton onclick={() => (showStages = true)}>
+				<StageIcon></StageIcon>
 				{festival.options.text.stages}
 			</ActionButton>
 		</ActionButtonGroup>

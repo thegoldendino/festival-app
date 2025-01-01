@@ -1,5 +1,5 @@
 <script>
-	let { href = null, onclick = null, children } = $props();
+	let { href = null, onclick = null, children, icon = null } = $props();
 </script>
 
 {#if href}
@@ -15,6 +15,7 @@
 <style>
 	.action-button {
 		display: flex;
+		gap: 1rem;
 		justify-content: center;
 		align-items: center;
 		width: 100%;

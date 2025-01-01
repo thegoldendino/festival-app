@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import FestivalBuilder from './FestivalBuilder.js';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
-import type { ConfigArtists, ConfigStages } from '$types';
+import type { ConfigArtist, ConfigStage } from '$types';
 
 describe('FestivalBuilder', () => {
 
@@ -17,7 +17,7 @@ describe('FestivalBuilder', () => {
 		},
 	};
 
-	const stagesValid: ConfigStages = {
+	const stagesValid: Record<string, ConfigStage> = {
 		"stage-1": {
 			name: "Stage 1",
 		},
@@ -32,7 +32,7 @@ describe('FestivalBuilder', () => {
 		},
 	}
 
-	const artistsValid: ConfigArtists = {
+	const artistsValid: Record<string, ConfigArtist> = {
 		"artist-1": {
 			name: "Artist 1",
 		},

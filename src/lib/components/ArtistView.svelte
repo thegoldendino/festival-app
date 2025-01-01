@@ -8,6 +8,8 @@
 	import Drawer from './Drawer.svelte';
 	import ItemList from './ItemList.svelte';
 	import StageTimeItem from './StageTimeItem.svelte';
+	import ScheduleIcon from './ScheduleIcon.svelte';
+	import InfoIcon from './InfoIcon.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -35,8 +37,14 @@
 
 	{#snippet footer()}
 		<ActionButtonGroup>
-			<ActionButton href={artist.infoUrl}>Info</ActionButton>
-			<ActionButton onclick={() => (showSchedule = true)}>Schedule</ActionButton>
+			<ActionButton href={artist.infoUrl}>
+				<InfoIcon></InfoIcon>
+				Info
+			</ActionButton>
+			<ActionButton onclick={() => (showSchedule = true)}>
+				<ScheduleIcon></ScheduleIcon>
+				Schedule
+			</ActionButton>
 		</ActionButtonGroup>
 	{/snippet}
 

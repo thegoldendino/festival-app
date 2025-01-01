@@ -10,21 +10,6 @@ export { ConfigStageSchema } from './stage.schema.js';
 export { ConfigArtistSchema } from './artist.schema.js';
 export { ImageSchema } from './image.schema.js';
 
-export const ConfigStagesSchema = z.record(
-	z.string(),
-	ConfigStageSchema
-)
-
-export const ConfigArtistsSchema = z.record(
-	z.string(),
-	ConfigArtistSchema
-)
-
-export const ConfigDaysSchema = z.record(
-	z.string().date(),
-	ConfigDaySchema
-);
-
 export const ConfigOptionsSchema = z.object({
 	logoImage: ImageSchema.optional(),
 	text: z.object({
@@ -44,9 +29,18 @@ export const OptionsSchema = z.object({
 });
 
 export const ConfigSchema = z.object({
-	days: ConfigDaysSchema,
-	stages: ConfigStagesSchema,
-	artists: ConfigArtistsSchema,
+	days: z.record(
+		z.string().date(),
+		ConfigDaySchema
+	),
+	stages: z.record(
+		z.string(),
+		ConfigStageSchema
+	),
+	artists: z.record(
+		z.string(),
+		ConfigArtistSchema
+	),
 	options: ConfigOptionsSchema.optional(),
 }).superRefine((data, ctx) => {
 	const artistKeys = Object.keys(data.artists);
