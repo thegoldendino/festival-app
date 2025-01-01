@@ -55,7 +55,8 @@
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
-		"docs": "npx zod2md --entry ./src/lib/schemas/config.schema.js --title \"Config Schema\" --output docs/config.md"
+		"docs": "npx zod2md --entry ./src/lib/schemas/config.schema.js --title \"Config Schema\" --output docs/config.md",
+		"adb": "adb reverse tcp:5173 tcp:5173"
 	},
 	"sideEffects": [
 		"**/*.css"

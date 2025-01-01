@@ -138,15 +138,15 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	function ontouchend(event: TouchEvent) {
 		pointers.clear();
 
-		const currentTime = new Date().getTime();
-		const tapLength = currentTime - lastTouchEndTime;
+		// const currentTime = new Date().getTime();
+		// const tapLength = currentTime - lastTouchEndTime;
 
-		if (tapLength < 300 && tapLength > 0) {
-			resetScale();
-			updateTransform();
-		}
+		// if (tapLength < 300 && tapLength > 0) {
+		// 	resetScale();
+		// 	updateTransform();
+		// }
 
-		lastTouchEndTime = currentTime;
+		// lastTouchEndTime = currentTime;
 	}
 
 

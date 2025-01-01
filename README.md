@@ -1,10 +1,15 @@
 # Festival App
 
-A Svelte component that provides a mobile kiosk for festival information.
-Multiple days can be shown, each with a map of stage locations and schedules. All schedule information
-links to artist information.
+A mobile kiosk for festival information. Each festival day displays a pannable/zoomable map image with positioned stage pins.
+Stages display artist schedules with links to more artist information.
 
+![Festival App Mobile Demo](./festival-app-demo.gif)
 
+## Features
+
+- Pannable/Zoomable map image
+- Configuration schema
+- Browser history state maintained through custom hash router.
 
 ## Installing
 
@@ -30,21 +35,14 @@ npm install --save-dev @thegoldendino/festival-app
 	};
 </script>
 
-<div class="fullscreen-preview">
+<div class="mobile-preview">
 	<FestivalApp {config} />
 </div>
 
 <style>
-	:global(body) {
-		margin: 0;
-		padding: 0;
-	}
-	.fullscreen-preview {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100dvw;
-		height: 100dvh;
+	.mobile-preview {
+		width: 400px;
+		height: 700px;
 	}
 </style>
 
@@ -54,13 +52,19 @@ npm install --save-dev @thegoldendino/festival-app
 
 [docs/config.md](./docs/config.md)
 
-### TOML Example
+### Example Config [TOML](https://toml.io)
 
 - [days](./src/data/days.toml): schedule and map data for a festival day
 - [artists](./src/data/artists.toml): artist information
 - [stages](./src/data/stages.toml): stage information
 - [options](./src/data/options.toml): application specific options
 
+
+### Merging Vite processed images
+
+Config Days and Artists each have an Image which includes src, width, height. Instead of manually entering these values, Vite provides options to pull this data from a directory of images. **Each image must be named the same as the corresponding record key.**
+
+__see [+page.serve.ts](./src/lib/routes/+page.server.ts) for example.__
 
 ## Developing
 

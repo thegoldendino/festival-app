@@ -1,5 +1,18 @@
 # Config Schema
 
+## Config
+
+_Object containing the following properties:_
+
+| Property           | Type                                                                                          |
+| :----------------- | :-------------------------------------------------------------------------------------------- |
+| **`days`** (\*)    | _Record with yyyy-mm-dd keys of type_ `string` _and values of type_ [ConfigDay](#configday)   |
+| **`stages`** (\*)  | _Record with stage keys of type_ `string` _and values of type_ [ConfigStage](#configstage)    |
+| **`artists`** (\*) | _Record with artist keys of type_ `string` _and values of type_ [ConfigArtist](#configartist) |
+| `options`          | [ConfigOptions](#configoptions)                                                               |
+
+_(\*) Required._
+
 ## ConfigArtist
 
 _Object containing the following properties:_
@@ -13,13 +26,6 @@ _Object containing the following properties:_
 | `image`         | [Image](#image)  |
 
 _(\*) Required._
-
-## ConfigArtists
-
-_Object record with dynamic keys:_
-
-- _keys of type_ `string`
-- _values of type_ [ConfigArtist](#configartist)
 
 ## ConfigDay
 
@@ -39,13 +45,6 @@ _Object containing the following properties:_
 
 _(\*) Required._
 
-## ConfigDays
-
-_Object record with dynamic keys:_
-
-- _keys of type_ `string`
-- _values of type_ [ConfigDay](#configday)
-
 ## ConfigOptions
 
 _Object containing the following properties:_
@@ -57,18 +56,6 @@ _Object containing the following properties:_
 
 _All properties are optional._
 
-## Config
-
-_Object containing the following properties:_
-
-| Property           | Type                            |
-| :----------------- | :------------------------------ |
-| **`days`** (\*)    | [ConfigDays](#configdays)       |
-| **`stages`** (\*)  | [ConfigStages](#configstages)   |
-| **`artists`** (\*) | [ConfigArtists](#configartists) |
-| `options`          | [ConfigOptions](#configoptions) |
-
-_(\*) Required._
 
 ## ConfigStage
 
@@ -80,13 +67,6 @@ _Object containing the following properties:_
 | `mapUrl`        | `string` (_url_) |
 
 _(\*) Required._
-
-## ConfigStages
-
-_Object record with dynamic keys:_
-
-- _keys of type_ `string`
-- _values of type_ [ConfigStage](#configstage)
 
 ## Image
 
