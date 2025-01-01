@@ -10,27 +10,12 @@ export interface Transform {
 	translation: Point;
 }
 
-interface TrackedPoint {
-	point: Point;
-	t: number; // time
-}
-
-interface Velocity {
-	vx: number;
-	vy: number;
-	ts: number;
-}
-
-const MIN_VELOCITY = 0.02;
-const TRACKED_DURATION = 120;
-
 // Some basic 2D geometry
 const distance = (p1: Point, p2: Point) => Math.hypot(p1.x - p2.x, p1.y - p2.y);
 const midpoint = (p1: Point, p2: Point) => ({ x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 });
 const subtract = (p1: Point, p2: Point) => ({ x: p1.x - p2.x, y: p1.y - p2.y });
 
 export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEvent) => void }> = (node) => {
-	const rAF = requestAnimationFrame;
 	let minScale = 0;
 	let scale = 1.0;
 	let translation = { x: 0, y: 0 };
@@ -77,6 +62,11 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	}
 
 	function onpointerdown(event: PointerEvent) {
+		const target = event.target as HTMLElement;
+		if (target.closest('a')) {
+			// Do not set pointer capture if an anchor or its descendant is clicked
+			return;
+		}
 		event.stopPropagation();
 		node.setPointerCapture(event.pointerId);
 		pointers.set(event.pointerId, pointFromEvent(event));
