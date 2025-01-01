@@ -61,16 +61,45 @@ npm install --save-dev @thegoldendino/festival-app
 - [stages](./src/data/stages.toml): stage information
 - [options](./src/data/options.toml): application specific options
 
+## Static Site Implementation
+
+Though any repository can generate a Config object, FestivalApp is designed to not require a CMS or any 3rd party backend.
+Image file nameing conventions provide a reference to the record keys in the DaysConfig and ArtistsConfig.
+
+### Example
+
+```toml
+# artists.toml
+
+[brasscheeks]
+name = "Brass Cheeks"
+```
+
+- `brasscheeks` key requires a corresponding image file `brasscheeks.jpg` (extension agnostic: 'png', 'jpeg', 'webp'). 
+- We can then use Vite's file glob feature to pull all image files.
+- Similarly a Day record with key `2025-06-01` should have a corresponding map image `2025-06-01.png` file.
 
 ### Merging Vite processed images
 
-Config Days and Artists each have an Image which includes src, width, height. Instead of manually entering these values, Vite provides options to pull this data from a directory of images. **Each image must be named the same as the corresponding record key.**
+Each [ConfigDay](./docs/config.md#configday) and [ConfigArtist](./docs/config.md#configartist) has an Image which includes [src, width, height](./docs/config.md#image). Instead of manually entering these values, Vite provides the ability to pull this data from a directory of images. **Each image must be named the same as the corresponding record key.**
 
 __see [+page.serve.ts](./src/lib/routes/+page.server.ts) for example.__
 
+## Styling
+
+The FestivalApp takes advantage of svelte's ability to [pass custom properties](https://svelte.dev/docs/svelte/custom-properties) to its components.
+
+### Example
+
+
+```html
+
+```
+
+
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've installed dependencies with `npm install`, start a development server:
 
 ```bash
 npm run dev
@@ -79,7 +108,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Everything inside `src/lib` is part of the festival-app library, everything inside `src/routes` is used as a showcase for the festival-app.
 
 ## Building
 
@@ -100,8 +129,6 @@ You can preview the production build with `npm run preview`.
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
 
 ## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
 
 To publish your library to [npm](https://www.npmjs.com):
 

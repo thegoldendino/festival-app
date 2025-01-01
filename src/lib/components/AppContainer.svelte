@@ -39,7 +39,25 @@
 		display: flex;
 		flex-direction: column;
 		background-color: var(--app-bg-color);
+		font-family:
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			Segoe UI,
+			Roboto,
+			Oxygen,
+			Ubuntu,
+			Cantarell,
+			Open Sans,
+			Helvetica Neue,
+			sans-serif;
+		-webkit-tap-highlight-color: transparent;
 	}
+
+	.app-container :global(*) {
+		box-sizing: border-box;
+	}
+
 	@media (min-width: 650px) {
 		.app-container {
 			position: relative;
