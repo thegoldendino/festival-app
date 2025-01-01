@@ -129,5 +129,6 @@
 		color: var(--button-text-color);
 		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
 		box-shadow: var(--box-shadow, var(--shadow-1));
+		cursor: pointer;
 	}
 </style>

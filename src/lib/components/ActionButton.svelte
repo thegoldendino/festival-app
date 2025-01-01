@@ -33,5 +33,6 @@
 		box-shadow: var(--box-shadow, var(--shadow-4));
 		letter-spacing: 0.06rem;
 		text-transform: uppercase;
+		cursor: pointer;
 	}
 </style>

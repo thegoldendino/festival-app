@@ -54,5 +54,6 @@
 		border: none;
 		font-size: 2rem;
 		color: var(--footer-text-color);
+		cursor: pointer;
 	}
 </style>
