@@ -1,6 +1,12 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
-	import { getContext, type Snippet } from 'svelte';
+	import type { FestivalModel } from '$types';
+	import { type Snippet } from 'svelte';
+	import { getContext } from 'svelte';
+
+	let festival: FestivalModel = getContext('festival');
+
+	let responsivefullscreen = festival.options.responsivefullscreen ?? false;
 
 	let {
 		infoHeader,
@@ -15,7 +21,7 @@
 	} = $props();
 </script>
 
-<div class="festival-app">
+<div class="festival-app" class:responsivefullscreen>
 	<header>
 		<Header></Header>
 		{@render infoHeader()}
@@ -34,23 +40,14 @@
 
 <style>
 	.festival-app {
-		position: fixed;
-		inset: 0 0;
 		display: flex;
 		flex-direction: column;
 		background-color: var(--app-bg-color);
-		font-family:
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			Segoe UI,
-			Roboto,
-			Oxygen,
-			Ubuntu,
-			Cantarell,
-			Open Sans,
-			Helvetica Neue,
-			sans-serif;
+		width: 100%;
+		height: 100%;
+		inset: 0 0;
+		font-family: system-ui;
+		container: festival-app / inline-size;
 		-webkit-tap-highlight-color: transparent;
 	}
 
@@ -58,12 +55,13 @@
 		box-sizing: border-box;
 	}
 
-	@media (min-width: 650px) {
+	.responsivefullscreen {
+		position: fixed;
+	}
+
+	@media (min-width: 600px) {
 		.festival-app {
 			position: relative;
-			container: festival-app / inline-size;
-			width: 100%;
-			height: 100%;
 		}
 	}
 

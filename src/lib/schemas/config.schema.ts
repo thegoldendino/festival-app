@@ -12,6 +12,7 @@ export { ImageSchema } from './image.schema.js';
 
 export const ConfigOptionsSchema = z.object({
 	logoImage: ImageSchema.optional(),
+	responsivefullscreen: z.boolean().optional().default(false),
 	text: z.object({
 		artist: z.string().optional(),
 		artists: z.string().optional(),
@@ -21,6 +22,7 @@ export const ConfigOptionsSchema = z.object({
 
 export const OptionsSchema = z.object({
 	logoImage: ImageSchema.optional(),
+	responsivefullscreen: z.boolean(),
 	text: z.object({
 		artist: z.string(),
 		artists: z.string(),

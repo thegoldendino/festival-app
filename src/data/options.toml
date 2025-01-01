@@ -1,3 +1,5 @@
+responsivefullscreen = true
+
 [logoImage]
 src = '/images/logo-white.png'
 
