@@ -6,11 +6,10 @@
 	--color-primary-hue: var(--hue-violet);
 	--color-secondary-hue: var(--hue-pink);
 	
-	/* BREAKPOINTS */
-	--breakpoint-sm: 640px;
 	
-	/* APP COLORS */
+	/* APP PROPERTIES */
 	--app-bg-color: var(--color-primary-9);
+	--app-font-family: system-ui, sans-serif;
 	
 	/* LAYOUT HEIGHTS */
 	--header-height: 76px;
@@ -43,10 +42,15 @@
 	--button-text-color: var(--color-secondary-1);
 	--button-border-color: var(--color-secondary-4);
 	--button-text-shadow-color: var(--color-secondary-6);
+	--button-border-width: 3px;
 	--button-border-radius: 10px;
+	--button-font-size: 1.25rem;
+	--button-font-weight: 600;
+
 
 	/* ARTIST PAGE */
 	--artist-content-text-color: var(--color-primary-2);
+	--artist-content-font-size: 1.25rem;
 	
 
 

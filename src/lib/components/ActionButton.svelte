@@ -22,11 +22,11 @@
 		height: 100%;
 		background-color: var(--button-bg-color);
 		border-style: solid;
-		border-width: 3px;
+		border-width: var(--button-border-width);
 		border-color: var(--button-border-color);
 		border-radius: var(--button-border-radius);
-		font-size: 1.25rem;
-		font-weight: 600;
+		font-size: var(--button-font-size);
+		font-weight: var(--button-font-weight);
 		text-decoration: none;
 		color: var(--button-text-color);
 		text-shadow: var(--button-text-shadow-color) 0 0 10px;

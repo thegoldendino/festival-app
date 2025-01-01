@@ -66,13 +66,14 @@
 <style>
 	.content img {
 		width: 100%;
-		height: auto;
+		height: 30lvh;
+		object-fit: cover;
 	}
 
 	.content p {
 		text-align: justify;
 		line-height: 1.5;
-		font-size: 1.25rem;
+		font-size: var(--artist-content-font-size);
 		padding: 0 1rem;
 		color: var(--artist-content-text-color);
 	}
@@ -80,9 +81,5 @@
 	.content p::first-line {
 		text-transform: uppercase;
 		letter-spacing: 3px;
-	}
-	img {
-		width: 60%;
-		height: auto;
 	}
 </style>

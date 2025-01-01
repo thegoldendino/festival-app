@@ -46,7 +46,7 @@
 		width: 100%;
 		height: 100%;
 		inset: 0 0;
-		font-family: system-ui;
+		font-family: var(--app-font-family);
 		container: festival-app / inline-size;
 		-webkit-tap-highlight-color: transparent;
 	}
