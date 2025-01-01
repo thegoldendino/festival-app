@@ -3,7 +3,7 @@
 A mobile kiosk for festival information. Each festival day displays a pannable/zoomable map image with positioned stage pins.
 Stages display artist schedules with links to more artist information.
 
-![Festival App Mobile Demo](https://ik.imagekit.io/thegoldendino/goldendino/festival-app-demo_wZDf1xAXB.gif)
+![Festival App Mobile Demo](https://ik.imagekit.io/thegoldendino/goldendino/festival-app-demo_wZDf1xAXB.gif?updatedAt=1735724073459&tr=w-300)
 
 [demo site](https://festival-app-dev.netlify.app/)
 
