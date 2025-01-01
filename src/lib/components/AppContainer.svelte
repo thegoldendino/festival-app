@@ -15,7 +15,7 @@
 	} = $props();
 </script>
 
-<div class="app-container">
+<div class="festival-app">
 	<header>
 		<Header></Header>
 		{@render infoHeader()}
@@ -33,7 +33,7 @@
 </div>
 
 <style>
-	.app-container {
+	.festival-app {
 		position: fixed;
 		inset: 0 0;
 		display: flex;
@@ -54,12 +54,12 @@
 		-webkit-tap-highlight-color: transparent;
 	}
 
-	.app-container :global(*) {
+	.festival-app :global(*) {
 		box-sizing: border-box;
 	}
 
 	@media (min-width: 650px) {
-		.app-container {
+		.festival-app {
 			position: relative;
 			container: festival-app / inline-size;
 			width: 100%;
