@@ -5,11 +5,13 @@ Stages display artist schedules with links to more artist information.
 
 ![Festival App Mobile Demo](https://ik.imagekit.io/thegoldendino/goldendino/festival-app-demo_wZDf1xAXB.gif)
 
+[demo site](https://festival-app-dev.netlify.app/)
+
 ## Features
 
 - Pannable/Zoomable map image
 - Configuration schema
-- Browser history state maintained through custom hash router.
+- Browser history state maintained.
 
 ## Installing
 
