@@ -32,8 +32,11 @@
 		padding: 0 0 var(--footer-height) 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 10px 10px 0 0;
-		background-color: var(--footer-bg-color);
-		color: var(--footer-text-color);
+		background-color: var(--drawer-bg-color);
+	}
+
+	.drawer :global(*) {
+		color: var(--drawer-text-color);
 	}
 
 	.drawer-header {
@@ -41,8 +44,6 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0.5rem 1rem 0 1rem;
-		background-color: var(--footer-background-color);
-		color: var(--footer-text-color);
 	}
 
 	.drawer-content {
@@ -53,7 +54,7 @@
 		background-color: transparent;
 		border: none;
 		font-size: 2rem;
-		color: var(--footer-text-color);
+		color: var(--drawer-text-color);
 		cursor: pointer;
 	}
 </style>

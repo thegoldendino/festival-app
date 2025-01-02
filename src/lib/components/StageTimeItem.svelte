@@ -22,13 +22,13 @@
 		font-size: 1rem;
 		font-weight: 600;
 		padding: 0.25rem 0.35rem;
-		background-color: var(--color-primary-8);
+		background-color: var(--drawer-timepill-bg-color);
 	}
 	.stage-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
-		border-bottom: dashed 3px var(--color-primary-5);
+		border-bottom: dashed 3px var(--drawer-underline-color);
 	}
 </style>

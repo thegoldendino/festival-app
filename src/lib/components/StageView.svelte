@@ -79,4 +79,8 @@
 	.content {
 		margin-block: 1rem;
 	}
+
+	.content :global(*) {
+		color: var(--stage-schedule-text-color);
+	}
 </style>

@@ -27,11 +27,11 @@
 		overflow: hidden;
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
-		border-bottom: dashed 3px var(--color-primary-5);
+		border-bottom: dashed 3px var(--drawer-underline-color);
 	}
 
 	.item.active {
-		background-color: var(--color-primary-5);
+		background-color: var(--drawer-active-bg-color);
 		height: 4rem;
 	}
 </style>

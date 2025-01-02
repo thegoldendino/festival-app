@@ -25,7 +25,6 @@
 	}
 
 	.item-list :global(.item) {
-		color: var(--footer-text-color);
 		display: flex;
 		justify-content: space-between;
 

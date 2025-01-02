@@ -120,11 +120,10 @@
 		padding: 0 8px;
 		background-color: var(--button-bg-color);
 		border-style: solid;
-		border-width: 3px;
+		border-width: var(--button-border-width);
 		border-color: var(--button-border-color);
 		border-radius: var(--button-border-radius);
-		font-size: 1.5rem;
-		font-weight: 600;
+		font-weight: var(--button-font-weight);
 		text-decoration: none;
 		color: var(--button-text-color);
 		text-shadow: var(--button-text-shadow-color) 1px 0 10px;

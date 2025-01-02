@@ -32,13 +32,13 @@
 		padding: 0.25rem 0.35rem;
 		font-size: 1rem;
 		font-weight: 600;
-		background-color: var(--color-primary-7);
+		background-color: var(--stage-schedule-timepill-bg-color);
 	}
 	.artist-name {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
-		border-bottom: dashed 3px var(--color-primary-7);
+		border-bottom: dashed 3px var(--stage-schedule-underline-color);
 	}
 </style>
