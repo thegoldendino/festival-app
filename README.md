@@ -83,7 +83,7 @@ name = "Brass Cheeks"
 
 Each [ConfigDay](./docs/config.md#configday) and [ConfigArtist](./docs/config.md#configartist) has an Image which includes [src, width, height](./docs/config.md#image). Instead of manually entering these values, Vite provides the ability to pull this data from a directory of images. **Each image must be named the same as the corresponding record key.**
 
-__see [+page.serve.ts](./src/lib/routes/+page.server.ts) for example.__
+__see [+page.serve.ts](./src/routes/+page.server.ts) for example.__
 
 ## Styling
 
