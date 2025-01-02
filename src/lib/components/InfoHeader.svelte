@@ -52,8 +52,8 @@
 	.info-header {
 		display: flex;
 		justify-content: flex-end;
-		background-color: var(--subheader-bg-color);
-		height: var(--subheader-height);
+		background-color: var(--festapp-subheader-bg-color);
+		height: var(--festapp-subheader-height);
 		padding-inline: 1rem;
 	}
 
@@ -97,7 +97,7 @@
 	h3 {
 		margin: 0;
 		padding: 0;
-		color: var(--subheader-text-color);
+		color: var(--festapp-subheader-text-color);
 	}
 
 	h3 {
@@ -109,7 +109,7 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		color: var(--button-text-color);
+		color: var(--festapp-button-text-color);
 	}
 
 	.map-button {
@@ -118,15 +118,15 @@
 		align-items: center;
 		height: 60%;
 		padding: 0 8px;
-		background-color: var(--button-bg-color);
+		background-color: var(--festapp-button-bg-color);
 		border-style: solid;
-		border-width: var(--button-border-width);
-		border-color: var(--button-border-color);
-		border-radius: var(--button-border-radius);
-		font-weight: var(--button-font-weight);
+		border-width: var(--festapp-button-border-width);
+		border-color: var(--festapp-button-border-color);
+		border-radius: var(--festapp-button-border-radius);
+		font-weight: var(--festapp-button-font-weight);
 		text-decoration: none;
-		color: var(--button-text-color);
-		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+		color: var(--festapp-button-text-color);
+		text-shadow: var(--festapp-button-text-shadow-color) 1px 0 10px;
 		box-shadow: var(--box-shadow, var(--shadow-1));
 		cursor: pointer;
 	}

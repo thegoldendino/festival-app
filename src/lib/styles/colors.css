@@ -5,59 +5,59 @@
 
 :where(*) {
 
-	--color-primary-0: oklch(99% .03 var(--color-primary-hue, 0));
-	--color-primary-1: oklch(95% .06 var(--color-primary-hue, 0));
-	--color-primary-2: oklch(88% .12 var(--color-primary-hue, 0));
-	--color-primary-3: oklch(80% .14 var(--color-primary-hue, 0));
-	--color-primary-4: oklch(74% .16 var(--color-primary-hue, 0));
-	--color-primary-5: oklch(68% .19 var(--color-primary-hue, 0));
-	--color-primary-6: oklch(63% .20 var(--color-primary-hue, 0));
-	--color-primary-7: oklch(58% .21 var(--color-primary-hue, 0));
-	--color-primary-8: oklch(53% .20 var(--color-primary-hue, 0));
-	--color-primary-9: oklch(49% .19 var(--color-primary-hue, 0));
-	--color-primary-10: oklch(42% .17 var(--color-primary-hue, 0));
-	--color-primary-11: oklch(35% .15 var(--color-primary-hue, 0));
-	--color-primary-12: oklch(27% .12 var(--color-primary-hue, 0));
-	--color-primary-13: oklch(20% .09 var(--color-primary-hue, 0));
-	--color-primary-14: oklch(14% .07 var(--color-primary-hue, 0));
-	--color-primary-15: oklch(11% .05 var(--color-primary-hue, 0));
-	--color-primary-bright: oklch(65% .3 var(--color-primary-hue, 0));
+	--festapp-color-primary-0: oklch(99% .03 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-1: oklch(95% .06 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-2: oklch(88% .12 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-3: oklch(80% .14 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-4: oklch(74% .16 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-5: oklch(68% .19 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-6: oklch(63% .20 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-7: oklch(58% .21 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-8: oklch(53% .20 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-9: oklch(49% .19 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-10: oklch(42% .17 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-11: oklch(35% .15 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-12: oklch(27% .12 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-13: oklch(20% .09 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-14: oklch(14% .07 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-15: oklch(11% .05 var(--festapp-color-primary-hue, 0));
+	--festapp-color-primary-bright: oklch(65% .3 var(--festapp-color-primary-hue, 0));
 
-	--color-secondary-0: oklch(99% .03 var(--color-secondary-hue, 0));
-	--color-secondary-1: oklch(95% .06 var(--color-secondary-hue, 0));
-	--color-secondary-2: oklch(88% .12 var(--color-secondary-hue, 0));
-	--color-secondary-3: oklch(80% .14 var(--color-secondary-hue, 0));
-	--color-secondary-4: oklch(74% .16 var(--color-secondary-hue, 0));
-	--color-secondary-5: oklch(68% .19 var(--color-secondary-hue, 0));
-	--color-secondary-6: oklch(63% .20 var(--color-secondary-hue, 0));
-	--color-secondary-7: oklch(58% .21 var(--color-secondary-hue, 0));
-	--color-secondary-8: oklch(53% .20 var(--color-secondary-hue, 0));
-	--color-secondary-9: oklch(49% .19 var(--color-secondary-hue, 0));
-	--color-secondary-10: oklch(42% .17 var(--color-secondary-hue, 0));
-	--color-secondary-11: oklch(35% .15 var(--color-secondary-hue, 0));
-	--color-secondary-12: oklch(27% .12 var(--color-secondary-hue, 0));
-	--color-secondary-13: oklch(20% .09 var(--color-secondary-hue, 0));
-	--color-secondary-14: oklch(14% .07 var(--color-secondary-hue, 0));
-	--color-secondary-15: oklch(11% .05 var(--color-secondary-hue, 0));
-	--color-secondary-bright: oklch(65% .3 var(--color-secondary-hue, 0));
+	--festapp-color-secondary-0: oklch(99% .03 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-1: oklch(95% .06 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-2: oklch(88% .12 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-3: oklch(80% .14 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-4: oklch(74% .16 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-5: oklch(68% .19 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-6: oklch(63% .20 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-7: oklch(58% .21 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-8: oklch(53% .20 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-9: oklch(49% .19 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-10: oklch(42% .17 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-11: oklch(35% .15 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-12: oklch(27% .12 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-13: oklch(20% .09 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-14: oklch(14% .07 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-15: oklch(11% .05 var(--festapp-color-secondary-hue, 0));
+	--festapp-color-secondary-bright: oklch(65% .3 var(--festapp-color-secondary-hue, 0));
 
-	--color-tertiary-0: oklch(99% .03 var(--color-tertiary-hue, 0));
-	--color-tertiary-1: oklch(95% .06 var(--color-tertiary-hue, 0));
-	--color-tertiary-2: oklch(88% .12 var(--color-tertiary-hue, 0));
-	--color-tertiary-3: oklch(80% .14 var(--color-tertiary-hue, 0));
-	--color-tertiary-4: oklch(74% .16 var(--color-tertiary-hue, 0));
-	--color-tertiary-5: oklch(68% .19 var(--color-tertiary-hue, 0));
-	--color-tertiary-6: oklch(63% .20 var(--color-tertiary-hue, 0));
-	--color-tertiary-7: oklch(58% .21 var(--color-tertiary-hue, 0));
-	--color-tertiary-8: oklch(53% .20 var(--color-tertiary-hue, 0));
-	--color-tertiary-9: oklch(49% .19 var(--color-tertiary-hue, 0));
-	--color-tertiary-10: oklch(42% .17 var(--color-tertiary-hue, 0));
-	--color-tertiary-11: oklch(35% .15 var(--color-tertiary-hue, 0));
-	--color-tertiary-12: oklch(27% .12 var(--color-tertiary-hue, 0));
-	--color-tertiary-13: oklch(20% .09 var(--color-tertiary-hue, 0));
-	--color-tertiary-14: oklch(14% .07 var(--color-tertiary-hue, 0));
-	--color-tertiary-15: oklch(11% .05 var(--color-tertiary-hue, 0));
-	--color-tertiary-bright: oklch(65% .3 var(--color-tertiary-hue, 0));
+	--festapp-color-tertiary-0: oklch(99% .03 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-1: oklch(95% .06 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-2: oklch(88% .12 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-3: oklch(80% .14 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-4: oklch(74% .16 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-5: oklch(68% .19 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-6: oklch(63% .20 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-7: oklch(58% .21 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-8: oklch(53% .20 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-9: oklch(49% .19 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-10: oklch(42% .17 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-11: oklch(35% .15 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-12: oklch(27% .12 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-13: oklch(20% .09 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-14: oklch(14% .07 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-15: oklch(11% .05 var(--festapp-color-tertiary-hue, 0));
+	--festapp-color-tertiary-bright: oklch(65% .3 var(--festapp-color-tertiary-hue, 0));
 
 	--hue-red: 25;
   --hue-pink: 350;
@@ -75,6 +75,6 @@
 
 
 	
-	--color-white: rgb(255, 255, 255);
-	--color-black: rgb(0, 0, 0);
+	--festapp-color-white: rgb(255, 255, 255);
+	--festapp-color-black: rgb(0, 0, 0);
  }

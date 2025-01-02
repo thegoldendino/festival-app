@@ -3,62 +3,62 @@
 :where(*) {
 
 	/* COLOR THEME */
-	--color-primary-hue: var(--hue-violet);
-	--color-secondary-hue: var(--hue-pink);
+	--festapp-color-primary-hue: var(--hue-violet);
+	--festapp-color-secondary-hue: var(--hue-pink);
 	
 	/* APP PROPERTIES */
-	--app-bg-color: var(--color-primary-9);
-	--app-font-family: system-ui, sans-serif;
+	--festapp-bg-color: var(--festapp-color-primary-9);
+	--festapp-font-family: system-ui, sans-serif;
 	
 	/* LAYOUT HEIGHTS */
-	--header-height: 76px;
-	--subheader-height: 76px;
-	--footer-height: 76px;
+	--festapp-header-height: 76px;
+	--festapp-subheader-height: 76px;
+	--festapp-footer-height: 76px;
 	
 	/* HEADER COLORS */
-	--header-bg-color: var(--color-primary-8);
-	--subheader-bg-color: var(--color-secondary-6);
-	--subheader-text-color: var(--color-secondary-1);
+	--festapp-header-bg-color: var(--festapp-color-primary-8);
+	--festapp-subheader-bg-color: var(--festapp-color-secondary-6);
+	--festapp-subheader-text-color: var(--festapp-color-secondary-1);
 	
 	/* FOOTER COLORS */
-	--footer-bg-color: var(--color-primary-7);
-	--footer-text-color: var(--color-primary-1);
+	--festapp-footer-bg-color: var(--festapp-color-primary-7);
+	--festapp-footer-text-color: var(--festapp-color-primary-1);
 
 	/* DRAWER COLORS */
-	--drawer-bg-color: var(--color-primary-7);
-	--drawer-text-color: var(--color-primary-1);
-	--drawer-underline-color: var(--color-primary-5);
-	--drawer-active-bg-color: var(--color-primary-5);
-	--drawer-timepill-bg-color: var(--color-primary-8);
+	--festapp-drawer-bg-color: var(--festapp-color-primary-7);
+	--festapp-drawer-text-color: var(--festapp-color-primary-1);
+	--festapp-drawer-underline-color: var(--festapp-color-primary-5);
+	--festapp-drawer-active-bg-color: var(--festapp-color-primary-5);
+	--festapp-drawer-timepill-bg-color: var(--festapp-color-primary-8);
 
 	/* STAGE SCHEDULE COLORS */
-	--stage-schedule-text-color: var(--color-primary-1);
-	--stage-schedule-timepill-bg-color: var(--color-primary-7);
-	--stage-schedule-underline-color: var(--color-primary-7);
+	--festapp-stage-schedule-text-color: var(--festapp-color-primary-1);
+	--festapp-stage-schedule-timepill-bg-color: var(--festapp-color-primary-7);
+	--festapp-stage-schedule-underline-color: var(--festapp-color-primary-7);
 
 	/* HEADER DATE TAB COLORS */
-	--date-selection-text-color: var(--color-primary-1);
-	--date-selection-selected-text-color: var(--color-secondary-1);
-	--date-selection-selected-bg-color: var(--color-secondary-6);
+	--festapp-date-selection-text-color: var(--festapp-color-primary-1);
+	--festapp-date-selection-selected-text-color: var(--festapp-color-secondary-1);
+	--festapp-date-selection-selected-bg-color: var(--festapp-color-secondary-6);
 
 	/* MAP COLORS */
-	--map-pin-text-color: var(--color-white);
-	--map-stage-bg-color: var(--color-secondary-5);
-	--map-medic-bg-color: red;
-	--map-info-bg-color: green;
-	--map-potty-bg-color: blue;
+	--festapp-map-pin-text-color: var(--festapp-color-white);
+	--festapp-map-stage-bg-color: var(--festapp-color-secondary-5);
+	--festapp-map-medic-bg-color: red;
+	--festapp-map-info-bg-color: green;
+	--festapp-map-potty-bg-color: blue;
 
 	/* BUTTON COLORS & PROPS */
-	--button-bg-color: var(--color-secondary-5);
-	--button-text-color: var(--color-secondary-1);
-	--button-border-color: var(--color-secondary-4);
-	--button-text-shadow-color: var(--color-secondary-6);
-	--button-border-width: 3px;
-	--button-border-radius: 10px;
-	--button-font-size: 1.25rem;
-	--button-font-weight: 600;
+	--festapp-button-bg-color: var(--festapp-color-secondary-5);
+	--festapp-button-text-color: var(--festapp-color-secondary-1);
+	--festapp-button-border-color: var(--festapp-color-secondary-4);
+	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
+	--festapp-button-border-width: 3px;
+	--festapp-button-border-radius: 10px;
+	--festapp-button-font-size: 1.25rem;
+	--festapp-button-font-weight: 600;
 
 	/* ARTIST PAGE */
-	--artist-content-text-color: var(--color-primary-2);
-	--artist-content-font-size: 1.25rem;
+	--festapp-artist-content-text-color: var(--festapp-color-primary-2);
+	--festapp-artist-content-font-size: 1.25rem;
 }

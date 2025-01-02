@@ -81,6 +81,6 @@
 	}
 
 	.content :global(*) {
-		color: var(--stage-schedule-text-color);
+		color: var(--festapp-stage-schedule-text-color);
 	}
 </style>

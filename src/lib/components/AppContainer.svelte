@@ -42,11 +42,11 @@
 	.festival-app {
 		display: flex;
 		flex-direction: column;
-		background-color: var(--app-bg-color);
+		background-color: var(--festapp-bg-color);
 		width: 100%;
 		height: 100%;
 		inset: 0 0;
-		font-family: var(--app-font-family);
+		font-family: var(--festapp-font-family);
 		container: festival-app / inline-size;
 		-webkit-tap-highlight-color: transparent;
 	}
@@ -76,7 +76,7 @@
 	}
 
 	footer {
-		background-color: var(--footer-bg-color);
-		height: var(--footer-height);
+		background-color: var(--festapp-footer-bg-color);
+		height: var(--festapp-footer-height);
 	}
 </style>

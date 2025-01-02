@@ -26,17 +26,17 @@
 	.drawer {
 		position: absolute;
 		bottom: 0;
-		max-height: calc(100% - var(--header-height) - var(--subheader-height));
+		max-height: calc(100% - var(--festapp-header-height) - var(--festapp-subheader-height));
 		width: 100%;
 		border: none;
-		padding: 0 0 var(--footer-height) 0;
+		padding: 0 0 var(--festapp-footer-height) 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 10px 10px 0 0;
-		background-color: var(--drawer-bg-color);
+		background-color: var(--festapp-drawer-bg-color);
 	}
 
 	.drawer :global(*) {
-		color: var(--drawer-text-color);
+		color: var(--festapp-drawer-text-color);
 	}
 
 	.drawer-header {
@@ -54,7 +54,7 @@
 		background-color: transparent;
 		border: none;
 		font-size: 2rem;
-		color: var(--drawer-text-color);
+		color: var(--festapp-drawer-text-color);
 		cursor: pointer;
 	}
 </style>

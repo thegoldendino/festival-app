@@ -28,8 +28,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: var(--header-bg-color);
-		height: var(--header-height);
+		background-color: var(--festapp-header-bg-color);
+		height: var(--festapp-header-height);
 	}
 
 	.logo-container {

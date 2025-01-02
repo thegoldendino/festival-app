@@ -84,7 +84,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: var(--map-pin-text-color);
+		color: var(--festapp-map-pin-text-color);
 		text-decoration: none;
 		width: 2rem;
 		height: 2rem;
@@ -94,13 +94,13 @@
 	.stage-pin {
 		border-radius: 10%;
 		box-shadow: var(--box-shadow, var(--shadow-4));
-		background-color: var(--map-stage-bg-color);
-		text-shadow: var(--button-text-shadow-color) 1px 0 10px;
+		background-color: var(--festapp-map-stage-bg-color);
+		text-shadow: var(--festapp-button-text-shadow-color) 1px 0 10px;
 
 		border-style: solid;
 		border-width: 3px;
-		border-color: var(--button-border-color);
-		border-radius: var(--button-border-radius);
+		border-color: var(--festapp-button-border-color);
+		border-radius: var(--festapp-button-border-radius);
 		height: 2.25rem;
 		width: 2.25rem;
 	}
@@ -112,12 +112,12 @@
 	}
 
 	.potty-pin {
-		background-color: var(--map-potty-bg-color);
+		background-color: var(--festapp-map-potty-bg-color);
 	}
 	.info-pin {
-		background-color: var(--map-info-bg-color);
+		background-color: var(--festapp-map-info-bg-color);
 	}
 	.medic-pin {
-		background-color: var(--map-medic-bg-color);
+		background-color: var(--festapp-map-medic-bg-color);
 	}
 </style>

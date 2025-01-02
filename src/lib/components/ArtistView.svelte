@@ -73,9 +73,9 @@
 	.content p {
 		text-align: justify;
 		line-height: 1.5;
-		font-size: var(--artist-content-font-size);
+		font-size: var(--festapp-artist-content-font-size);
 		padding: 0 1rem;
-		color: var(--artist-content-text-color);
+		color: var(--festapp-artist-content-text-color);
 	}
 
 	.content p::first-line {
