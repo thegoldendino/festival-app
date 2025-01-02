@@ -19,7 +19,6 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 	let minScale = 0;
 	let scale = 1.0;
 	let translation = { x: 0, y: 0 };
-	let lastTouchEndTime = 0;
 
 	const pointers = new Map<number, Point>();
 
@@ -137,16 +136,6 @@ export const panzoom: Action<HTMLElement, undefined, { ontransform: (e: CustomEv
 
 	function ontouchend(event: TouchEvent) {
 		pointers.clear();
-
-		// const currentTime = new Date().getTime();
-		// const tapLength = currentTime - lastTouchEndTime;
-
-		// if (tapLength < 300 && tapLength > 0) {
-		// 	resetScale();
-		// 	updateTransform();
-		// }
-
-		// lastTouchEndTime = currentTime;
 	}
 
 
