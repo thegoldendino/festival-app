@@ -8,7 +8,7 @@
 	"homepage": "https://github.com/thegoldendino/festival-app#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/thegoldendino/festival-app"
+		"url": "git+https://github.com/thegoldendino/festival-app.git"
 	},
 	"license": "MIT",
 	"author": "Dwight VanTuyl",
@@ -23,7 +23,6 @@
 		}
 	},
 	"svelte": "./dist/index.js",
-	"browser": "./dist/index.umd.js",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist",
