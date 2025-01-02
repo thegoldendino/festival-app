@@ -93,8 +93,13 @@ The FestivalApp takes advantage of svelte's ability to [pass custom properties](
 
 
 ```html
-
+<FestivalApp {config}
+	--festapp-color-primary-hue="100"
+	--festapp-color-secondary-hue="187"
+>
 ```
+
+_see all custom property [variables.css](./src/lib/styles/variables.css)_
 
 
 ## Developing
