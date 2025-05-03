@@ -11,6 +11,8 @@
 	$effect(() => {
 		open = route.params && false;
 	});
+
+	$inspect({ open });
 </script>
 
 <dialog class="drawer" {open}>
@@ -24,6 +26,7 @@
 
 <style>
 	.drawer {
+		z-index: 1000;
 		position: absolute;
 		bottom: 0;
 		max-height: calc(100% - var(--festapp-header-height) - var(--festapp-subheader-height));

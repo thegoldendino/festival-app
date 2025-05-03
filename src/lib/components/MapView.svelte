@@ -4,7 +4,7 @@
 	import { timeRange } from '$utils/dateFormat.js';
 	import InfoHeader from './InfoHeader.svelte';
 	import AppContainer from './AppContainer.svelte';
-	import Map from './Map.svelte';
+	import Map from './MapContainer.svelte';
 	import ItemList from './ItemList.svelte';
 	import Drawer from './Drawer.svelte';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';

@@ -24,7 +24,6 @@ const artistImages = import.meta.glob(
   }
 )
 
-
 export const load: PageServerLoad = async () => {
   // Import data from TOML files
   const daysPath = path.resolve('src/data/days.toml');

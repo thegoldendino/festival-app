@@ -1,14 +1,7 @@
 <script lang="ts">
 	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
-	import type { Transform } from '$utils/panzoom.svelte.js';
 
-	let {
-		location,
-		locationTransform,
-		href
-	}: { location: MapLocation; locationTransform?: string; href?: string } = $props();
-
-	let tag = $derived(href ? 'a' : 'div');
+	let { location, href }: { location: MapLocation; href: string } = $props();
 
 	// remove '*' prefix from location.type
 	function locationClass(location: MapLocation): string {
@@ -57,20 +50,12 @@
 	{/if}
 {/snippet}
 
-<svelte:element
-	this={tag}
-	class={locationClass(location)}
-	class:absolute={!!locationTransform}
-	style:top="{location.y}px"
-	style:left="{location.x}px"
-	style:transform={locationTransform || 'none'}
-	{...tag === 'a' ? { href } : {}}
->
+<a {href} class={locationClass(location)}>
 	{@render stagePin(location)}
 	{@render medicPin(location)}
 	{@render infoPin(location)}
 	{@render pottyPin(location)}
-</svelte:element>
+</a>
 
 <style>
 	.absolute {

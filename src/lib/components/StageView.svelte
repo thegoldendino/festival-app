@@ -26,11 +26,13 @@
 		start.setMinutes(start.getMinutes() + idx * Number(day.scheduleIncrement));
 		return shortTime(start, idx > 0);
 	}
+
+	let idx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
 </script>
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={stage.name} mapUrl={stage.mapUrl} backButton />
+		<InfoHeader title={`${idx}. ${stage.name}`} mapUrl={stage.mapUrl} backButton />
 	{/snippet}
 
 	<div class="content">
