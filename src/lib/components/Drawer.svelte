@@ -38,6 +38,21 @@
 		background-color: var(--festapp-drawer-bg-color);
 	}
 
+	.drawer {
+		animation: drawer-appear 0.1s ease-in forwards;
+	}
+
+	@keyframes drawer-appear {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
 	.drawer :global(*) {
 		color: var(--festapp-drawer-text-color);
 	}
