@@ -19,8 +19,22 @@
 	<div class="drawer-header">
 		<button class="close-button" type="button" onclick={() => (open = false)}> &equals; </button>
 	</div>
-	<div class="drawer-content" transition:fly={{ y: 100 }}>
+	<div class="drawer-content">
 		{@render children()}
+	</div>
+	<div class="drawer-footer">
+		<button
+			class="drawer-close-button"
+			type="button"
+			aria-label="Close"
+			aria-controls="drawer"
+			aria-expanded={open}
+			onclick={() => {
+				open = false;
+			}}
+		>
+			close
+		</button>
 	</div>
 </dialog>
 
@@ -32,7 +46,7 @@
 		max-height: calc(100% - var(--festapp-header-height) - var(--festapp-subheader-height));
 		width: 100%;
 		border: none;
-		padding: 0 0 var(--festapp-footer-height) 0;
+		padding: 0 0 0;
 		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 10px 10px 0 0;
 		background-color: var(--festapp-drawer-bg-color);
@@ -74,5 +88,23 @@
 		font-size: 2rem;
 		color: var(--festapp-drawer-text-color);
 		cursor: pointer;
+	}
+
+	.drawer-footer {
+		height: var(--festapp-footer-height);
+		display: flex;
+		justify-content: right;
+		align-items: center;
+		padding-inline-end: 2.5rem;
+	}
+
+	.drawer-close-button {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		opacity: 0.7;
+		padding: 0;
+		font-size: 1rem;
+		border-bottom: dashed 3px var(--festapp-drawer-underline-color);
 	}
 </style>
