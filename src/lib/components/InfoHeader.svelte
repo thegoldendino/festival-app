@@ -33,14 +33,10 @@
 				type="button"
 				onclick={() => (window.location.href = mapUrl)}
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					height="24px"
-					viewBox="0 -960 960 960"
-					width="24px"
-					fill="currentColor"
+				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
 					><path
-						d="m600-120-240-84-186 72q-20 8-37-4.5T120-170v-560q0-13 7.5-23t20.5-15l212-72 240 84 186-72q20-8 37 4.5t17 33.5v560q0 13-7.5 23T812-192l-212 72Zm-40-98v-468l-160-56v468l160 56Zm80 0 120-40v-474l-120 46v468Zm-440-10 120-46v-468l-120 40v474Zm440-458v468-468Zm-320-56v468-468Z"
+						fill="currentColor"
+						d="M8 15h2v-3h3.5v2.5L17 11l-3.5-3.5V10H9q-.425 0-.712.288T8 11zm4 7q-.375 0-.737-.15t-.663-.45l-8-8q-.3-.3-.45-.663T2 12t.15-.737t.45-.663l8-8q.3-.3.663-.45T12 2t.738.15t.662.45l8 8q.3.3.45.663T22 12t-.15.738t-.45.662l-8 8q-.3.3-.663.45T12 22"
 					/></svg
 				>
 			</button>
@@ -52,6 +48,7 @@
 	.info-header {
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
 		background-color: var(--festapp-subheader-bg-color);
 		height: var(--festapp-subheader-height);
 		padding-inline: 1rem;
@@ -117,12 +114,12 @@
 		justify-content: center;
 		align-items: center;
 		height: 60%;
-		padding: 0 8px;
+		padding: 4px 4px;
 		background-color: var(--festapp-button-bg-color);
 		border-style: solid;
 		border-width: var(--festapp-button-border-width);
 		border-color: var(--festapp-button-border-color);
-		border-radius: var(--festapp-button-border-radius);
+		border-radius: var(--festapp-map-button-border-radius);
 		font-weight: var(--festapp-button-font-weight);
 		text-decoration: none;
 		color: var(--festapp-button-text-color);

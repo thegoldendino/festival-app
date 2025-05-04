@@ -57,6 +57,7 @@
 	--festapp-button-border-radius: 10px;
 	--festapp-button-font-size: 1.25rem;
 	--festapp-button-font-weight: 600;
+	--festapp-map-button-border-radius: 100px;
 
 	/* ARTIST PAGE */
 	--festapp-artist-content-text-color: var(--festapp-color-primary-2);
