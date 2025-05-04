@@ -50,7 +50,7 @@
 	{/if}
 {/snippet}
 
-<a {href} class={locationClass(location)}>
+<a {href} class={locationClass(location)} class:active={location.active}>
 	{@render stagePin(location)}
 	{@render medicPin(location)}
 	{@render infoPin(location)}
@@ -104,5 +104,23 @@
 	}
 	.medic-pin {
 		background-color: var(--festapp-map-medic-bg-color);
+	}
+	.active {
+		animation: pulse 1s infinite;
+	}
+
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+			box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+		}
+		50% {
+			transform: scale(1.1);
+			box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+		}
+		100% {
+			transform: scale(1);
+			box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+		}
 	}
 </style>

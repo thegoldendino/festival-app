@@ -9,7 +9,8 @@
 	</span>
 	<span class="stage-number">
 		<MapPin
-			location={{ type: '*stage', stageIdx: idx + 1, x: 0, y: 0, key: key }}
+			location={{ type: '*stage', stageIdx: idx + 1, lat: 0, lng: 0, key: key }}
+			{href}
 			--box-shadow="none"
 		></MapPin>
 	</span>

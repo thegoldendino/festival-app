@@ -12,27 +12,28 @@
 	import TimeArtistItem from './TimeArtistItem.svelte';
 	import StageIcon from './StageIcon.svelte';
 	import ArtistsIcon from './ArtistsIcon.svelte';
+	import StageModel from '$lib/models/StageModel.svelte.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
-	let stage: Stage = $derived(festival.stages[route.params.key]);
-	let schedule: Schedule = $derived(stage.scheduleByDate[route.params.date] || []);
+	let stage: StageModel = $derived(festival.stage(route.params.key));
+	let schedule: Schedule = $derived(stage.scheduleByDate(route.params.date) || []);
 	let day: Day = $derived(festival.dayByDate(route.params.date));
-	let stages = $derived(day.stageKeys.map((key) => festival.stages[key]));
+	let stages = $derived(day.stageKeys.map((key) => festival.stage(key)));
 	let showStages = $state(false);
 
 	function timeFor(idx: number): string {
-		const start = newDate(day.date, day.startTime);
+		const start = new Date(day.startTime);
 		start.setMinutes(start.getMinutes() + idx * Number(day.scheduleIncrement));
 		return shortTime(start, idx > 0);
 	}
 
-	let idx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
+	let stageIdx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
 </script>
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={`${idx}. ${stage.name}`} mapUrl={stage.mapUrl} backButton />
+		<InfoHeader title={`${stageIdx}. ${stage.name}`} mapUrl={stage.mapUrl} backButton />
 	{/snippet}
 
 	<div class="content">
@@ -66,7 +67,7 @@
 				{#snippet item(key, idx)}
 					<StagePinItem
 						href={`#/${day.date}/stages/${key}`}
-						name={festival.stages[key]?.name || ''}
+						name={festival.stage(key)?.name || ''}
 						active={key === stage.key}
 						{idx}
 						{key}

@@ -8,6 +8,7 @@
 	// --- State ---
 	import type { Map as LeafletMap, LayerGroup } from 'leaflet';
 	import MapPin from './MapPin.svelte';
+	import type StageModel from '$lib/models/StageModel.svelte.js';
 
 	let mapInstance = $state<LeafletMap | null>(null);
 	/** @type {LayerGroup | null} */
@@ -15,9 +16,9 @@
 	/** @type {HTMLElement | null} */
 	let mapContainer = $state<HTMLDivElement | null>(null);
 
-	let { day }: { day: Day } = $props();
+	let { day, stages }: { day: Day; stages: Record<string, StageModel> } = $props();
 
-	let mapModel = $derived(new MapModel(day));
+	let mapModel = $derived(new MapModel(day, stages));
 
 	// Effect to initialize the map and update markers
 	$effect(() => {
@@ -40,8 +41,6 @@
 
 			// Create a layer group to hold markers for easy clearing
 			markerLayer = L.layerGroup().addTo(mapInstance);
-
-			console.log('Leaflet map initialized.');
 		}
 
 		// Cleanup function for the effect (runs when component is destroyed)
@@ -94,13 +93,9 @@
 		if (mapInstance) {
 			mapInstance.remove();
 			mapInstance = null;
-			console.log('Leaflet map destroyed.');
-
-			console.log('Cleaning up Leaflet Map and Markers (Svelte 5 mount)...');
 			markers.forEach((m) => {
 				// Call unmount on the stored component reference
 				unmount(m.mountedComponent);
-				console.log('Unmounted Svelte component during map cleanup.');
 				// Remove marker from map (triggers 'remove' event, but belt-and-suspenders)
 				if (mapInstance && m.instance) {
 					mapInstance.removeLayer(m.instance);

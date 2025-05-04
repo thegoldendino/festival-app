@@ -11,8 +11,6 @@
 	$effect(() => {
 		open = route.params && false;
 	});
-
-	$inspect({ open });
 </script>
 
 <dialog class="drawer" {open}>

@@ -10,6 +10,7 @@
 	import StageTimeItem from './StageTimeItem.svelte';
 	import ScheduleIcon from './ScheduleIcon.svelte';
 	import InfoIcon from './InfoIcon.svelte';
+	import { shortTime } from '$lib/utils/dateFormat.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -54,8 +55,8 @@
 				{#snippet item(key, idx)}
 					<StageTimeItem
 						href={`#/${selectedDay.date}/stages/${key}`}
-						name={festival.stages[key].name}
-						time={schedule[idx].time}
+						name={festival.stage(key).name}
+						time={shortTime(schedule[idx].start)}
 					/>
 				{/snippet}
 			</ItemList>

@@ -1,17 +1,16 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$lib/types.js';;
-
+import type { Days, Stages, Artists, Day, ConfigOptions, Options, Stage } from '$lib/types.js';
+import StageModel from '$lib/models/StageModel.svelte.js';
 export default class FestivalModel {
+
 
 	constructor(
 		public days: Days,
-		public stages: Stages,
+		private stages: Stages,
 		public artists: Artists,
-		private _options: ConfigOptions | undefined,
-		public errors: ZodIssue[] = []
-	) {
-		this.stages = stages;
-	}
+		public errors: ZodIssue[] = [],
+		private _options?: ConfigOptions | undefined,
+	) { }
 
 	get defaultDay(): Day {
 		const today = new Date().toISOString().split('T')[0];
@@ -44,5 +43,9 @@ export default class FestivalModel {
 				stages: this._options?.text?.stages ?? 'Stages',
 			}
 		};
+	}
+
+	stage(key: string): StageModel {
+		return new StageModel(this.stages[key]);
 	}
 }

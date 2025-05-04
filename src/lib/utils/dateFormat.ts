@@ -29,15 +29,13 @@ export const formatDate = (date: string): string => {
 		});
 };
 
-export const timeRange = (date: string, from: string, to: string): string => {
-	const fromDate = newDate(date, from);
-	const toDate = newDate(date, to);
+export const timeRange = (from: Date, to: Date): string => {
 
-	const formattedFrom = fromDate.toLocaleTimeString('en-US', {
+	const formattedFrom = from.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 	});
-	const formattedTo = toDate.toLocaleTimeString('en-US', {
+	const formattedTo = to.toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 	});

@@ -4,7 +4,7 @@
 	import { timeRange } from '$lib/utils/dateFormat.js';
 	import InfoHeader from './InfoHeader.svelte';
 	import AppContainer from './AppContainer.svelte';
-	import Map from './MapContainer.svelte';
+	import MapContainer from './MapContainer.svelte';
 	import ItemList from './ItemList.svelte';
 	import Drawer from './Drawer.svelte';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
@@ -17,7 +17,8 @@
 	let festival: FestivalModel = getContext('festival');
 	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
 	let showStages = $state(false);
-	let stages = $derived(selectedDay.stageKeys.map((key) => festival.stages[key]));
+	let stages = $derived(selectedDay.stageKeys.map((key) => festival.stage(key)));
+	let stageMap = $derived(stages.reduce((acc, stage) => ({ ...acc, [stage.key]: stage }), {}));
 
 	function routeMatches(date: string): boolean {
 		return date === route.params.date;
@@ -36,14 +37,14 @@
 	{#snippet infoHeader()}
 		<InfoHeader
 			title={selectedDay.location}
-			subtitle={timeRange(selectedDay.date, selectedDay.startTime, selectedDay.endTime)}
+			subtitle={timeRange(selectedDay.startTime, selectedDay.endTime)}
 			mapUrl={selectedDay.mapUrl}
 		/>
 	{/snippet}
 
 	{#each Object.entries(festival.days) as [date, day]}
 		{#if routeMatches(date) || (routeMissingDate() && defaultMatches(date))}
-			<Map {day} />
+			<MapContainer {day} stages={stageMap} />
 		{/if}
 	{/each}
 
@@ -66,7 +67,8 @@
 				{#snippet item(key, idx)}
 					<StagePinItem
 						href={`#/${selectedDay.date}/stages/${key}`}
-						name={festival.stages[key].name}
+						name={festival.stage(key).name}
+						active={false}
 						{idx}
 						{key}
 					/>

@@ -1,4 +1,3 @@
-
 import type { ZodIssue, SafeParseReturnType } from 'zod';
 import { ConfigSchema } from '$lib/schemas/config.schema.js';
 import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDay } from '$lib/types.js';
@@ -14,17 +13,16 @@ export default class FestivalBuilder {
 
 	public build(): FestivalModel {
 		if (!this.config.data) {
-			return new FestivalModel({}, {}, {}, undefined, this.errors);
+			return new FestivalModel({}, {}, {}, this.errors);
 		}
 
-		const stages = this.importStages(this.config.data);
 		const artists = this.importArtists(this.config.data);
-		const days = this.importDays(this.config.data, stages, artists);
+		const days = this.importDays(this.config.data);
+		const stages = this.importStages(this.config.data, days);
 		const options = this.config.data.options;
 
 		return new FestivalModel(
-			days, stages, artists, options,
-			this.errors
+			days, stages, artists, this.errors, options,
 		);
 	}
 
@@ -36,12 +34,13 @@ export default class FestivalBuilder {
 		return this.config.error && this.config.error.issues || [];
 	}
 
-	private importDays({ days }: ConfigParams, stages: Stages, artists: Artists): Days {
-		return Object.entries(days).reduce((acc: Days, [key, day]) => {
-			acc[key] = {
+	private importDays({ days }: ConfigParams): Days {
+		return Object.entries(days).reduce((acc: Days, [date, day]) => {
+			acc[date] = {
 				...day,
-				date: key,
-				endTime: this.calcEndTime(day.startTime, day.scheduleIncrement, day.schedule),
+				date,
+				startTime: newDate(date, day.startTime),
+				endTime: this.calcEndTime(date, day.startTime, day.scheduleIncrement, day.schedule.length),
 				stageKeys: day.stages,
 				artistKeys:
 					day.schedule
@@ -53,21 +52,13 @@ export default class FestivalBuilder {
 		}, {})
 	}
 
-	private calcEndTime(startTime: string, scheduleIncrement: number | string, schedule: string[][]): string {
-		const [hours, minutes, seconds] = startTime.split(':').map(Number);
-		const increment = Number(scheduleIncrement);
-		const totalMinutes = schedule.reduce((acc, timeSlot) => acc + timeSlot.length, 0) * increment;
-		const totalHours = Math.floor(totalMinutes / 60);
-		const totalMinutesRemainder = totalMinutes % 60;
-		const newMinutes = minutes + totalMinutesRemainder;
-		const newHours = hours + totalHours;
-		const newHoursWithMinutes = newHours + Math.floor(newMinutes / 60);
-		const newMinutesRemainder = newMinutes % 60;
-		const newHoursRemainder = newHoursWithMinutes % 24;
-		return `${String(newHoursRemainder).padStart(2, '0')}:${String(newMinutesRemainder).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+	private calcEndTime(date: string, startTime: string, scheduleIncrement: number | string, scheduleLength: number): Date {
+		const endTime = newDate(date, startTime);
+		endTime.setMinutes(endTime.getMinutes() + scheduleLength * Number(scheduleIncrement));
+		return endTime
 	}
 
-	private importStages({ days, stages }: ConfigParams): Stages {
+	private importStages({ days, stages }: ConfigParams, processedDays: Days): Stages {
 		const processedStages = Object.entries(stages).reduce(
 			(acc: Stages, [key, stage]) => {
 				acc[key] = {
@@ -83,11 +74,16 @@ export default class FestivalBuilder {
 			day.stages.forEach((stageKey, idx) => {
 				if (processedStages[stageKey]) {
 					processedStages[stageKey].scheduleByDate[date] =
-						Object.entries(day.schedule).map(([time, artistKeys]) => {
+						Object.entries(day.schedule).map(([scheduleIdx, artistKeys]) => {
 							const artistKey = artistKeys[idx];
+							const startTime = newDate(date, day.startTime);
+							startTime.setMinutes(startTime.getMinutes() + Number(scheduleIdx) * Number(day.scheduleIncrement));
+							const endTime = newDate(date, day.startTime);
+							endTime.setMinutes(startTime.getMinutes() + Number(day.scheduleIncrement));
 							return {
-								time: time,
-								key: artistKey
+								key: artistKey,
+								start: startTime,
+								end: endTime,
 							};
 						});
 				}
@@ -110,11 +106,14 @@ export default class FestivalBuilder {
 			Object.entries(day.schedule).forEach(([slotidx, artistKeys]) => {
 				const start = newDate(date, day.startTime)
 				start.setMinutes(start.getMinutes() + Number(slotidx) * Number(day.scheduleIncrement));
+				const end = newDate(date, day.startTime);
+				end.setMinutes(start.getMinutes() + Number(day.scheduleIncrement));
 				artistKeys.forEach((key, idx) => {
 					if (artistKey === key) {
 						processedSchedule.push({
-							time: shortTime(start),
-							key: day.stages[idx]
+							key: day.stages[idx],
+							start,
+							end,
 						});
 					}
 				});
