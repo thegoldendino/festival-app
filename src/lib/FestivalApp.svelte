@@ -1,3 +1,5 @@
+<svelte:options customElement="festival-app" />
+
 <script lang="ts">
 	import './styles.css';
 

@@ -1,7 +1,7 @@
 
 import type { ZodIssue, SafeParseReturnType } from 'zod';
 import { ConfigSchema } from '$lib/schemas/config.schema.js';
-import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDays } from '$types';
+import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDay } from '$types';
 import { newDate, shortTime } from '$utils/dateFormat.js';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
 
@@ -14,7 +14,7 @@ export default class FestivalBuilder {
 
 	public build(): FestivalModel {
 		if (!this.config.data) {
-			return new FestivalModel({}, {}, {}, {}, this.errors);
+			return new FestivalModel({}, {}, {}, undefined, this.errors);
 		}
 
 		const stages = this.importStages(this.config.data);
@@ -104,7 +104,7 @@ export default class FestivalBuilder {
 		}, {})
 	}
 
-	private importArtistSchedule(days: ConfigDays, artistKey: string): Record<string, Schedule> {
+	private importArtistSchedule(days: Record<string, ConfigDay>, artistKey: string): Record<string, Schedule> {
 		return Object.entries(days).reduce((acc: Record<string, Schedule>, [date, day]) => {
 			let processedSchedule: Schedule = [];
 			Object.entries(day.schedule).forEach(([slotidx, artistKeys]) => {
