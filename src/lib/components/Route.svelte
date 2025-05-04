@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RouteModel } from '$types';
+	import type { RouteModel } from '$lib/types.js';
 	import { getContext, onMount } from 'svelte';
 	let { path, children } = $props();
 

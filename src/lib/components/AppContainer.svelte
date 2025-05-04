@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
-	import type { FestivalModel } from '$types';
+	import type { FestivalModel } from '$lib/types.js';
 	import { type Snippet } from 'svelte';
 	import { getContext } from 'svelte';
 

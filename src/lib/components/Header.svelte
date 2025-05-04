@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RouteModel, FestivalModel } from '$types';
+	import type { RouteModel, FestivalModel } from '$lib/types.js';
 	import DateSelection from './DateSelection.svelte';
 	import { getContext } from 'svelte';
 

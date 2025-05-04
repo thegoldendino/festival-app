@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { FestivalModel, RouteModel, Day } from '$types';
-	import { timeRange } from '$utils/dateFormat.js';
+	import type { FestivalModel, RouteModel, Day } from '$lib/types.js';
+	import { timeRange } from '$lib/utils/dateFormat.js';
 	import InfoHeader from './InfoHeader.svelte';
 	import AppContainer from './AppContainer.svelte';
 	import Map from './MapContainer.svelte';

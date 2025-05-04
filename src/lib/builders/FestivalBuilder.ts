@@ -1,8 +1,8 @@
 
 import type { ZodIssue, SafeParseReturnType } from 'zod';
 import { ConfigSchema } from '$lib/schemas/config.schema.js';
-import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDay } from '$types';
-import { newDate, shortTime } from '$utils/dateFormat.js';
+import type { Days, Stages, Artists, Day, Schedule, ConfigParams, ConfigDay } from '$lib/types.js';
+import { newDate, shortTime } from '$lib/utils/dateFormat.js';
 import FestivalModel from '$lib/models/FestivalModel.svelte.js';
 
 export default class FestivalBuilder {

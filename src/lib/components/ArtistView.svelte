@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { FestivalModel, RouteModel, Day, Artist } from '$types';
+	import type { FestivalModel, RouteModel, Day, Artist } from '$lib/types.js';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
 	import ActionButton from './ActionButton.svelte';
 	import AppContainer from './AppContainer.svelte';

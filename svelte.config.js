@@ -14,10 +14,8 @@ const config = {
 		adapter: adapter(),
 		alias: {
       $data: 'src/data',
-			$types: 'src/lib/types.js',
-			$utils: 'src/lib/utils',
     },
-	}
+	},
 };
 
 export default config;

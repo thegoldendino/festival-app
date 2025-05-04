@@ -1,5 +1,5 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$types';
+import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$lib/types.js';;
 
 export default class FestivalModel {
 

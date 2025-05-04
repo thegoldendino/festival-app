@@ -1,5 +1,5 @@
-import type { MapLocationType, Day } from '$types';
-import { MapLocationKeys } from "$types";
+import type { MapLocationType, Day } from '$lib/types.js';
+import { MapLocationKeys } from '$lib/types.js';
 export type MapLocation = { key: string, lat: number, lng: number, type: MapLocationType, stageIdx: number };
 
 export default class MapModel {

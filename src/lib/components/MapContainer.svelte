@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Day, Stages } from '$types';
+	import type { Day, Stages } from '$lib/types.js';
 	import { mount, onDestroy, unmount } from 'svelte'; // Import mount
 	import MapModel from '$lib/models/MapModel.svelte.js';
 	import L from 'leaflet';

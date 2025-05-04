@@ -1,13 +1,13 @@
 import { z } from "zod";
-import { DaySchema, ConfigDaySchema } from "./schemas/day.schema.js";
-import { StageSchema, ConfigStageSchema } from "./schemas/stage.schema.js";
-import { ArtistSchema, ArtistScheduleSchema, ConfigArtistSchema } from "./schemas/artist.schema.js";
-import { ScheduleSchema } from "./schemas/schedule.schema.js";
-import { RouteViewEnum, RouteParamsSchema } from "./schemas/routeParams.schema.js";
-import { ConfigSchema, ConfigOptionsSchema, OptionsSchema } from "./schemas/config.schema.js";
-import { ImageSchema } from "./schemas/image.schema.js";
-import { default as RouteModelType } from "./models/RouteModel.svelte.js";
-import { default as FestivalModelType } from "./models/FestivalModel.svelte.js";
+import { DaySchema, ConfigDaySchema } from "$lib/schemas/day.schema.js";
+import { StageSchema, ConfigStageSchema } from "$lib/schemas/stage.schema.js";
+import { ArtistSchema, ArtistScheduleSchema, ConfigArtistSchema } from "$lib/schemas/artist.schema.js";
+import { ScheduleSchema } from "$lib/schemas/schedule.schema.js";
+import { RouteViewEnum, RouteParamsSchema } from "$lib/schemas/routeParams.schema.js";
+import { ConfigSchema, ConfigOptionsSchema, OptionsSchema } from "$lib/schemas/config.schema.js";
+import { ImageSchema } from "$lib/schemas/image.schema.js";
+import { default as RouteModelType } from "$lib/models/RouteModel.svelte.js";
+import { default as FestivalModelType } from "$lib/models/FestivalModel.svelte.js";
 
 export type Day = z.infer<typeof DaySchema>;
 export type Stage = z.infer<typeof StageSchema>;

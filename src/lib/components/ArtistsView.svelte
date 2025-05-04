@@ -1,9 +1,9 @@
 <script lang="ts">
 	import AppContainer from '$lib/components/AppContainer.svelte';
 	import InfoHeader from '$lib/components/InfoHeader.svelte';
-	import type { FestivalModel, Day, RouteModel } from '$types';
+	import type { FestivalModel, Day, RouteModel } from '$lib/types.js';
 	import { getContext } from 'svelte';
-	import { formatLongDay } from '$utils/dateFormat.js';
+	import { formatLongDay } from '$lib/utils/dateFormat.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');

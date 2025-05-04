@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { FestivalModel, RouteModel, Day, Stage, Schedule } from '$types';
+	import type { FestivalModel, RouteModel, Day, Stage, Schedule } from '$lib/types.js';
 	import { getContext } from 'svelte';
-	import { newDate, shortTime } from '$utils/dateFormat.js';
+	import { newDate, shortTime } from '$lib/utils/dateFormat.js';
 	import AppContainer from './AppContainer.svelte';
 	import InfoHeader from './InfoHeader.svelte';
 	import Drawer from './Drawer.svelte';

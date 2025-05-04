@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RouteModel } from '$types';
+	import type { RouteModel } from '$lib/types.js';
 	import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 

@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import FestivalModel from './FestivalModel.svelte.js';
-import type { ConfigArtists, ConfigStages } from '$types';
 import { date } from 'zod';
 
 describe('FestivalModel', () => {

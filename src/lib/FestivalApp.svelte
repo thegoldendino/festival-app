@@ -1,9 +1,7 @@
-<svelte:options customElement="festival-app" />
-
 <script lang="ts">
 	import './styles.css';
 
-	import type { ConfigParams } from '$types';
+	import type { ConfigParams } from '$lib/types.js';
 	import FestivalContext from '$lib/contexts/FestivalContext.svelte';
 	import RouteContext from '$lib/contexts/RouteContext.svelte';
 	import Route from '$lib/components/Route.svelte';

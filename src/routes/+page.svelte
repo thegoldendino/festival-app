@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FestivalApp from '$lib/FestivalApp.svelte';
-	import type { ConfigParams } from '$types';
+	import type { ConfigParams } from '$lib/types.js';
 	import type { PageData } from './$types.js';
 
 	let { data }: { data: PageData } = $props();
