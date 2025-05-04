@@ -102,6 +102,7 @@
 	}
 
 	.back-button {
+		margin-top: 6px;
 		background: none;
 		border: none;
 		cursor: pointer;
