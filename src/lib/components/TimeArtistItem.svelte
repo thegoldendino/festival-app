@@ -43,6 +43,7 @@
 	}
 
 	.item.active {
+		border-block: 1px solid var(--festapp-stage-schedule-active-border-color);
 		background-color: var(--festapp-stage-schedule-active-bg-color);
 	}
 </style>
