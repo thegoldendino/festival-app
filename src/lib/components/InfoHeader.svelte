@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	let { title, subtitle = null, backButton = false, mapUrl = null } = $props();
+	let { title, subtitle = null, backButton = false, mapUrl = null, infoUrl = null } = $props();
 </script>
 
 <div class="info-header">
@@ -20,12 +20,12 @@
 	{/if}
 
 	<div class="right-side">
-		<div class="col" in:fly={{ x: 10, duration: 220, delay: 40 }}>
+		<a href={mapUrl || infoUrl} class="col" in:fly={{ x: 10, duration: 220, delay: 40 }}>
 			<h2>{title}</h2>
 			{#if subtitle}
 				<h3>{subtitle}</h3>
 			{/if}
-		</div>
+		</a>
 		{#if mapUrl}
 			<button
 				class="map-button"
@@ -37,6 +37,21 @@
 					><path
 						fill="currentColor"
 						d="M8 15h2v-3h3.5v2.5L17 11l-3.5-3.5V10H9q-.425 0-.712.288T8 11zm4 7q-.375 0-.737-.15t-.663-.45l-8-8q-.3-.3-.45-.663T2 12t.15-.737t.45-.663l8-8q.3-.3.663-.45T12 2t.738.15t.662.45l8 8q.3.3.45.663T22 12t-.15.738t-.45.662l-8 8q-.3.3-.663.45T12 22"
+					/></svg
+				>
+			</button>
+		{/if}
+		{#if infoUrl}
+			<button
+				class="map-button"
+				aria-label="info"
+				type="button"
+				onclick={() => (window.location.href = infoUrl)}
+			>
+				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+					><path
+						fill="currentColor"
+						d="M11 17h2v-6h-2zm1-8q.425 0 .713-.288T13 8t-.288-.712T12 7t-.712.288T11 8t.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
 					/></svg
 				>
 			</button>
@@ -76,6 +91,7 @@
 		flex-direction: column;
 		gap: 2px;
 		align-items: flex-end;
+		text-decoration: none;
 	}
 
 	h2 {

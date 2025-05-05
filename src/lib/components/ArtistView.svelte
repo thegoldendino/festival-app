@@ -11,6 +11,7 @@
 	import ScheduleIcon from './ScheduleIcon.svelte';
 	import InfoIcon from './InfoIcon.svelte';
 	import { shortTime } from '$lib/utils/dateFormat.js';
+	import BackButton from './BackButton.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -23,7 +24,7 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={artist.name} subtitle={artist.location} backButton />
+		<InfoHeader title={artist.name} subtitle={artist.location} infoUrl={artist.infoUrl} />
 	{/snippet}
 
 	<div class="content">
@@ -38,10 +39,7 @@
 
 	{#snippet footer()}
 		<ActionButtonGroup>
-			<ActionButton href={artist.infoUrl}>
-				<InfoIcon></InfoIcon>
-				Info
-			</ActionButton>
+			<BackButton />
 			<ActionButton onclick={() => (showSchedule = true)}>
 				<ScheduleIcon></ScheduleIcon>
 				Schedule

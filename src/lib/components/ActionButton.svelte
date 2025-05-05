@@ -15,7 +15,7 @@
 <style>
 	.action-button {
 		display: flex;
-		gap: 1rem;
+		gap: 0.75rem;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
@@ -35,5 +35,7 @@
 		text-transform: uppercase;
 		cursor: pointer;
 		padding-inline: 1rem;
+		max-width: 100%;
+		overflow-x: hidden;
 	}
 </style>

@@ -8,11 +8,12 @@
 
 <style>
 	.action-button-group {
-		height: 100%;
+		margin-block-start: 0.5rem;
+		height: 5rem;
 		display: flex;
-		justify-content: center;
+		justify-content: var(--justify-content, space-between);
 		align-items: center;
+		padding: 0.6rem 1rem;
 		gap: 0.8rem;
-		padding: 0.6rem 0.8rem;
 	}
 </style>

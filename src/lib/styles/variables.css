@@ -13,7 +13,7 @@
 	/* LAYOUT HEIGHTS */
 	--festapp-header-height: 76px;
 	--festapp-subheader-height: 76px;
-	--festapp-footer-height: 76px;
+	--festapp-footer-height: 100px;
 	
 	/* HEADER COLORS */
 	--festapp-header-bg-color: var(--festapp-color-primary-8);

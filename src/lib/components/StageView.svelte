@@ -13,6 +13,7 @@
 	import StageIcon from './StageIcon.svelte';
 	import ArtistsIcon from './ArtistsIcon.svelte';
 	import StageModel from '$lib/models/StageModel.svelte.js';
+	import BackButton from './BackButton.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -42,7 +43,7 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={`${stageIdx}. ${stage.name}`} mapUrl={stage.mapUrl} backButton />
+		<InfoHeader title={`${stageIdx}. ${stage.name}`} mapUrl={stage.mapUrl} />
 	{/snippet}
 
 	<div class="content">
@@ -60,6 +61,7 @@
 
 	{#snippet footer()}
 		<ActionButtonGroup>
+			<BackButton />
 			<ActionButton href={`#/${day.date}/artists`}>
 				<ArtistsIcon></ArtistsIcon>
 				{festival.options.text.artists}

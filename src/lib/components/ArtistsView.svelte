@@ -4,6 +4,11 @@
 	import type { FestivalModel, Day, RouteModel } from '$lib/types.js';
 	import { getContext } from 'svelte';
 	import { formatLongDay } from '$lib/utils/dateFormat.js';
+	import ActionButton from './ActionButton.svelte';
+	import ActionButtonGroup from './ActionButtonGroup.svelte';
+	import ArtistsIcon from './ArtistsIcon.svelte';
+	import BackButton from './BackButton.svelte';
+	import StageIcon from './StageIcon.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -19,7 +24,7 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader {title} backButton />
+		<InfoHeader {title} />
 	{/snippet}
 	<div class="content">
 		{#each artists as artist}
@@ -34,6 +39,12 @@
 			</a>
 		{/each}
 	</div>
+
+	{#snippet footer()}
+		<ActionButtonGroup --festapp-action-button-group-justify-content="space-between">
+			<BackButton />
+		</ActionButtonGroup>
+	{/snippet}
 </AppContainer>
 
 <style>
