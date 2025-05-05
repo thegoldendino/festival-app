@@ -20,7 +20,7 @@
 	{/if}
 
 	<div class="right-side">
-		<a href={mapUrl || infoUrl} class="col" in:fly={{ x: 10, duration: 220, delay: 40 }}>
+		<a href={mapUrl || infoUrl} class="titles" in:fly={{ x: 10, duration: 220, delay: 40 }}>
 			<h2>{title}</h2>
 			{#if subtitle}
 				<h3>{subtitle}</h3>
@@ -85,13 +85,13 @@
 		gap: 1rem;
 	}
 
-	.col {
-		width: 100%;
+	.titles {
 		display: flex;
 		flex-direction: column;
 		gap: 2px;
 		align-items: flex-end;
 		text-decoration: none;
+		overflow: hidden;
 	}
 
 	h2 {

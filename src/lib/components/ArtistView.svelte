@@ -9,9 +9,7 @@
 	import ItemList from './ItemList.svelte';
 	import StageTimeItem from './StageTimeItem.svelte';
 	import ScheduleIcon from './ScheduleIcon.svelte';
-	import InfoIcon from './InfoIcon.svelte';
 	import { shortTime } from '$lib/utils/dateFormat.js';
-	import BackButton from './BackButton.svelte';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -24,7 +22,12 @@
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={artist.name} subtitle={artist.location} infoUrl={artist.infoUrl} />
+		<InfoHeader
+			title={artist.name}
+			subtitle={artist.location}
+			infoUrl={artist.infoUrl}
+			backButton
+		/>
 	{/snippet}
 
 	<div class="content">
@@ -35,11 +38,19 @@
 			height={artist.image?.height}
 		/>
 		<p>{artist.description}</p>
+		<a class="more-info" href={artist.infoUrl}>
+			<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+				><path
+					fill="currentColor"
+					d="M11 17h2v-6h-2zm1-8q.425 0 .713-.288T13 8t-.288-.712T12 7t-.712.288T11 8t.288.713T12 9m0 13q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"
+				/></svg
+			>
+			More Info
+		</a>
 	</div>
 
 	{#snippet footer()}
 		<ActionButtonGroup>
-			<BackButton />
 			<ActionButton onclick={() => (showSchedule = true)}>
 				<ScheduleIcon></ScheduleIcon>
 				Schedule
@@ -80,5 +91,17 @@
 	.content p::first-line {
 		text-transform: uppercase;
 		letter-spacing: 3px;
+	}
+
+	.more-info {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
+		text-decoration: none;
+		color: var(--festapp-artist-content-text-color);
+		font-size: 1rem;
+		padding: 1rem;
 	}
 </style>
