@@ -35,6 +35,7 @@
 	--festapp-stage-schedule-text-color: var(--festapp-color-primary-1);
 	--festapp-stage-schedule-timepill-bg-color: var(--festapp-color-primary-7);
 	--festapp-stage-schedule-underline-color: var(--festapp-color-primary-7);
+	--festapp-stage-schedule-active-bg-color: var(--festapp-color-primary-6);
 
 	/* HEADER DATE TAB COLORS */
 	--festapp-date-selection-text-color: var(--festapp-color-primary-1);

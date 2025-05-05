@@ -28,6 +28,15 @@
 		return shortTime(start, idx > 0);
 	}
 
+	function activeFor(idx: number): boolean {
+		const start = new Date(day.startTime);
+		start.setMinutes(start.getMinutes() + idx * Number(day.scheduleIncrement));
+		const end = new Date(day.startTime);
+		end.setMinutes(end.getMinutes() + (idx + 1) * Number(day.scheduleIncrement));
+		const now = new Date();
+		return now >= start && now < end;
+	}
+
 	let stageIdx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
 </script>
 
@@ -43,6 +52,7 @@
 					href={key && `#/${day.date}/artists/${key}`}
 					name={festival.artists[key]?.name}
 					time={timeFor(idx)}
+					active={!!key && activeFor(idx)}
 				/>
 			{/snippet}
 		</ItemList>

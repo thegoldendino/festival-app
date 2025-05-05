@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { href, name, time } = $props();
+	let { href, name, time, active = true } = $props();
 </script>
 
 {#snippet item(name: string, time: string)}
@@ -12,11 +12,11 @@
 {/snippet}
 
 {#if href}
-	<a class="item" {href}>
+	<a class="item" {href} class:active>
 		{@render item(name, time)}
 	</a>
 {:else}
-	<div class="item">
+	<div class="item" class:active>
 		{@render item(name, time)}
 	</div>
 {/if}
@@ -40,5 +40,9 @@
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
 		border-bottom: dashed 3px var(--festapp-stage-schedule-underline-color);
+	}
+
+	.item.active {
+		background-color: var(--festapp-stage-schedule-active-bg-color);
 	}
 </style>
