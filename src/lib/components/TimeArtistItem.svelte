@@ -2,7 +2,7 @@
 	let { href, name, time, active = true } = $props();
 </script>
 
-{#snippet item(name: string, time: string)}
+{#snippet item()}
 	<span class="time">
 		{time}
 	</span>
@@ -13,11 +13,11 @@
 
 {#if href}
 	<a class="item" {href} class:active>
-		{@render item(name, time)}
+		{@render item()}
 	</a>
 {:else}
 	<div class="item" class:active>
-		{@render item(name, time)}
+		{@render item()}
 	</div>
 {/if}
 
@@ -25,7 +25,8 @@
 	.item {
 		align-items: center;
 		gap: 1rem;
-		padding-inline: 2rem;
+		padding-inline-start: 1.2rem;
+		padding-inline-end: 1.4rem;
 	}
 	.time {
 		flex: none;
