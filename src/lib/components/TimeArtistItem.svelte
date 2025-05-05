@@ -28,10 +28,11 @@
 		padding-inline: 2rem;
 	}
 	.time {
-		border-radius: 10px;
-		padding: 0.25rem 0.35rem;
-		font-size: 1rem;
-		font-weight: 600;
+		flex: none;
+		border-radius: var(--festapp-timepill-border-radius);
+		padding: var(--festapp-timepill-padding);
+		font-size: var(--festapp-timepill-font-size);
+		font-weight: var(--festapp-timepill-font-weight);
 		background-color: var(--festapp-stage-schedule-timepill-bg-color);
 	}
 	.artist-name {
@@ -40,6 +41,8 @@
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
 		border-bottom: dashed 3px var(--festapp-stage-schedule-underline-color);
+		font-size: var(--festapp-stage-schedule-font-size);
+		font-weight: var(--festapp-stage-schedule-font-weight);
 	}
 
 	.item.active {

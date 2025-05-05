@@ -24,12 +24,13 @@
 	--festapp-footer-bg-color: var(--festapp-color-primary-7);
 	--festapp-footer-text-color: var(--festapp-color-primary-1);
 
-	/* DRAWER COLORS */
+	/* DRAWER VARIABLES */
 	--festapp-drawer-bg-color: var(--festapp-color-primary-7);
 	--festapp-drawer-text-color: var(--festapp-color-primary-1);
 	--festapp-drawer-underline-color: var(--festapp-color-primary-5);
 	--festapp-drawer-active-bg-color: var(--festapp-color-primary-5);
 	--festapp-drawer-timepill-bg-color: var(--festapp-color-primary-8);
+	--festapp-drawer-font-size: 1.75rem;
 
 	/* STAGE SCHEDULE COLORS */
 	--festapp-stage-schedule-text-color: var(--festapp-color-primary-1);
@@ -37,6 +38,8 @@
 	--festapp-stage-schedule-underline-color: var(--festapp-color-primary-7);
 	--festapp-stage-schedule-active-bg-color: var(--festapp-color-primary-6);
 	--festapp-stage-schedule-active-border-color: var(--festapp-color-primary-4);
+	--festapp-stage-schedule-font-size: 1.75rem;
+	--festapp-stage-schedule-font-weight: 300;
 
 	/* HEADER DATE TAB COLORS */
 	--festapp-date-selection-text-color: var(--festapp-color-primary-1);
@@ -56,12 +59,20 @@
 	--festapp-button-border-color: var(--festapp-color-secondary-4);
 	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
 	--festapp-button-border-width: 3px;
-	--festapp-button-border-radius: 10px;
-	--festapp-button-font-size: 1.25rem;
+	--festapp-button-border-radius: 30px;
+	--festapp-button-font-size: 1.50rem;
 	--festapp-button-font-weight: 600;
 	--festapp-map-button-border-radius: 100px;
 
 	/* ARTIST PAGE */
 	--festapp-artist-content-text-color: var(--festapp-color-primary-2);
 	--festapp-artist-content-font-size: 1.25rem;
+
+	/* TIMEPILL VARIABLES */
+	--festapp-timepill-font-size: 1.25rem;
+	--festapp-timepill-font-weight: 500;
+	--festapp-timepill-bg-color: var(--festapp-color-primary-8);
+	--festapp-timepill-text-color: var(--festapp-color-primary-1);
+	--festapp-timepill-border-radius: 30px;
+	--festapp-timepill-padding: 0.25rem 0.5rem;
 }

@@ -18,11 +18,11 @@
 		padding-inline: 2rem;
 	}
 	.time {
-		border-radius: 10px;
-		font-size: 1rem;
-		font-weight: 600;
-		padding: 0.25rem 0.35rem;
 		background-color: var(--festapp-drawer-timepill-bg-color);
+		border-radius: var(--festapp-timepill-border-radius);
+		padding: var(--festapp-timepill-padding);
+		font-size: var(--festapp-timepill-font-size);
+		font-weight: var(--festapp-timepill-font-weight);
 	}
 	.stage-name {
 		text-overflow: ellipsis;
@@ -30,5 +30,6 @@
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
 		border-bottom: dashed 3px var(--festapp-drawer-underline-color);
+		font-size: var(--festapp-drawer-font-size);
 	}
 </style>

@@ -34,5 +34,6 @@
 		letter-spacing: 0.06rem;
 		text-transform: uppercase;
 		cursor: pointer;
+		padding-inline: 1rem;
 	}
 </style>

@@ -28,6 +28,7 @@
 		overflow: hidden;
 		white-space: nowrap;
 		padding-block-end: 0.25rem;
+		font-size: var(--festapp-drawer-font-size);
 		border-bottom: dashed 3px var(--festapp-drawer-underline-color);
 	}
 
