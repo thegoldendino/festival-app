@@ -1,6 +1,6 @@
 @import './colors.css';
 
-:where(*) {
+:root {
 
 	/* COLOR THEME */
 	--festapp-color-primary-hue: var(--hue-violet);

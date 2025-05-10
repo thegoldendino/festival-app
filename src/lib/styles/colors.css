@@ -3,7 +3,7 @@
   https://github.com/argyleink/open-props/blob/main/src/props.colors-oklch.css
 */
 
-:where(*) {
+:root {
 
 	--festapp-color-primary-0: oklch(99% .03 var(--festapp-color-primary-hue, 0));
 	--festapp-color-primary-1: oklch(95% .06 var(--festapp-color-primary-hue, 0));

@@ -1,6 +1,6 @@
 {
 	"name": "@thegoldendino/festival-app",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"keywords": [
 		"svelte",
 		"component"
@@ -20,7 +20,8 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
-		}
+		},
+		"./default.css": "./dist/styles.css"
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",

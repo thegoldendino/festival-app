@@ -2,6 +2,7 @@
 	import FestivalApp from '$lib/FestivalApp.svelte';
 	import type { ConfigParams } from '$lib/types.js';
 	import type { PageData } from './$types.js';
+	import '$lib/styles.css';
 
 	let { data }: { data: PageData } = $props();
 
@@ -22,5 +23,9 @@
 	.mobile-preview {
 		width: 400px;
 		height: 700px;
+	}
+
+	:root {
+		/* --festapp-color-primary-hue: 150; */
 	}
 </style>

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import './styles.css';
-
 	import type { ConfigParams } from '$lib/types.js';
 	import FestivalContext from '$lib/contexts/FestivalContext.svelte';
 	import RouteContext from '$lib/contexts/RouteContext.svelte';
