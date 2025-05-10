@@ -11,7 +11,7 @@
 
 <div class="header-container">
 	<div class="logo-container">
-		<a href="#/">
+		<a href="/">
 			<img
 				src={festival.options.logoImage?.src}
 				width={festival.options.logoImage?.width}
