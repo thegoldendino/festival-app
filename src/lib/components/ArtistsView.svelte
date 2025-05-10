@@ -23,13 +23,12 @@
 	{/snippet}
 	<div class="content">
 		{#each artists as artist}
-			<a
-				class="artist"
-				href={`#/${selectedDay.date}/artists/${artist.key}`}
-				style="background-image: url({artist.image?.src})"
-				><div class="gradient-overlay">
-					<h2>{artist.name}</h2>
-					<p>{artist.location}</p>
+			<a href={`#/${selectedDay.date}/artists/${artist.key}`}>
+				<div class="artist" style="background-image: url({artist.image?.src})">
+					<div class="gradient-overlay">
+						<h2>{artist.name}</h2>
+						<p>{artist.location}</p>
+					</div>
 				</div>
 			</a>
 		{/each}
