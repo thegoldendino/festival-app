@@ -74,7 +74,7 @@
 
 		markerLayer.clearLayers(); // Clear existing markers
 
-		return mapModel.locations.map((location) => {
+		return mapModel.locations.map((location, idx) => {
 			const iconContainer = document.createElement('div');
 
 			const href =
@@ -85,7 +85,8 @@
 				target: iconContainer,
 				props: {
 					location,
-					href
+					href,
+					idx
 				}
 			});
 

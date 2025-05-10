@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
+	import { scale } from 'svelte/transition';
 
-	let { location, href }: { location: MapLocation; href: string } = $props();
+	let { location, href, idx = 0 }: { location: MapLocation; href: string; idx?: number } = $props();
 
 	// remove '*' prefix from location.type
 	function locationClass(location: MapLocation): string {
@@ -50,7 +51,12 @@
 	{/if}
 {/snippet}
 
-<a {href} class={locationClass(location)} class:active={location.active}>
+<a
+	{href}
+	class={locationClass(location)}
+	class:active={location.active}
+	in:scale={{ duration: 200 * (idx === 0 ? 0 : 1), delay: 50 * idx }}
+>
 	{@render stagePin(location)}
 	{@render medicPin(location)}
 	{@render infoPin(location)}
