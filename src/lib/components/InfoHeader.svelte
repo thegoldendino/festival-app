@@ -28,7 +28,7 @@
 		</a>
 		{#if mapUrl}
 			<button
-				class="map-button"
+				class="action-button"
 				aria-label="map"
 				type="button"
 				onclick={() => (window.location.href = mapUrl)}
@@ -43,7 +43,7 @@
 		{/if}
 		{#if infoUrl}
 			<button
-				class="map-button"
+				class="action-button"
 				aria-label="info"
 				type="button"
 				onclick={() => (window.location.href = infoUrl)}
@@ -126,7 +126,7 @@
 		color: var(--festapp-button-text-color);
 	}
 
-	.map-button {
+	.action-button {
 		display: flex;
 		justify-content: center;
 		align-items: center;

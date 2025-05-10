@@ -46,6 +46,7 @@
 	a.selected {
 		background-color: var(--festapp-date-selection-selected-bg-color);
 		color: var(--festapp-date-selection-selected-text-color);
+		border-inline: 2px solid var(--festapp-date-selection-selected-border-color);
 	}
 
 	.day {

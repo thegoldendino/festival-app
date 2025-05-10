@@ -17,11 +17,11 @@
 	
 	/* HEADER COLORS */
 	--festapp-header-bg-color: var(--festapp-color-primary-8);
-	--festapp-subheader-bg-color: var(--festapp-color-secondary-6);
+	--festapp-subheader-bg-color: var(--festapp-color-secondary-7);
 	--festapp-subheader-text-color: var(--festapp-color-secondary-1);
 	
 	/* FOOTER COLORS */
-	--festapp-footer-bg-color: var(--festapp-color-primary-7);
+	--festapp-footer-bg-color: var(--festapp-color-primary-8);
 	--festapp-footer-text-color: var(--festapp-color-primary-1);
 
 	/* DRAWER VARIABLES */
@@ -45,6 +45,7 @@
 	--festapp-date-selection-text-color: var(--festapp-color-primary-1);
 	--festapp-date-selection-selected-text-color: var(--festapp-color-secondary-1);
 	--festapp-date-selection-selected-bg-color: var(--festapp-color-secondary-6);
+	--festapp-date-selection-selected-border-color: var(--festapp-color-secondary-4);
 
 	/* MAP COLORS */
 	--festapp-map-pin-text-color: var(--festapp-color-white);
@@ -63,6 +64,9 @@
 	--festapp-button-font-size: 1.50rem;
 	--festapp-button-font-weight: 600;
 	--festapp-map-button-border-radius: 100px;
+	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
+
+
 
 	/* ARTIST PAGE */
 	--festapp-artist-content-text-color: var(--festapp-color-primary-2);

@@ -37,5 +37,11 @@
 		padding-inline: 1rem;
 		max-width: 100%;
 		overflow-x: hidden;
+
+		text-shadow:
+			-1px -1px 3px var(--festapp-button-text-shadow-color),
+			1px -1px 3px var(--festapp-button-text-shadow-color),
+			-1px 1px 3px var(--festapp-button-text-shadow-color),
+			1px 1px 3px var(--festapp-button-text-shadow-color);
 	}
 </style>

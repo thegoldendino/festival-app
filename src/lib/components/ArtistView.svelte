@@ -103,5 +103,7 @@
 		color: var(--festapp-artist-content-text-color);
 		font-size: 1rem;
 		padding: 1rem;
+		margin-block-start: 3rem;
+		margin-block-end: 1rem;
 	}
 </style>

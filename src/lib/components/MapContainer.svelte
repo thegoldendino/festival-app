@@ -20,11 +20,19 @@
 
 	let mapModel = $derived(new MapModel(day, stages));
 
+	let mapHeight = $state(0);
+	let mapWidth = $state(0);
+
 	// Effect to initialize the map and update markers
 	$effect(() => {
 		// Ensure the container element is available
 		if (!mapContainer) {
 			console.warn('Map container not ready yet.');
+			return;
+		}
+
+		// Ensure the map container has dimensions
+		if (mapHeight === 0 || mapWidth === 0) {
 			return;
 		}
 
@@ -105,7 +113,12 @@
 	});
 </script>
 
-<div class="map-container" bind:this={mapContainer}></div>
+<div
+	class="map-container"
+	bind:this={mapContainer}
+	bind:offsetHeight={mapHeight}
+	bind:offsetWidth={mapWidth}
+></div>
 
 {#if !mapInstance}
 	<p>Loading Map...</p>
