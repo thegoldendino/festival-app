@@ -1,14 +1,10 @@
 import { z } from "zod";
-import { ImageSchema } from "./image.schema.js";
-
-
 
 const baseSchema = z.object({
 	startTime: z.string().time(),
 	scheduleIncrement: z.coerce.number().or(z.string().regex(/^\d+$/)),
 	location: z.string().optional(),
 	mapUrl: z.string().url().optional(),
-	mapImage: ImageSchema.optional(),
 	mapLocations: z.array(z.tuple([z.string(), z.coerce.number(), z.coerce.number()])).default([]).optional(),
 });
 

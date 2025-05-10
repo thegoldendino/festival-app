@@ -37,7 +37,6 @@ _Object containing the following properties:_
 | **`scheduleIncrement`** (\*) | `number` (_nullable_) _or_ `string` (_regex: `/^\d+$/`_) (_nullable_)                             |         |
 | `location`                   | `string`                                                                                          |         |
 | `mapUrl`                     | `string` (_url_)                                                                                  |         |
-| `mapImage`                   | [Image](#image)                                                                                   |         |
 | `mapLocations`               | `Array<_Tuple:_<ol><li>string</li><li>number (_nullable_)</li><li>number (_nullable_)</li></ol>>` | `[]`    |
 | **`stages`** (\*)            | `Array<string>`                                                                                   |         |
 | **`schedule`** (\*)          | `Array<Array<string>>`                                                                            |         |
