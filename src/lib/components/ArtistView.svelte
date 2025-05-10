@@ -78,6 +78,16 @@
 		width: 100%;
 		height: 30lvh;
 		object-fit: cover;
+		animation: shrink-image 0.3s ease-in forwards;
+	}
+
+	@keyframes shrink-image {
+		from {
+			height: 70lvh;
+		}
+		to {
+			height: 30lvh;
+		}
 	}
 
 	.content p {

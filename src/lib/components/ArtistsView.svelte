@@ -68,7 +68,7 @@
 	}
 
 	.artist.animate {
-		animation: fadeInUp 0.2s ease-in-out forwards;
+		animation: fadeInUp 0.2s ease-in forwards;
 	}
 
 	@keyframes fadeInUp {
