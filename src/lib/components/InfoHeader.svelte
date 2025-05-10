@@ -111,6 +111,7 @@
 		margin: 0;
 		padding: 0;
 		color: var(--festapp-subheader-text-color);
+		letter-spacing: 0.06rem;
 	}
 
 	h3 {

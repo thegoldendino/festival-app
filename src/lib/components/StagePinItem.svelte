@@ -27,9 +27,9 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
-		padding-block-end: 0.25rem;
+		padding-block: 0.3rem;
 		font-size: var(--festapp-drawer-font-size);
-		border-bottom: dashed 3px var(--festapp-drawer-underline-color);
+		border-bottom: dotted 6px var(--festapp-drawer-underline-color);
 	}
 
 	.item.active {

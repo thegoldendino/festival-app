@@ -28,8 +28,8 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
-		padding-block-end: 0.25rem;
-		border-bottom: dashed 3px var(--festapp-drawer-underline-color);
+		padding-block: 0.3rem;
+		border-bottom: dotted 6px var(--festapp-drawer-underline-color);
 		font-size: var(--festapp-drawer-font-size);
 	}
 </style>

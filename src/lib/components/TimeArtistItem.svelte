@@ -40,8 +40,8 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
-		padding-block-end: 0.25rem;
-		border-bottom: dashed 3px var(--festapp-stage-schedule-underline-color);
+		padding-block: 0.3rem;
+		border-bottom: dotted 6px var(--festapp-stage-schedule-underline-color);
 		font-size: var(--festapp-stage-schedule-font-size);
 		font-weight: var(--festapp-stage-schedule-font-weight);
 	}

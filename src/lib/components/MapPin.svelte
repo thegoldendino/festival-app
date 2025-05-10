@@ -93,7 +93,7 @@
 	.potty-pin,
 	.info-pin,
 	.medic-pin {
-		border-radius: 50%;
+		border-radius: 10%;
 	}
 
 	.potty-pin {
