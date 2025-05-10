@@ -20,7 +20,7 @@ export default class MapModel {
 				return { key, lat, lng, type: key, stageIdx: 0 } as MapLocation;
 			} else {
 				stageIdx = stageIdx + 1;
-				return { key, lat, lng, type: '*stage', stageIdx, active: stages[key].isActive } as MapLocation;
+				return { key, lat, lng, type: '*stage', stageIdx, active: stages[key]?.isActive } as MapLocation;
 			}
 		});
 	}

@@ -2,18 +2,17 @@
 	import type { Day, Stages } from '$lib/types.js';
 	import { mount, onDestroy, unmount } from 'svelte'; // Import mount
 	import MapModel from '$lib/models/MapModel.svelte.js';
-	import L from 'leaflet';
-	import 'leaflet/dist/leaflet.css';
-
-	// --- State ---
 	import type { Map as LeafletMap, LayerGroup } from 'leaflet';
 	import MapPin from './MapPin.svelte';
 	import type StageModel from '$lib/models/StageModel.svelte.js';
 
+	// Remove static imports
+	// import L from 'leaflet';
+	// import 'leaflet/dist/leaflet.css';
+
+	let L: any;
 	let mapInstance = $state<LeafletMap | null>(null);
-	/** @type {LayerGroup | null} */
 	let markerLayer = $state<LayerGroup | null>(null);
-	/** @type {HTMLElement | null} */
 	let mapContainer = $state<HTMLDivElement | null>(null);
 
 	let { day, stages }: { day: Day; stages: Record<string, StageModel> } = $props();
@@ -22,9 +21,26 @@
 
 	let mapHeight = $state(0);
 	let mapWidth = $state(0);
+	let leafletLoaded = $state(false);
+	let online = $state(false);
+
+	// Dynamically import Leaflet in browser only
+	$effect(() => {
+		if (online) {
+			Promise.all([import('leaflet'), import('leaflet/dist/leaflet.css')]).then(([leaflet]) => {
+				L = leaflet.default;
+				leafletLoaded = true;
+			});
+		}
+	});
 
 	// Effect to initialize the map and update markers
 	$effect(() => {
+		// Make sure Leaflet is loaded and we're in the browser
+		if (!leafletLoaded || !L || !online) {
+			return;
+		}
+
 		// Ensure the container element is available
 		if (!mapContainer) {
 			console.warn('Map container not ready yet.');
@@ -50,51 +66,49 @@
 			// Create a layer group to hold markers for easy clearing
 			markerLayer = L.layerGroup().addTo(mapInstance);
 		}
-
-		// Cleanup function for the effect (runs when component is destroyed)
 	});
 
+	// Rest of your code remains the same, but with checks for L and mapInstance
 	let markers = $derived.by(() => {
-		if (mapInstance && markerLayer) {
-			markerLayer.clearLayers(); // Clear existing markers
+		if (!online || !mapInstance || !markerLayer) return [];
 
-			return mapModel.locations.map((location) => {
-				const iconContainer = document.createElement('div');
+		markerLayer.clearLayers(); // Clear existing markers
 
-				const href =
-					(location.type === '*stage' && `#/${day.date}/stages/${location.key}`) ||
-					`http://maps.google.com/?q=${location.lat},${location.lng}`;
+		return mapModel.locations.map((location) => {
+			const iconContainer = document.createElement('div');
 
-				const mountedIcon = mount(MapPin, {
-					target: iconContainer,
-					props: {
-						location,
-						href
-					}
-				});
+			const href =
+				(location.type === '*stage' && `#/${day.date}/stages/${location.key}`) ||
+				`http://maps.google.com/?q=${location.lat},${location.lng}`;
 
-				const divIcon = L.divIcon({
-					html: iconContainer,
-					className: 'svelte-leaflet-div-icon'
-				});
-
-				const marker = L.marker([location.lat, location.lng], { icon: divIcon });
-				markerLayer && marker.addTo(markerLayer);
-
-				return { instance: marker, mountedComponent: mountedIcon };
+			const mountedIcon = mount(MapPin, {
+				target: iconContainer,
+				props: {
+					location,
+					href
+				}
 			});
-		} else {
-			return [];
-		}
+
+			const divIcon = L.divIcon({
+				html: iconContainer,
+				className: 'svelte-leaflet-div-icon'
+			});
+
+			const marker = L.marker([location.lat, location.lng], { icon: divIcon });
+			markerLayer && marker.addTo(markerLayer);
+
+			return { instance: marker, mountedComponent: mountedIcon };
+		});
 	});
 
 	$effect(() => {
-		if (markers.length > 0) {
-			const bounds = L.latLngBounds(
-				markers.map((m) => [m.instance.getLatLng().lat, m.instance.getLatLng().lng])
-			);
-			mapInstance?.fitBounds(bounds);
-		}
+		if (markers.length === 0) return;
+		if (!L || !mapInstance) return;
+
+		const bounds = L.latLngBounds(
+			markers.map((m) => [m.instance.getLatLng().lat, m.instance.getLatLng().lng])
+		);
+		mapInstance?.fitBounds(bounds);
 	});
 
 	onDestroy(() => {
@@ -113,6 +127,8 @@
 	});
 </script>
 
+<svelte:window bind:online />
+
 <div
 	class="map-container"
 	bind:this={mapContainer}
@@ -120,7 +136,7 @@
 	bind:offsetWidth={mapWidth}
 ></div>
 
-{#if !mapInstance}
+{#if !leafletLoaded || !mapInstance}
 	<p>Loading Map...</p>
 {/if}
 

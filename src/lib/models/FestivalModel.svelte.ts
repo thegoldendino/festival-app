@@ -3,10 +3,9 @@ import type { Days, Stages, Artists, Day, ConfigOptions, Options, Stage } from '
 import StageModel from '$lib/models/StageModel.svelte.js';
 export default class FestivalModel {
 
-
 	constructor(
 		public days: Days,
-		private stages: Stages,
+		public stages: Stages,
 		public artists: Artists,
 		public errors: ZodIssue[] = [],
 		private _options?: ConfigOptions | undefined,
