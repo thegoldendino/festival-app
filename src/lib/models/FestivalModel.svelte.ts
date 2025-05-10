@@ -1,6 +1,7 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, ConfigOptions, Options, Stage } from '$lib/types.js';
+import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$lib/types.js';
 import StageModel from '$lib/models/StageModel.svelte.js';
+import DayModel from './DayModel.svelte.js';
 export default class FestivalModel {
 
 	constructor(
@@ -28,8 +29,9 @@ export default class FestivalModel {
 			Object.entries(this.artists).length > 0;
 	}
 
-	dayByDate(date: string | null): Day {
-		return date && this.days[date] || this.defaultDay;
+	dayByDate(date: string | null): DayModel {
+		const day = date && this.days[date] || this.defaultDay;
+		return DayModel.fromDay(day);
 	}
 
 	get options(): Options {

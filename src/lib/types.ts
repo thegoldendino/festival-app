@@ -8,6 +8,7 @@ import { ConfigSchema, ConfigOptionsSchema, OptionsSchema } from "$lib/schemas/c
 import { ImageSchema } from "$lib/schemas/image.schema.js";
 import { default as RouteModelType } from "$lib/models/RouteModel.svelte.js";
 import { default as FestivalModelType } from "$lib/models/FestivalModel.svelte.js";
+import { default as DayModelType } from "$lib/models/DayModel.svelte.js";
 
 export type Day = z.infer<typeof DaySchema>;
 export type Stage = z.infer<typeof StageSchema>;
@@ -32,6 +33,7 @@ export type RouteView = z.infer<typeof RouteViewEnum>;
 
 export type RouteModel = RouteModelType;
 export type FestivalModel = FestivalModelType;
+export type DayModel = DayModelType;
 
 export const MapLocationKeys = ['*stage', '*info', '*medic', '*potty'] as const;
 const MapLocationKeyEnum = z.enum(MapLocationKeys);

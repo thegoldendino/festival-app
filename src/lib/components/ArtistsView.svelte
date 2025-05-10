@@ -1,13 +1,13 @@
 <script lang="ts">
 	import AppContainer from '$lib/components/AppContainer.svelte';
 	import InfoHeader from '$lib/components/InfoHeader.svelte';
-	import type { FestivalModel, Day, RouteModel } from '$lib/types.js';
+	import type { FestivalModel, DayModel, RouteModel } from '$lib/types.js';
 	import { getContext } from 'svelte';
 	import { formatLongDay } from '$lib/utils/dateFormat.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
-	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
+	let selectedDay: DayModel = $derived(festival.dayByDate(route.params.date));
 	let artists = $derived(
 		selectedDay.artistKeys
 			.map((key) => festival.artists[key])

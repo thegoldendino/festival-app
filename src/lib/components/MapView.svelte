@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { FestivalModel, RouteModel, Day } from '$lib/types.js';
+	import type { FestivalModel, RouteModel, DayModel } from '$lib/types.js';
 	import { timeRange } from '$lib/utils/dateFormat.js';
 	import InfoHeader from './InfoHeader.svelte';
 	import AppContainer from './AppContainer.svelte';
@@ -15,7 +15,7 @@
 
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
-	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
+	let selectedDay: DayModel = $derived(festival.dayByDate(route.params.date));
 	let showStages = $state(false);
 	let stages = $derived(selectedDay.stageKeys.map((key) => festival.stage(key)));
 	let stageMap = $derived(stages.reduce((acc, stage) => ({ ...acc, [stage.key]: stage }), {}));

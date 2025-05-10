@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { RouteModel, FestivalModel } from '$lib/types.js';
+	import type { RouteModel, FestivalModel, DayModel } from '$lib/types.js';
 	import DateSelection from './DateSelection.svelte';
 	import { getContext } from 'svelte';
 
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
 
-	let daySelected = $derived(festival.dayByDate(route.params.date));
+	let daySelected: DayModel = $derived(festival.dayByDate(route.params.date));
 </script>
 
 <div class="header-container">

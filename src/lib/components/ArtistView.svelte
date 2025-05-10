@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { FestivalModel, RouteModel, Day, Artist } from '$lib/types.js';
+	import type { FestivalModel, RouteModel, DayModel, Artist } from '$lib/types.js';
 	import ActionButtonGroup from './ActionButtonGroup.svelte';
 	import ActionButton from './ActionButton.svelte';
 	import AppContainer from './AppContainer.svelte';
@@ -15,7 +15,7 @@
 	let route: RouteModel = getContext('route');
 	let artist: Artist = $derived(festival.artists[route.params.key]);
 	let showSchedule = $state(false);
-	let selectedDay: Day = $derived(festival.dayByDate(route.params.date));
+	let selectedDay: DayModel = $derived(festival.dayByDate(route.params.date));
 
 	let schedule = $derived(artist.scheduleByDate[route.params.date]);
 </script>
