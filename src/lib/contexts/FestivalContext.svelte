@@ -11,6 +11,8 @@
 	} else {
 		console.error('Invalid festival config', festival.errors);
 	}
+
+	$inspect(festival.scheduleByDate(festival.defaultDay.date));
 </script>
 
 {#if festival.isValid}

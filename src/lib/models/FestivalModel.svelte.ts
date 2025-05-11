@@ -1,7 +1,8 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, ConfigOptions, Options } from '$lib/types.js';
+import type { Days, Stages, Artists, Day, ConfigOptions, Options, TimeSlot, Stage } from '$lib/types.js';
 import StageModel from '$lib/models/StageModel.svelte.js';
 import DayModel from './DayModel.svelte.js';
+
 export default class FestivalModel {
 
 	constructor(
@@ -50,4 +51,28 @@ export default class FestivalModel {
 		return new StageModel(this.stages[key]);
 	}
 
+	scheduleByDate(date: string | null): { stages: Stage[], schedule: TimeSlot[] } {
+		const schedule: TimeSlot[] = [];
+		const day = date && this.days[date] || this.defaultDay;
+		const stages = day.stageKeys.map((key) => this.stages[key])
+		const startTime = new Date(day.startTime);
+		const endTime = new Date(day.endTime);
+		const increment = Number(day.scheduleIncrement);
+		let row = 0;
+
+		for (let time = startTime; time < endTime; time.setMinutes(time.getMinutes() + increment)) {
+			const timeSlot: TimeSlot = { time: new Date(time), artists: [] };
+
+			stages.forEach((stage) => {
+				const artistKey = stage.scheduleByDate[day.date][row]?.key;
+				if (artistKey && this.artists[artistKey]) {
+					timeSlot.artists.push(this.artists[artistKey]);
+				}
+			});
+			schedule.push(timeSlot);
+			row++;
+		}
+
+		return { stages, schedule };
+	}
 }
