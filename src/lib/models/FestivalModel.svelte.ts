@@ -67,6 +67,8 @@ export default class FestivalModel {
 				const artistKey = stage.scheduleByDate[day.date][row]?.key;
 				if (artistKey && this.artists[artistKey]) {
 					timeSlot.artists.push(this.artists[artistKey]);
+				} else {
+					timeSlot.artists.push(null)
 				}
 			});
 			schedule.push(timeSlot);
