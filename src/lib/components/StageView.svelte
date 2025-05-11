@@ -72,7 +72,14 @@
 	</div>
 	<div class="map">
 		{#if locations}
-			<MapContainer {locations} />
+			<MapContainer
+				{locations}
+				mapOptions={{
+					dragging: false, // Disable panning/dragging
+					touchZoom: false, // Optional: disable touch zoom
+					scrollWheelZoom: false // Optional: disable scroll wheel zoom
+				}}
+			/>
 		{/if}
 	</div>
 

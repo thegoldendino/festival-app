@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { mount, onDestroy, unmount } from 'svelte'; // Import mount
 	import type { MapLocation } from '$lib/types.js';
-	import type { Map as LeafletMap, LayerGroup } from 'leaflet';
+	import type { Map as LeafletMap, LayerGroup, MapOptions } from 'leaflet';
 	import MapPin from './MapPin.svelte';
 
 	let L: any;
@@ -9,7 +9,13 @@
 	let markerLayer = $state<LayerGroup | null>(null);
 	let mapContainer = $state<HTMLDivElement | null>(null);
 
-	let { locations }: { locations: MapLocation[] } = $props();
+	let {
+		locations,
+		mapOptions = {}
+	}: {
+		locations: MapLocation[];
+		mapOptions?: MapOptions;
+	} = $props();
 
 	let mapHeight = $state(0);
 	let mapWidth = $state(0);
@@ -46,7 +52,10 @@
 
 		// Initialize map only once
 		if (!mapInstance) {
-			mapInstance = L.map(mapContainer).setView([47.64547628145457, -122.3347581495176], 15); // Default view
+			mapInstance = L.map(mapContainer, mapOptions).setView(
+				[47.64547628145457, -122.3347581495176],
+				15
+			); // Default view
 
 			// Add OpenStreetMap tile layer
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
