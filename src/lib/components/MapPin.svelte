@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
+	import type { MapLocation } from '$lib/types.js';
 
-	let { location, href, idx = 0 }: { location: MapLocation; href: string; idx?: number } = $props();
+	let { location, idx = 0 }: { location: MapLocation; idx?: number } = $props();
 
 	// remove '*' prefix from location.type
 	function locationClass(location: MapLocation): string {
@@ -51,7 +51,7 @@
 {/snippet}
 
 <a
-	{href}
+	href={location.href}
 	class={locationClass(location)}
 	class:active={location.active}
 	class:scale-in={true}

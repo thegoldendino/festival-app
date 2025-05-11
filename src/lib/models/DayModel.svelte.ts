@@ -8,6 +8,7 @@ export default class DayModel {
 	public artistKeys!: string[];
 	public scheduleIncrement!: string | number;
 	public location?: string;
+	public mapLocations?: [string, number, number][];
 	public mapUrl?: string;
 
 	constructor(day: Day) {

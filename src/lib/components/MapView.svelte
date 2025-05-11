@@ -12,6 +12,7 @@
 	import StagePinItem from './StagePinItem.svelte';
 	import StageIcon from './StageIcon.svelte';
 	import ArtistsIcon from './ArtistsIcon.svelte';
+	import MapModel from '$lib/models/MapModel.svelte.js';
 
 	let route: RouteModel = getContext('route');
 	let festival: FestivalModel = getContext('festival');
@@ -31,6 +32,8 @@
 	function defaultMatches(date: string): boolean {
 		return date === festival.defaultDay.date;
 	}
+
+	let locations = $derived(new MapModel(selectedDay, stageMap).locations);
 </script>
 
 <AppContainer>
@@ -44,7 +47,7 @@
 
 	{#each Object.entries(festival.days) as [date, day]}
 		{#if routeMatches(date) || (routeMissingDate() && defaultMatches(date))}
-			<MapContainer {day} stages={stageMap} />
+			<MapContainer {locations} />
 		{/if}
 	{/each}
 

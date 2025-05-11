@@ -39,6 +39,8 @@ export const MapLocationKeys = ['*stage', '*info', '*medic', '*potty'] as const;
 const MapLocationKeyEnum = z.enum(MapLocationKeys);
 export type MapLocationType = z.infer<typeof MapLocationKeyEnum>;
 
+export type MapLocation = { key: string, lat: number, lng: number, type: MapLocationType, stageIdx: number, active?: boolean, href?: string };
+
 
 
 

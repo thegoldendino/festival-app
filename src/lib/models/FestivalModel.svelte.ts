@@ -29,11 +29,6 @@ export default class FestivalModel {
 			Object.entries(this.artists).length > 0;
 	}
 
-	dayByDate(date: string | null): DayModel {
-		const day = date && this.days[date] || this.defaultDay;
-		return DayModel.fromDay(day);
-	}
-
 	get options(): Options {
 		return {
 			logoImage: this._options?.logoImage ?? { src: '' },
@@ -46,7 +41,13 @@ export default class FestivalModel {
 		};
 	}
 
+	dayByDate(date: string | null): DayModel {
+		const day = date && this.days[date] || this.defaultDay;
+		return DayModel.fromDay(day);
+	}
+
 	stage(key: string): StageModel {
 		return new StageModel(this.stages[key]);
 	}
+
 }

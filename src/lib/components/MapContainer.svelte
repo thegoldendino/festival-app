@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Day, Stages } from '$lib/types.js';
 	import { mount, onDestroy, unmount } from 'svelte'; // Import mount
-	import MapModel from '$lib/models/MapModel.svelte.js';
+	import type { MapLocation } from '$lib/types.js';
 	import type { Map as LeafletMap, LayerGroup } from 'leaflet';
 	import MapPin from './MapPin.svelte';
 	import type StageModel from '$lib/models/StageModel.svelte.js';
@@ -15,9 +15,7 @@
 	let markerLayer = $state<LayerGroup | null>(null);
 	let mapContainer = $state<HTMLDivElement | null>(null);
 
-	let { day, stages }: { day: Day; stages: Record<string, StageModel> } = $props();
-
-	let mapModel = $derived(new MapModel(day, stages));
+	let { locations }: { locations: MapLocation[] } = $props();
 
 	let mapHeight = $state(0);
 	let mapWidth = $state(0);
@@ -74,18 +72,13 @@
 
 		markerLayer.clearLayers(); // Clear existing markers
 
-		return mapModel.locations.map((location, idx) => {
+		return locations.map((location, idx) => {
 			const iconContainer = document.createElement('div');
-
-			const href =
-				(location.type === '*stage' && `#/${day.date}/stages/${location.key}`) ||
-				`http://maps.google.com/?q=${location.lat},${location.lng}`;
 
 			const mountedIcon = mount(MapPin, {
 				target: iconContainer,
 				props: {
 					location,
-					href,
 					idx
 				}
 			});
