@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { MapLocation } from '$lib/models/MapModel.svelte.js';
-	import { scale } from 'svelte/transition';
 
 	let { location, href, idx = 0 }: { location: MapLocation; href: string; idx?: number } = $props();
 
@@ -55,7 +54,8 @@
 	{href}
 	class={locationClass(location)}
 	class:active={location.active}
-	in:scale={{ duration: 200 * (idx === 0 ? 0 : 1), delay: 50 * idx }}
+	class:scale-in={true}
+	style="--animation-order: {idx};"
 >
 	{@render stagePin(location)}
 	{@render medicPin(location)}
@@ -113,6 +113,27 @@
 	}
 	.active {
 		animation: pulse 1s infinite;
+	}
+
+	.scale-in {
+		animation: scale-in 200ms ease-out forwards;
+		animation-delay: calc(50ms * var(--animation-order, 0));
+		transform: scale(0);
+	}
+
+	/* Skip animation for first pin (idx=0) */
+	.scale-in[style*='--animation-order: 0'] {
+		animation-duration: 0ms;
+		transform: scale(1);
+	}
+
+	@keyframes scale-in {
+		0% {
+			transform: scale(0);
+		}
+		100% {
+			transform: scale(1);
+		}
 	}
 
 	@keyframes pulse {
