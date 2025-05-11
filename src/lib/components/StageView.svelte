@@ -1,5 +1,12 @@
 <script lang="ts">
-	import type { FestivalModel, RouteModel, DayModel, Stage, Schedule } from '$lib/types.js';
+	import type {
+		FestivalModel,
+		RouteModel,
+		DayModel,
+		Stage,
+		Schedule,
+		MapLocation
+	} from '$lib/types.js';
 	import { getContext } from 'svelte';
 	import { newDate, shortTime } from '$lib/utils/dateFormat.js';
 	import AppContainer from './AppContainer.svelte';
@@ -13,6 +20,8 @@
 	import StageIcon from './StageIcon.svelte';
 	import ArtistsIcon from './ArtistsIcon.svelte';
 	import StageModel from '$lib/models/StageModel.svelte.js';
+	import MapContainer from './MapContainer.svelte';
+	import MapModel from '$lib/models/MapModel.svelte.js';
 
 	let festival: FestivalModel = getContext('festival');
 	let route: RouteModel = getContext('route');
@@ -28,6 +37,20 @@
 	}
 
 	let stageIdx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
+
+	let locations: MapLocation[] | undefined = $derived(
+		day &&
+			day.mapLocations && [
+				{
+					key: stage.key,
+					lat: day.mapLocations[stageIdx][1] || 0,
+					lng: day.mapLocations[stageIdx][2] || 0,
+					type: '*stage',
+					stageIdx: stageIdx,
+					href: stage.mapUrl
+				}
+			]
+	);
 </script>
 
 <AppContainer>
@@ -46,6 +69,11 @@
 				/>
 			{/snippet}
 		</ItemList>
+	</div>
+	<div class="map">
+		{#if locations}
+			<MapContainer {locations} />
+		{/if}
 	</div>
 
 	{#snippet footer()}
@@ -85,5 +113,10 @@
 
 	.content :global(*) {
 		color: var(--festapp-stage-schedule-text-color);
+	}
+
+	.map {
+		width: 100%;
+		height: 15rem;
 	}
 </style>

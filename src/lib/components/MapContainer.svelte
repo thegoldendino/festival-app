@@ -1,14 +1,8 @@
 <script lang="ts">
-	import type { Day, Stages } from '$lib/types.js';
 	import { mount, onDestroy, unmount } from 'svelte'; // Import mount
 	import type { MapLocation } from '$lib/types.js';
 	import type { Map as LeafletMap, LayerGroup } from 'leaflet';
 	import MapPin from './MapPin.svelte';
-	import type StageModel from '$lib/models/StageModel.svelte.js';
-
-	// Remove static imports
-	// import L from 'leaflet';
-	// import 'leaflet/dist/leaflet.css';
 
 	let L: any;
 	let mapInstance = $state<LeafletMap | null>(null);
@@ -56,7 +50,7 @@
 
 			// Add OpenStreetMap tile layer
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-				maxZoom: 20,
+				maxZoom: 19,
 				attribution:
 					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(mapInstance);
