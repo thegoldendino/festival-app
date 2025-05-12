@@ -41,18 +41,4 @@ export default class DayModel {
 		const now = new Date();
 		return now >= start && now < end;
 	}
-
-	get scheduleGrid(): string[][] {
-		const schedule: string[][] = [];
-		const startTime = new Date(this.startTime);
-		const endTime = new Date(this.endTime);
-		const increment = Number(this.scheduleIncrement);
-
-		for (let time = startTime; time < endTime; time.setMinutes(time.getMinutes() + increment)) {
-			const timeSlot = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-			schedule.push([timeSlot,]);
-		}
-
-		return schedule;
-	}
 }

@@ -51,10 +51,10 @@ export default class FestivalModel {
 		return new StageModel(this.stages[key]);
 	}
 
-	scheduleByDate(date: string | null): { stages: Stage[], schedule: TimeSlot[] } {
+	scheduleByDate(date: string | null): { stages: StageModel[], schedule: TimeSlot[] } {
 		const schedule: TimeSlot[] = [];
 		const day = date && this.days[date] || this.defaultDay;
-		const stages = day.stageKeys.map((key) => this.stages[key])
+		const stages = day.stageKeys.map((key) => new StageModel(this.stages[key]))
 		const startTime = new Date(day.startTime);
 		const endTime = new Date(day.endTime);
 		const increment = Number(day.scheduleIncrement);
@@ -64,7 +64,7 @@ export default class FestivalModel {
 			const timeSlot: TimeSlot = { time: new Date(time), artists: [] };
 
 			stages.forEach((stage) => {
-				const artistKey = stage.scheduleByDate[day.date][row]?.key;
+				const artistKey = stage.scheduleByDate(day.date)[row]?.key;
 				if (artistKey && this.artists[artistKey]) {
 					timeSlot.artists.push(this.artists[artistKey]);
 				} else {
