@@ -3,9 +3,8 @@ import { z } from "zod";
 const baseSchema = z.object({
 	startTime: z.string().time(),
 	scheduleIncrement: z.coerce.number().or(z.string().regex(/^\d+$/)),
-	location: z.string().optional(),
-	mapUrl: z.string().url().optional(),
-	mapLocations: z.array(z.tuple([z.string(), z.coerce.number(), z.coerce.number()])).default([]).optional(),
+	display: z.string().optional(),
+	locations: z.array(z.tuple([z.string(), z.string()])).default([]).optional(),
 });
 
 export const ConfigDaySchema = baseSchema.merge(
@@ -23,7 +22,17 @@ export const ConfigDaySchema = baseSchema.merge(
 				path: ['schedule'],
 			});
 		}
-	})
+	});
+
+	data.locations?.forEach(([key, latlng]) => {
+		const [lat, lng] = latlng.split(',').map(Number);
+		if (isNaN(lat) || isNaN(lng)) {
+			ctx.addIssue({
+				code: z.ZodIssueCode.custom,
+				message: `Location ${key} "${lat},${lng}" is not a valid lat,lng`,
+			});
+		}
+	});
 });
 
 export const DaySchema = baseSchema.merge(
@@ -33,5 +42,6 @@ export const DaySchema = baseSchema.merge(
 		endTime: z.date(),
 		stageKeys: z.array(z.string()),
 		artistKeys: z.array(z.string()),
+		locations: z.array(z.tuple([z.string(), z.number(), z.number()])).default([]).optional(),
 	})
 );

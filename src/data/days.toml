@@ -1,7 +1,7 @@
 ["2025-05-04"]
 startTime = "17:00:00"
 scheduleIncrement = 20
-location = "Georgetown"
+display = "Georgetown"
 stages = ["coffee", "overpass", "electric", "stables", "jules"]
 schedule = [
 	["step", "vamola", "8bit", "mission", "baque"],
@@ -9,23 +9,17 @@ schedule = [
 	["kokon", "chaotic", "analog", "soundwave", ""],
 	["vamola", "chaotic", "neon", "soundwave", ""],
 ]
-mapUrl = "https://goo.gl/maps/X1TwS4CkwqQyV1DUA"
-mapLocations = [
-	["coffee", "47.549163","-122.317331"],
-	["overpass", "47.54856","-122.317336"],
-	["electric", "47.549168","-122.318219"],
-	["stables", "47.5497417","-122.3179972"],
-	["jules", "47.5495806","-122.3174943"],
-	["*info", "47.549006","-122.3180521"],
-	["*medic", "47.548888","-122.3180541"],
-	["*potty", "47.549089","-122.3178041"],
-	["*potty", "47.54952","-122.3190451"],
+locations = [
+	["*info",  "47.549006,-122.3180521"],
+	["*medic", "47.548888,-122.3180541"],
+	["*potty", "47.549089,-122.3178041"],
+	["*potty", "47.549520,-122.3190451"],
 ]
 
 ["2025-06-01"]
 startTime = "12:00:00"
 scheduleIncrement = 30
-location = "Columbia City"
+display = "Columbia City"
 stages = ["columbia_hill", "edmunds", "gateway"]
 schedule = [
 	["8bit", "", ""],
@@ -33,13 +27,9 @@ schedule = [
 	["analog", "8bit", "step"],
 	["baque", "", ""],
 ]
-mapUrl = "https://goo.gl/maps/AWpWWjvZfAHwrNyv5"
-mapLocations = [
-	["columbia_hill", "47.559279","-122.287573"],
-	["edmunds", "47.558673","-122.288607"],
-	["gateway", "47.558524","-122.28639"],
-	["*info", "47.5589000","-122.287400"],
-	["*medic","47.5590140","-122.287400"],
-	["*potty", "47.558800","-122.287550"],
+locations = [
+	["*info",  "47.5589000,-122.287400"],
+	["*medic", "47.5590140,-122.287400"],
+	["*potty", "47.5588000,-122.287550"],
 ]
 

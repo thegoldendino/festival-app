@@ -39,6 +39,7 @@ export default class FestivalBuilder {
 			acc[date] = {
 				...day,
 				date,
+				locations: day.locations?.map(this.parseLocation),
 				startTime: newDate(date, day.startTime),
 				endTime: this.calcEndTime(date, day.startTime, day.scheduleIncrement, day.schedule.length),
 				stageKeys: day.stages,
@@ -52,6 +53,12 @@ export default class FestivalBuilder {
 		}, {})
 	}
 
+	private parseLocation(location: [string, string]): [string, number, number] {
+		const key = location[0]
+		const [lat, lng] = location[1].split(',').map(Number);
+		return [key, lat, lng];
+	}
+
 	private calcEndTime(date: string, startTime: string, scheduleIncrement: number | string, scheduleLength: number): Date {
 		const endTime = newDate(date, startTime);
 		endTime.setMinutes(endTime.getMinutes() + scheduleLength * Number(scheduleIncrement));
@@ -61,10 +68,11 @@ export default class FestivalBuilder {
 	private importStages({ days, stages }: ConfigParams, processedDays: Days): Stages {
 		const processedStages = Object.entries(stages).reduce(
 			(acc: Stages, [key, stage]) => {
+				const [lat, lng] = stage.location.split(',').map(Number);
 				acc[key] = {
 					key,
 					name: stage.name,
-					mapUrl: stage.mapUrl,
+					location: [lat, lng],
 					scheduleByDate: {},
 				};
 				return acc;

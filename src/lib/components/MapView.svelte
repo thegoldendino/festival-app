@@ -39,9 +39,9 @@
 <AppContainer>
 	{#snippet infoHeader()}
 		<InfoHeader
-			title={selectedDay.location}
+			title={selectedDay.display}
 			subtitle={timeRange(selectedDay.startTime, selectedDay.endTime)}
-			mapUrl={selectedDay.mapUrl}
+			directionsUrl={selectedDay.directionsUrl}
 		/>
 	{/snippet}
 

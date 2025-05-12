@@ -10,8 +10,18 @@ export default class StageModel {
 	get name(): string {
 		return this.stage.name;
 	}
-	get mapUrl(): string | undefined {
-		return this.stage.mapUrl;
+	get directionsUrl(): string | undefined {
+		return `http://maps.google.com/?q=${this.lat},${this.lng}`;
+	}
+
+	get lat(): number {
+		return this.location[0];
+	}
+	get lng(): number {
+		return this.location[1];
+	}
+	get location(): [number, number] {
+		return this.stage.location;
 	}
 
 	get isActive(): boolean {

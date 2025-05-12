@@ -39,23 +39,26 @@
 	let stageIdx = $derived(stages.findIndex((s) => s.key === stage.key) + 1);
 
 	let locations: MapLocation[] | undefined = $derived(
-		day &&
-			day.mapLocations && [
-				{
-					key: stage.key,
-					lat: day.mapLocations[stageIdx][1] || 0,
-					lng: day.mapLocations[stageIdx][2] || 0,
-					type: '*stage',
-					stageIdx: stageIdx,
-					href: stage.mapUrl
-				}
-			]
+		stage && [
+			{
+				key: stage.key,
+				lat: stage.lat,
+				lng: stage.lng,
+				type: '*stage',
+				stageIdx: stageIdx,
+				href: stage.directionsUrl
+			}
+		]
 	);
 </script>
 
 <AppContainer>
 	{#snippet infoHeader()}
-		<InfoHeader title={`${stageIdx}. ${stage.name}`} mapUrl={stage.mapUrl} backButton />
+		<InfoHeader
+			title={`${stageIdx}. ${stage.name}`}
+			directionsUrl={stage.directionsUrl}
+			backButton
+		/>
 	{/snippet}
 
 	<div class="content">

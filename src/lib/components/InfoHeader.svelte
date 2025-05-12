@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	let { title, subtitle = null, backButton = false, mapUrl = null, infoUrl = null } = $props();
+	let {
+		title,
+		subtitle = null,
+		backButton = false,
+		directionsUrl = null,
+		infoUrl = null
+	} = $props();
 </script>
 
 <div class="info-header">
@@ -20,18 +26,18 @@
 	{/if}
 
 	<div class="right-side">
-		<a href={mapUrl || infoUrl} class="titles" in:fly={{ x: 10, duration: 220, delay: 40 }}>
+		<a href={directionsUrl || infoUrl} class="titles" in:fly={{ x: 10, duration: 220, delay: 40 }}>
 			<h2>{title}</h2>
 			{#if subtitle}
 				<h3>{subtitle}</h3>
 			{/if}
 		</a>
-		{#if mapUrl}
+		{#if directionsUrl}
 			<button
 				class="action-button"
 				aria-label="map"
 				type="button"
-				onclick={() => (window.location.href = mapUrl)}
+				onclick={() => (window.location.href = directionsUrl)}
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
 					><path

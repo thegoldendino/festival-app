@@ -7,9 +7,8 @@ export default class DayModel {
 	public stageKeys!: string[];
 	public artistKeys!: string[];
 	public scheduleIncrement!: string | number;
-	public location?: string;
-	public mapLocations?: [string, number, number][];
-	public mapUrl?: string;
+	public display?: string;
+	public locations?: [string, number, number][];
 
 	constructor(day: Day) {
 		Object.assign(this, day);
@@ -17,6 +16,15 @@ export default class DayModel {
 
 	static fromDay(day: Day): DayModel {
 		return new DayModel(day);
+	}
+
+	get defaultLocation(): [number, number] {
+		return this.locations?.[0].slice(1) as [number, number] || [0, 0];
+	}
+
+	get directionsUrl(): string {
+		const [lat, lng] = this.defaultLocation;
+		return `http://maps.google.com/?q=${lat},${lng}`;
 	}
 
 	timeFor(idx: number): Date {

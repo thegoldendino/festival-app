@@ -24,7 +24,7 @@
 	{#snippet infoHeader()}
 		<InfoHeader
 			title={artist.name}
-			subtitle={artist.location}
+			subtitle={artist.hometown}
 			infoUrl={artist.infoUrl}
 			backButton
 		/>

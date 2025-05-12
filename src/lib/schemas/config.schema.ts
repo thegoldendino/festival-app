@@ -12,6 +12,7 @@ export { ImageSchema } from './image.schema.js';
 
 export const ConfigOptionsSchema = z.object({
 	logoImage: ImageSchema.optional(),
+	logoHref: z.string().url().optional(),
 	responsivefullscreen: z.boolean().default(true).optional(),
 	text: z.object({
 		artist: z.string().optional(),
@@ -71,14 +72,14 @@ export const ConfigSchema = z.object({
 				});
 		});
 
-		day.mapLocations && day.mapLocations.forEach(([mapLocation]) => {
-			!mapLocation.trim().length || stageKeys.includes(mapLocation) || MapLocationKeys.includes(mapLocation as MapLocationType) ||
+		day.locations && day.locations.forEach(([location]) => {
+			!location.trim().length || stageKeys.includes(location) || MapLocationKeys.includes(location as MapLocationType) ||
 				ctx.addIssue({
 					code: z.ZodIssueCode.invalid_enum_value,
 					options: artistKeys,
-					path: ['days', date, 'mapLocations', mapLocation],
-					message: `Missing stage or location data for key: ${mapLocation}`,
-					received: mapLocation,
+					path: ['days', date, 'mapLocations', location],
+					message: `Missing stage or location data for key: ${location}`,
+					received: location,
 				});
 		});
 
