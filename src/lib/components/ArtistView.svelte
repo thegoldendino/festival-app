@@ -98,7 +98,7 @@
 		text-align: justify;
 		line-height: 1.5;
 		font-size: var(--festapp-artist-content-font-size);
-		padding: 0 1rem;
+		padding: 1rem 1rem;
 		color: var(--festapp-artist-content-text-color);
 	}
 
@@ -117,6 +117,7 @@
 		color: var(--festapp-artist-content-text-color);
 		font-size: 1rem;
 		padding: 1rem;
-		margin-block: 1.5rem;
+		margin-block-start: 1.5rem;
+		margin-block-end: 2rem;
 	}
 </style>

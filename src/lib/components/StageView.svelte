@@ -75,7 +75,7 @@
 					time={timeFor(idx)}
 					active={!!key && day.activeFor(idx)}
 					class={mounted ? 'fade-in' : ''}
-					style="animation-delay: {idx * 80}ms;"
+					style="animation-delay: {idx * 40}ms;"
 				/>
 			{/snippet}
 		</ItemList>
