@@ -53,7 +53,7 @@ export default class FestivalModel {
 
 	scheduleByDate(date: string | null): ScheduleByDate {
 		const schedule: TimeSlot[] = [];
-		const day: Day = date && this.days[date] || this.defaultDay;
+		const day: DayModel = DayModel.fromDay(date && this.days[date] || this.defaultDay);
 		const stages = day.stageKeys.map((key) => new StageModel(this.stages[key]))
 		const startTime = new Date(day.startTime);
 		const endTime = new Date(day.endTime);

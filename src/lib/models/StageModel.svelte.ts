@@ -31,6 +31,6 @@ export default class StageModel {
 	}
 
 	scheduleByDate(date: string): Schedule {
-		return this.stage.scheduleByDate[date];
+		return this.stage.scheduleByDate[date].filter((s) => s.key);
 	}
 }
