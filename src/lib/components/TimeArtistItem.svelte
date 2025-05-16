@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { href, name, time, active = true } = $props();
+	let { href, name, time, active = true, class: className = '', style = '' } = $props();
 </script>
 
 {#snippet item()}
@@ -12,11 +12,11 @@
 {/snippet}
 
 {#if href}
-	<a class="item" {href} class:active>
+	<a class="item {className}" {href} class:active {style}>
 		{@render item()}
 	</a>
 {:else}
-	<div class="item" class:active>
+	<div class="item {className}" class:active {style}>
 		{@render item()}
 	</div>
 {/if}

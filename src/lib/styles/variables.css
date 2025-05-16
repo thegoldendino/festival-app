@@ -56,6 +56,7 @@
 
 	/* BUTTON COLORS & PROPS */
 	--festapp-button-bg-color: var(--festapp-color-secondary-5);
+	--festapp-button-bg-color-active: var(--festapp-color-secondary-6);
 	--festapp-button-text-color: var(--festapp-color-secondary-1);
 	--festapp-button-border-color: var(--festapp-color-secondary-4);
 	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
@@ -67,8 +68,10 @@
 	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
 
 
+	/* ARTISTS VIEW */
+	--festapp-artists-noimage-bg-color: var(--festapp-color-secondary-6);
 
-	/* ARTIST PAGE */
+	/* ARTIST VIEW */
 	--festapp-artist-content-text-color: var(--festapp-color-primary-2);
 	--festapp-artist-content-font-size: 1.25rem;
 

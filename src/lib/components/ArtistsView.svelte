@@ -36,7 +36,7 @@
 				>
 					<div class="gradient-overlay">
 						<h2>{artist.name}</h2>
-						<p>{artist.location}</p>
+						<p>{artist.hometown}</p>
 					</div>
 				</div>
 			</a>
@@ -58,13 +58,13 @@
 
 	.artist {
 		height: 200px;
+		background-color: var(--festapp-artists-noimage-bg-color);
 		background-size: cover;
 		background-position: center;
 		border-radius: 8px;
 		color: white;
 		text-shadow: 0 0 4px black;
 		opacity: 0;
-		transform: translateY(20px);
 	}
 
 	.artist.animate {
@@ -74,11 +74,9 @@
 	@keyframes fadeInUp {
 		from {
 			opacity: 0;
-			transform: translateY(20px);
 		}
 		to {
 			opacity: 1;
-			transform: translateY(0);
 		}
 	}
 

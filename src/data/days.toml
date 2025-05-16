@@ -1,35 +1,105 @@
-["2025-05-04"]
-startTime = "17:00:00"
-scheduleIncrement = 20
+["2025-05-30"]
+startTime = "18:00:00"
+scheduleIncrement = 30
 display = "Georgetown"
-stages = ["coffee", "overpass", "electric", "stables", "jules"]
-schedule = [
-	["step", "vamola", "8bit", "mission", "baque"],
-	["kokon", "soundwave", "hungry", "vamola", ""],
-	["kokon", "chaotic", "analog", "soundwave", ""],
-	["vamola", "chaotic", "neon", "soundwave", ""],
-]
 locations = [
-	["*info",  "47.549006,-122.3180521"],
-	["*medic", "47.548888,-122.3180541"],
-	["*potty", "47.549089,-122.3178041"],
-	["*potty", "47.549520,-122.3190451"],
+	[
+		"*info",
+		"47.549000,-122.317400",
+	],
+	[
+		"*medic",
+		"47.548888,-122.317400",
+	],
+	[
+		"*potty",
+		"47.549100,-122.317450",
+	],
 ]
+stages = ["jules", "coffee", "electric", "underpass"]
+schedule = [
+	[ "",					"",								"",							"" ],
+	[ "",					"sindikat",				"",				"filthy"],
+	[ "brasscheeks",		"bluethunder",						"southendpep",	"agab" ],
+	[ "jazznight","tacomarama",			"baque",				"ballard" ],
+	[ "couch",		"pjamrs",					"sticks",				"chaotic" ],
+	[ "artesian",	"8bit",						"vamola",				"badweather" ],
+	[ "better",		"",								"soundwave",		"funkrust" ],
+	[ "tmb",			"",								"",							"neon" ],
+]
+
+
+["2025-05-31"]
+startTime = "12:00:00"
+scheduleIncrement = 30
+display = "Columbia City"
+locations = [
+	[
+		"*info",
+		"47.5588500,-122.287400",
+	],
+	[
+		"*medic",
+		"47.5589600,-122.287400",
+	],
+	[
+		"*potty",
+		"47.558800,-122.287550",
+	],
+]
+stages = ["columbia_south", "edmunds", "columbia_north", "gateway"]
+schedule = [
+	[ "",			"",			"tacomarama", ""],
+	[ "better",			"",			"artesian", 	""],
+	[ "agab",			"phinney",			"couch", 	"brasscheeks"],
+	[ "neon",			"phinney",			"hsmedley", 	"glitch"],
+	[ "reigncity",			"couch",			"ballard", 	"better"],
+	[ "glitch",			"tacomarama",			"sticks", 	"8bit"],
+	[ "badweather",			"agents",			"chaotic", 	"vamola"],
+	[ "funkrust",			"brassless",			"filthy", 	"ballard"],
+	[ "brasscheeks",			"seismic",			"reigncity", 	"tmb"],
+	[ "agents",			"pjamrs",			"neon", 	"baque"],
+	[ "8bit",      "brassless",   "baque", "badweather"],
+	[ "future",			"filthy",			"sticks", 	"seismic"],
+	[ "jambalaya",			"vamola",			"agab", 	""],
+	[ "tmb",			"artesian",			"pjamrs", 	""],
+	[ "chaotic",			"funkrust",			"", 	""],
+	[ "allstars",			"",			"", 	""],
+
+]
+
 
 ["2025-06-01"]
 startTime = "12:00:00"
 scheduleIncrement = 30
-display = "Columbia City"
-stages = ["columbia_hill", "edmunds", "gateway"]
-schedule = [
-	["8bit", "", ""],
-	["allstars", "filthy", "vamola"],
-	["analog", "8bit", "step"],
-	["baque", "", ""],
-]
+display = "Pratt Park"
 locations = [
-	["*info",  "47.5589000,-122.287400"],
-	["*medic", "47.5590140,-122.287400"],
-	["*potty", "47.5588000,-122.287550"],
+	[
+		"*info",
+		"47.6014593,-122.3066500",
+	],
+	[
+		"*medic",
+		"47.6013000,-122.3066500",
+	],
+	[
+		"*potty",
+		"47.6010400,-122.3066500",
+	],
 ]
-
+stages = ["pratt_hill", "pratt_field"]
+schedule = [
+	[ "better","" ],
+	[ "nsmariachi","" ],
+	[ "couch","glitch" ],
+	[ "brassless","sticks" ],
+	[ "pjamrs","agab" ],
+	[ "sindikat","artesian" ],
+	[ "neon","baque" ],
+	[ "agents","filthy" ],
+	[ "tmb","8bit" ],
+	[ "chaotic","vashonk" ],
+	[ "funkrust","vamola" ],
+	[ "","tacomarama" ],
+	[ "","allstars" ],
+]

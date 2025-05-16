@@ -44,4 +44,9 @@
 			-1px 1px 3px var(--festapp-button-text-shadow-color),
 			1px 1px 3px var(--festapp-button-text-shadow-color);
 	}
+
+	.action-button:active,
+	.action-button:focus {
+		background-color: var(--festapp-button-bg-color-active);
+	}
 </style>

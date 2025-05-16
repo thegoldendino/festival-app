@@ -26,21 +26,28 @@
 		margin: 0;
 		padding: 0;
 		justify-content: end;
+		width: 100%;
 	}
 
 	li {
 		list-style-type: none;
+		flex: 1;
 	}
 
 	a {
 		height: 100%;
-		padding-inline: 1.5em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		text-decoration: none;
 		color: var(--festapp-date-selection-text-color);
+		border-inline: 1px solid var(--festapp-color-primary-7);
+	}
+
+	a:active,
+	a:focus {
+		background-color: var(--festapp-button-bg-color-active);
 	}
 
 	a.selected {

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
 	let {
 		title,
 		subtitle = null,
@@ -26,7 +25,7 @@
 	{/if}
 
 	<div class="right-side">
-		<a href={directionsUrl || infoUrl} class="titles" in:fly={{ x: 10, duration: 220, delay: 40 }}>
+		<a href={directionsUrl || infoUrl} class="titles animate">
 			<h2>{title}</h2>
 			{#if subtitle}
 				<h3>{subtitle}</h3>
@@ -98,6 +97,22 @@
 		align-items: flex-end;
 		text-decoration: none;
 		overflow: hidden;
+		transform: translateX(10px);
+	}
+
+	.titles.animate {
+		animation: fadeInLeft 0.2s ease-in forwards;
+	}
+
+	@keyframes fadeInLeft {
+		from {
+			opacity: 0;
+			transform: translateX(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
 	}
 
 	h2 {

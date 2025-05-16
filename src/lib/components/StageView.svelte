@@ -7,7 +7,7 @@
 		Schedule,
 		MapLocation
 	} from '$lib/types.js';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { newDate, shortTime } from '$lib/utils/dateFormat.js';
 	import AppContainer from './AppContainer.svelte';
 	import InfoHeader from './InfoHeader.svelte';
@@ -30,6 +30,11 @@
 	let day: DayModel = $derived(festival.dayByDate(route.params.date));
 	let stages = $derived(day.stageKeys.map((key) => festival.stage(key)));
 	let showStages = $state(false);
+	let mounted = $state(false);
+
+	onMount(() => {
+		mounted = true;
+	});
 
 	function timeFor(idx: number): string {
 		const time = day.timeFor(idx);
@@ -69,6 +74,8 @@
 					name={festival.artists[key]?.name}
 					time={timeFor(idx)}
 					active={!!key && day.activeFor(idx)}
+					class={mounted ? 'fade-in' : ''}
+					style="animation-delay: {idx * 80}ms;"
 				/>
 			{/snippet}
 		</ItemList>
@@ -123,6 +130,23 @@
 
 	.content :global(*) {
 		color: var(--festapp-stage-schedule-text-color);
+	}
+
+	.content :global(.fade-in) {
+		opacity: 0;
+		animation: fadeIn 0.2s ease-in forwards;
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		60% {
+			opacity: 0.6;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 
 	.map {
