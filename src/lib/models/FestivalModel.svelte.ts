@@ -1,5 +1,5 @@
 import type { ZodIssue } from 'zod';
-import type { Days, Stages, Artists, Day, ConfigOptions, Options, TimeSlot, Stage } from '$lib/types.js';
+import type { Days, Stages, Artists, Day, ConfigOptions, Options, TimeSlot, Stage, ScheduleByDate } from '$lib/types.js';
 import StageModel from '$lib/models/StageModel.svelte.js';
 import DayModel from './DayModel.svelte.js';
 
@@ -51,9 +51,9 @@ export default class FestivalModel {
 		return new StageModel(this.stages[key]);
 	}
 
-	scheduleByDate(date: string | null): { stages: StageModel[], schedule: TimeSlot[] } {
+	scheduleByDate(date: string | null): ScheduleByDate {
 		const schedule: TimeSlot[] = [];
-		const day = date && this.days[date] || this.defaultDay;
+		const day: Day = date && this.days[date] || this.defaultDay;
 		const stages = day.stageKeys.map((key) => new StageModel(this.stages[key]))
 		const startTime = new Date(day.startTime);
 		const endTime = new Date(day.endTime);
@@ -75,6 +75,6 @@ export default class FestivalModel {
 			row++;
 		}
 
-		return { stages, schedule };
+		return { day, stages, schedule };
 	}
 }

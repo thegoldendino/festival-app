@@ -43,6 +43,7 @@ export type MapLocationType = z.infer<typeof MapLocationKeyEnum>;
 
 export type MapLocation = { key: string, lat: number, lng: number, type: MapLocationType, stageIdx: number, active?: boolean, href?: string };
 export type TimeSlot = { time: Date, artists: Array<Artist | null> };
+export type ScheduleByDate = { day: Day, stages: StageModel[], schedule: TimeSlot[] };
 
 
 
