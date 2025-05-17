@@ -78,33 +78,50 @@
 </AppContainer>
 
 <style>
+	:root {
+		/* ArtistView component variables */
+		--festapp-artist-content-text: var(--festapp-text-primary, var(--festapp-color-primary-2));
+		--festapp-artist-content-font-size: var(--festapp-font-size-md, 1.25rem);
+		--festapp-artist-image-height: 30lvh;
+		--festapp-artist-image-initial-height: 40lvh;
+		--festapp-artist-content-padding: var(--festapp-spacing-md, 1rem);
+		--festapp-artist-content-line-height: 1.5;
+		--festapp-artist-content-letter-spacing: 3px;
+		--festapp-artist-more-info-gap: var(--festapp-spacing-xs, 0.5rem);
+		--festapp-artist-more-info-font-size: var(--festapp-font-size-sm, 1rem);
+		--festapp-artist-more-info-padding: var(--festapp-spacing-md, 1rem);
+		--festapp-artist-more-info-margin-block: var(--festapp-spacing-lg, 1.5rem) var(--festapp-spacing-xl, 2rem);
+		--festapp-artist-animation-duration: var(--festapp-animation-duration-normal, 0.2s);
+		--festapp-artist-animation-timing: var(--festapp-animation-timing-ease-in, ease-in);
+	}
+
 	.content img {
 		width: 100%;
-		height: 30lvh;
+		height: var(--festapp-artist-image-height);
 		object-fit: cover;
-		animation: shrink-image 0.2s ease-in forwards;
+		animation: shrink-image var(--festapp-artist-animation-duration) var(--festapp-artist-animation-timing) forwards;
 	}
 
 	@keyframes shrink-image {
 		from {
-			height: 40lvh;
+			height: var(--festapp-artist-image-initial-height);
 		}
 		to {
-			height: 30lvh;
+			height: var(--festapp-artist-image-height);
 		}
 	}
 
 	.content p {
 		text-align: justify;
-		line-height: 1.5;
+		line-height: var(--festapp-artist-content-line-height);
 		font-size: var(--festapp-artist-content-font-size);
-		padding: 1rem 1rem;
-		color: var(--festapp-artist-content-text-color);
+		padding: var(--festapp-artist-content-padding);
+		color: var(--festapp-artist-content-text);
 	}
 
 	.content p::first-line {
 		text-transform: uppercase;
-		letter-spacing: 3px;
+		letter-spacing: var(--festapp-artist-content-letter-spacing);
 	}
 
 	.more-info {
@@ -112,12 +129,11 @@
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--festapp-artist-more-info-gap);
 		text-decoration: none;
-		color: var(--festapp-artist-content-text-color);
-		font-size: 1rem;
-		padding: 1rem;
-		margin-block-start: 1.5rem;
-		margin-block-end: 2rem;
+		color: var(--festapp-artist-content-text);
+		font-size: var(--festapp-artist-more-info-font-size);
+		padding: var(--festapp-artist-more-info-padding);
+		margin-block-start: var(--festapp-artist-more-info-margin-block);
 	}
 </style>

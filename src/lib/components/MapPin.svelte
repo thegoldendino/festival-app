@@ -64,6 +64,27 @@
 </a>
 
 <style>
+	:root {
+		/* MapPin component variables */
+		--festapp-map-pin-text: var(--festapp-text-on-dark, var(--festapp-color-white));
+		--festapp-map-stage-bg: var(--festapp-interactive-bg, var(--festapp-color-secondary-5));
+		--festapp-map-medic-bg: var(--festapp-utility-medic, red);
+		--festapp-map-info-bg: var(--festapp-utility-info, green);
+		--festapp-map-potty-bg: var(--festapp-utility-potty, blue);
+		--festapp-map-pin-size: 2rem;
+		--festapp-map-pin-font-size: 1.5rem;
+		--festapp-map-stage-pin-size: 2.25rem;
+		--festapp-map-pin-border-radius: 10%;
+		--festapp-map-stage-border-width: var(--festapp-border-width-lg, 3px);
+		--festapp-map-stage-border: var(--festapp-interactive-border, var(--festapp-color-secondary-4));
+		--festapp-map-stage-border-radius: var(--festapp-radius-pill, 30px);
+		--festapp-map-stage-text-shadow: var(--festapp-action-button-text-shadow, var(--festapp-color-secondary-6));
+		--festapp-map-pin-animation-duration: var(--festapp-animation-duration-normal, 0.2s);
+		--festapp-map-pin-animation-timing: var(--festapp-animation-timing-ease-out, ease-out);
+		--festapp-map-pin-animation-delay-multiplier: 50ms;
+		--festapp-map-pin-pulse-duration: 1s;
+	}
+
 	.absolute {
 		position: absolute;
 	}
@@ -75,49 +96,49 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: var(--festapp-map-pin-text-color);
+		color: var(--festapp-map-pin-text);
 		text-decoration: none;
-		width: 2rem;
-		height: 2rem;
-		font-size: 1.5rem;
+		width: var(--festapp-map-pin-size);
+		height: var(--festapp-map-pin-size);
+		font-size: var(--festapp-map-pin-font-size);
 	}
 
 	.stage-pin {
-		border-radius: 10%;
-		box-shadow: var(--box-shadow, var(--shadow-4));
-		background-color: var(--festapp-map-stage-bg-color);
-		text-shadow: var(--festapp-button-text-shadow-color) 1px 0 10px;
+		border-radius: var(--festapp-map-pin-border-radius);
+		box-shadow: var(--box-shadow, var(--festapp-shadow-4));
+		background-color: var(--festapp-map-stage-bg);
+		text-shadow: var(--festapp-map-stage-text-shadow) 1px 0 10px;
 
 		border-style: solid;
-		border-width: 3px;
-		border-color: var(--festapp-button-border-color);
-		border-radius: var(--festapp-button-border-radius);
-		height: 2.25rem;
-		width: 2.25rem;
+		border-width: var(--festapp-map-stage-border-width);
+		border-color: var(--festapp-map-stage-border);
+		border-radius: var(--festapp-map-stage-border-radius);
+		height: var(--festapp-map-stage-pin-size);
+		width: var(--festapp-map-stage-pin-size);
 	}
 
 	.potty-pin,
 	.info-pin,
 	.medic-pin {
-		border-radius: 10%;
+		border-radius: var(--festapp-map-pin-border-radius);
 	}
 
 	.potty-pin {
-		background-color: var(--festapp-map-potty-bg-color);
+		background-color: var(--festapp-map-potty-bg);
 	}
 	.info-pin {
-		background-color: var(--festapp-map-info-bg-color);
+		background-color: var(--festapp-map-info-bg);
 	}
 	.medic-pin {
-		background-color: var(--festapp-map-medic-bg-color);
+		background-color: var(--festapp-map-medic-bg);
 	}
 	.active {
-		animation: pulse 1s infinite;
+		animation: pulse var(--festapp-map-pin-pulse-duration) infinite;
 	}
 
 	.scale-in {
-		animation: scale-in 200ms ease-out forwards;
-		animation-delay: calc(50ms * var(--animation-order, 0));
+		animation: scale-in var(--festapp-map-pin-animation-duration) var(--festapp-map-pin-animation-timing) forwards;
+		animation-delay: calc(var(--festapp-map-pin-animation-delay-multiplier) * var(--animation-order, 0));
 		transform: scale(0);
 	}
 

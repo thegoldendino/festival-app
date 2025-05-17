@@ -24,27 +24,37 @@
 </div>
 
 <style>
+	:root {
+		/* Header component variables */
+		--festapp-header-bg: var(--festapp-header-bg-color, var(--festapp-color-primary-8));
+		--festapp-header-logo-padding-inline: var(--festapp-spacing-md, 1rem);
+		--festapp-header-logo-padding-block: var(--festapp-spacing-xs, 0.5rem);
+		--festapp-header-logo-height: 90%;
+	}
+
 	.header-container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: var(--festapp-header-bg-color);
+		background-color: var(--festapp-header-bg);
 		height: var(--festapp-header-height);
 	}
 
 	.logo-container {
 		flex: none;
-		height: 90%;
+		height: var(--festapp-header-logo-height);
 		display: flex;
 		align-items: center;
-		padding-inline: 1rem;
-		padding-block: 0.5rem;
+		padding-inline: var(--festapp-header-logo-padding-inline);
+		padding-block: var(--festapp-header-logo-padding-block);
 	}
+	
 	a {
 		text-decoration: none;
 		display: block;
 		height: 100%;
 	}
+	
 	img {
 		height: 100%;
 		width: auto;

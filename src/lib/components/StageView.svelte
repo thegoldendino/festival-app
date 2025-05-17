@@ -124,17 +124,26 @@
 </AppContainer>
 
 <style>
+	:root {
+		/* StageView component variables */
+		--festapp-stage-schedule-text: var(--festapp-text-primary, var(--festapp-color-primary-1));
+		--festapp-stage-content-margin-block: var(--festapp-spacing-md, 1rem);
+		--festapp-stage-animation-duration: var(--festapp-animation-duration-normal, 0.2s);
+		--festapp-stage-animation-timing: var(--festapp-animation-timing-ease-in, ease-in);
+		--festapp-stage-map-height: 15rem;
+	}
+
 	.content {
-		margin-block: 1rem;
+		margin-block: var(--festapp-stage-content-margin-block);
 	}
 
 	.content :global(*) {
-		color: var(--festapp-stage-schedule-text-color);
+		color: var(--festapp-stage-schedule-text);
 	}
 
 	.content :global(.fade-in) {
 		opacity: 0;
-		animation: fadeIn 0.2s ease-in forwards;
+		animation: fadeIn var(--festapp-stage-animation-duration) var(--festapp-stage-animation-timing) forwards;
 	}
 
 	@keyframes fadeIn {
@@ -151,6 +160,6 @@
 
 	.map {
 		width: 100%;
-		height: 15rem;
+		height: var(--festapp-stage-map-height);
 	}
 </style>

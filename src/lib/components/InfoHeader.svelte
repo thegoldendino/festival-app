@@ -65,20 +65,47 @@
 </div>
 
 <style>
+	:root {
+		/* InfoHeader component variables */
+		--festapp-info-header-bg: var(--festapp-subheader-bg-color, var(--festapp-color-secondary-7));
+		--festapp-info-header-text: var(--festapp-subheader-text-color, var(--festapp-color-secondary-1));
+		--festapp-info-header-padding-inline: var(--festapp-spacing-md, 1rem);
+		--festapp-info-header-left-margin-inline-end: var(--festapp-spacing-md, 1rem);
+		--festapp-info-header-right-gap: var(--festapp-spacing-md, 1rem);
+		--festapp-info-header-titles-gap: 2px;
+		--festapp-info-header-title-font-size: 24px;
+		--festapp-info-header-title-font-weight: var(--festapp-font-weight-semibold, 600);
+		--festapp-info-header-title-line-height: 32px;
+		--festapp-info-header-title-letter-spacing: 0.06rem;
+		--festapp-info-header-subtitle-font-weight: var(--festapp-font-weight-medium, 500);
+		--festapp-info-header-animation-duration: var(--festapp-animation-duration-normal, 0.2s);
+		--festapp-info-header-animation-timing: var(--festapp-animation-timing-ease-in, ease-in);
+		
+		/* InfoHeader action buttons */
+		--festapp-info-header-button-bg: var(--festapp-interactive-bg, var(--festapp-button-bg-color, var(--festapp-color-secondary-5)));
+		--festapp-info-header-button-text: var(--festapp-interactive-text, var(--festapp-button-text-color, var(--festapp-color-secondary-1)));
+		--festapp-info-header-button-border: var(--festapp-interactive-border, var(--festapp-button-border-color, var(--festapp-color-secondary-4)));
+		--festapp-info-header-button-border-width: var(--festapp-border-width-lg, var(--festapp-button-border-width, 3px));
+		--festapp-info-header-button-border-radius: var(--festapp-radius-circle, var(--festapp-map-button-border-radius, 100px));
+		--festapp-info-header-button-text-shadow: var(--festapp-button-text-shadow-color, var(--festapp-color-secondary-6));
+		--festapp-info-header-button-padding: 4px 4px;
+		--festapp-info-header-button-height: 60%;
+	}
+
 	.info-header {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		background-color: var(--festapp-subheader-bg-color);
+		background-color: var(--festapp-info-header-bg);
 		height: var(--festapp-subheader-height);
-		padding-inline: 1rem;
+		padding-inline: var(--festapp-info-header-padding-inline);
 	}
 
 	.left-side {
 		display: flex;
 		flex: none;
 		width: fit-content;
-		margin-inline-end: 1rem;
+		margin-inline-end: var(--festapp-info-header-left-margin-inline-end);
 	}
 
 	.right-side {
@@ -87,13 +114,13 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		gap: 1rem;
+		gap: var(--festapp-info-header-right-gap);
 	}
 
 	.titles {
 		display: flex;
 		flex-direction: column;
-		gap: 2px;
+		gap: var(--festapp-info-header-titles-gap);
 		align-items: flex-end;
 		text-decoration: none;
 		overflow: hidden;
@@ -101,7 +128,7 @@
 	}
 
 	.titles.animate {
-		animation: fadeInLeft 0.2s ease-in forwards;
+		animation: fadeInLeft var(--festapp-info-header-animation-duration) var(--festapp-info-header-animation-timing) forwards;
 	}
 
 	@keyframes fadeInLeft {
@@ -117,26 +144,26 @@
 
 	h2 {
 		width: 100%;
-		line-height: 32px;
-		font-weight: 600;
-		font-size: 24px;
+		line-height: var(--festapp-info-header-title-line-height);
+		font-weight: var(--festapp-info-header-title-font-weight);
+		font-size: var(--festapp-info-header-title-font-size);
 		text-overflow: ellipsis;
 		text-align: end;
 		overflow: hidden;
 		white-space: nowrap;
-		letter-spacing: 0.06rem;
+		letter-spacing: var(--festapp-info-header-title-letter-spacing);
 	}
 
 	h2,
 	h3 {
 		margin: 0;
 		padding: 0;
-		color: var(--festapp-subheader-text-color);
-		letter-spacing: 0.06rem;
+		color: var(--festapp-info-header-text);
+		letter-spacing: var(--festapp-info-header-title-letter-spacing);
 	}
 
 	h3 {
-		font-weight: 500;
+		font-weight: var(--festapp-info-header-subtitle-font-weight);
 	}
 
 	.back-button {
@@ -145,25 +172,25 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		color: var(--festapp-button-text-color);
+		color: var(--festapp-info-header-text);
 	}
 
 	.action-button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 60%;
-		padding: 4px 4px;
-		background-color: var(--festapp-button-bg-color);
+		height: var(--festapp-info-header-button-height);
+		padding: var(--festapp-info-header-button-padding);
+		background-color: var(--festapp-info-header-button-bg);
 		border-style: solid;
-		border-width: var(--festapp-button-border-width);
-		border-color: var(--festapp-button-border-color);
-		border-radius: var(--festapp-map-button-border-radius);
+		border-width: var(--festapp-info-header-button-border-width);
+		border-color: var(--festapp-info-header-button-border);
+		border-radius: var(--festapp-info-header-button-border-radius);
 		font-weight: var(--festapp-button-font-weight);
 		text-decoration: none;
-		color: var(--festapp-button-text-color);
-		text-shadow: var(--festapp-button-text-shadow-color) 1px 0 10px;
-		box-shadow: var(--box-shadow, var(--shadow-1));
+		color: var(--festapp-info-header-button-text);
+		text-shadow: var(--festapp-info-header-button-text-shadow) 1px 0 10px;
+		box-shadow: var(--box-shadow, var(--festapp-shadow-1));
 		cursor: pointer;
 	}
 </style>

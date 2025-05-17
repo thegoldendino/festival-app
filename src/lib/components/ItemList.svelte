@@ -13,6 +13,13 @@
 </ul>
 
 <style>
+	:root {
+		/* ItemList component variables */
+		--festapp-item-list-border-top: 2px solid rgba(255, 255, 255, 0.15);
+		--festapp-item-list-item-height: 4.25rem;
+		--festapp-item-list-font-size: var(--festapp-font-size-md, 1.25rem);
+	}
+
 	.item-list {
 		list-style-type: none;
 		padding: 0 0;
@@ -20,17 +27,14 @@
 	}
 
 	.item-list li + li {
-		/* border-top: 2px solid rgba(255, 255, 255, 0.15); */
 		border-bottom-width: 0;
 	}
 
 	.item-list :global(.item) {
 		display: flex;
 		justify-content: space-between;
-
-		font-size: 1.25rem;
-		height: 4.25rem;
-
+		font-size: var(--festapp-item-list-font-size);
+		height: var(--festapp-item-list-item-height);
 		text-decoration: none;
 	}
 </style>

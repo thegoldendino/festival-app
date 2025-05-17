@@ -1,85 +1,129 @@
 @import './colors.css';
 
+/**
+ * Festival App Core Variables
+ * 
+ * High-level theme configuration and shared variables.
+ * Component-specific variables are defined in their respective components.
+ */
+
 :root {
-
-	/* COLOR THEME */
-	--festapp-color-primary-hue: var(--hue-violet);
-	--festapp-color-secondary-hue: var(--hue-pink);
-	
-	/* APP PROPERTIES */
-	--festapp-bg-color: var(--festapp-color-primary-9);
-	--festapp-font-family: system-ui, sans-serif;
-	
-	/* LAYOUT HEIGHTS */
-	--festapp-header-height: 76px;
-	--festapp-subheader-height: 76px;
-	--festapp-footer-height: 100px;
-	
-	/* HEADER COLORS */
-	--festapp-header-bg-color: var(--festapp-color-primary-8);
-	--festapp-subheader-bg-color: var(--festapp-color-secondary-7);
-	--festapp-subheader-text-color: var(--festapp-color-secondary-1);
-	
-	/* FOOTER COLORS */
-	--festapp-footer-bg-color: var(--festapp-color-primary-8);
-	--festapp-footer-text-color: var(--festapp-color-primary-1);
-
-	/* DRAWER VARIABLES */
-	--festapp-drawer-bg-color: var(--festapp-color-primary-7);
-	--festapp-drawer-text-color: var(--festapp-color-primary-1);
-	--festapp-drawer-underline-color: var(--festapp-color-primary-5);
-	--festapp-drawer-active-bg-color: var(--festapp-color-primary-5);
-	--festapp-drawer-timepill-bg-color: var(--festapp-color-primary-8);
-	--festapp-drawer-font-size: 1.75rem;
-
-	/* STAGE SCHEDULE COLORS */
-	--festapp-stage-schedule-text-color: var(--festapp-color-primary-1);
-	--festapp-stage-schedule-timepill-bg-color: var(--festapp-color-primary-7);
-	--festapp-stage-schedule-underline-color: var(--festapp-color-primary-7);
-	--festapp-stage-schedule-active-bg-color: var(--festapp-color-primary-6);
-	--festapp-stage-schedule-active-border-color: var(--festapp-color-primary-4);
-	--festapp-stage-schedule-font-size: 1.75rem;
-	--festapp-stage-schedule-font-weight: 300;
-
-	/* HEADER DATE TAB COLORS */
-	--festapp-date-selection-text-color: var(--festapp-color-primary-1);
-	--festapp-date-selection-selected-text-color: var(--festapp-color-secondary-1);
-	--festapp-date-selection-selected-bg-color: var(--festapp-color-secondary-6);
-	--festapp-date-selection-selected-border-color: var(--festapp-color-secondary-4);
-
-	/* MAP COLORS */
-	--festapp-map-pin-text-color: var(--festapp-color-white);
-	--festapp-map-stage-bg-color: var(--festapp-color-secondary-5);
-	--festapp-map-medic-bg-color: red;
-	--festapp-map-info-bg-color: green;
-	--festapp-map-potty-bg-color: blue;
-
-	/* BUTTON COLORS & PROPS */
-	--festapp-button-bg-color: var(--festapp-color-secondary-5);
-	--festapp-button-bg-color-active: var(--festapp-color-secondary-6);
-	--festapp-button-text-color: var(--festapp-color-secondary-1);
-	--festapp-button-border-color: var(--festapp-color-secondary-4);
-	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
-	--festapp-button-border-width: 3px;
-	--festapp-button-border-radius: 30px;
-	--festapp-button-font-size: 1.50rem;
-	--festapp-button-font-weight: 600;
-	--festapp-map-button-border-radius: 100px;
-	--festapp-button-text-shadow-color: var(--festapp-color-secondary-6);
-
-
-	/* ARTISTS VIEW */
-	--festapp-artists-noimage-bg-color: var(--festapp-color-secondary-6);
-
-	/* ARTIST VIEW */
-	--festapp-artist-content-text-color: var(--festapp-color-primary-2);
-	--festapp-artist-content-font-size: 1.25rem;
-
-	/* TIMEPILL VARIABLES */
-	--festapp-timepill-font-size: 1.25rem;
-	--festapp-timepill-font-weight: 500;
-	--festapp-timepill-bg-color: var(--festapp-color-primary-8);
-	--festapp-timepill-text-color: var(--festapp-color-primary-1);
-	--festapp-timepill-border-radius: 30px;
-	--festapp-timepill-padding: 0.25rem 0.5rem;
+  /* ===== THEME CONFIGURATION ===== */
+  /* Main theme colors - adjust these to change the entire color scheme */
+  --festapp-color-primary-hue: var(--hue-violet);
+  --festapp-color-secondary-hue: var(--hue-pink);
+  
+  /* ===== CORE TOKENS ===== */
+  /* Typography */
+  --festapp-font-family: system-ui, sans-serif;
+  --festapp-font-size-xs: 0.75rem;
+  --festapp-font-size-sm: 1rem;
+  --festapp-font-size-md: 1.25rem;
+  --festapp-font-size-lg: 1.5rem;
+  --festapp-font-size-xl: 1.75rem;
+  --festapp-font-size-2xl: 2rem;
+  
+  --festapp-font-weight-light: 300;
+  --festapp-font-weight-regular: 400;
+  --festapp-font-weight-medium: 500;
+  --festapp-font-weight-semibold: 600;
+  --festapp-font-weight-bold: 700;
+  
+  /* Spacing */
+  --festapp-spacing-xs: 0.25rem;
+  --festapp-spacing-sm: 0.5rem;
+  --festapp-spacing-md: 1rem;
+  --festapp-spacing-lg: 1.5rem;
+  --festapp-spacing-xl: 2rem;
+  --festapp-spacing-2xl: 2.5rem;
+  
+  /* Breakpoints - Note: These can't be used directly in media queries */
+  /* Use these values when setting breakpoints in your components */
+  /* @media (min-width: 1024px) { ... } */
+  
+  /* Border radius */
+  --festapp-radius-sm: 0.25rem;
+  --festapp-radius-md: 0.5rem;
+  --festapp-radius-lg: 1rem;
+  --festapp-radius-xl: 1.5rem;
+  --festapp-radius-pill: 30px;
+  --festapp-radius-circle: 100px;
+  
+  /* Borders */
+  --festapp-border-width-sm: 1px;
+  --festapp-border-width-md: 2px;
+  --festapp-border-width-lg: 3px;
+  --festapp-border-width-xl: 4px;
+  
+  /* Animation */
+  --festapp-animation-duration-fast: 0.1s;
+  --festapp-animation-duration-normal: 0.2s;
+  --festapp-animation-duration-slow: 0.3s;
+  --festapp-animation-timing-ease: ease;
+  --festapp-animation-timing-ease-in: ease-in;
+  --festapp-animation-timing-ease-out: ease-out;
+  
+  /* ===== LAYOUT STRUCTURE ===== */
+  /* These control the overall app layout */
+  --festapp-header-height: 76px;
+  --festapp-subheader-height: 76px;
+  --festapp-footer-height: 100px;
+  
+  /* ===== SEMANTIC COLORS ===== */
+  /* App background */
+  --festapp-bg-color: var(--festapp-color-primary-9);
+  
+  /* Header colors */
+  --festapp-header-bg-color: var(--festapp-color-primary-8);
+  --festapp-header-text-color: var(--festapp-color-primary-1);
+  
+  /* Footer colors */
+  --festapp-footer-bg-color: var(--festapp-color-primary-8);
+  --festapp-footer-text-color: var(--festapp-color-primary-1);
+  
+  /* Interactive colors */
+  --festapp-interactive-bg: var(--festapp-color-secondary-5);
+  --festapp-interactive-bg-hover: var(--festapp-color-secondary-6);
+  --festapp-interactive-text: var(--festapp-color-secondary-1);
+  --festapp-interactive-border: var(--festapp-color-secondary-4);
+  
+  /* Text colors */
+  --festapp-text-primary: var(--festapp-color-primary-1);
+  --festapp-text-secondary: var(--festapp-color-secondary-1);
+  --festapp-text-on-dark: var(--festapp-color-white);
+  --festapp-text-muted: var(--festapp-color-primary-3);
+  
+  /* Utility colors */
+  --festapp-utility-medic: red;
+  --festapp-utility-info: green;
+  --festapp-utility-potty: blue;
+  
+  /* Timepill styling (used across multiple components) */
+  --festapp-timepill-font-size: var(--festapp-font-size-md, 1.25rem);
+  --festapp-timepill-font-weight: var(--festapp-font-weight-medium, 500);
+  --festapp-timepill-bg-color: var(--festapp-color-primary-8);
+  --festapp-timepill-text-color: var(--festapp-color-primary-1);
+  --festapp-timepill-border-radius: var(--festapp-radius-pill, 30px);
+  --festapp-timepill-padding: 0.25rem 0.5rem;
+  
+  /* Common component variables */
+  --festapp-subheader-bg-color: var(--festapp-color-secondary-7);
+  --festapp-subheader-text-color: var(--festapp-color-secondary-1);
+  
+  /* Stage/Schedule related variables */
+  --festapp-stage-schedule-text-color: var(--festapp-color-primary-1);
+  --festapp-stage-schedule-timepill-bg-color: var(--festapp-color-primary-7);
+  --festapp-stage-schedule-underline-color: var(--festapp-color-primary-7);
+  --festapp-stage-schedule-active-bg-color: var(--festapp-color-primary-6);
+  --festapp-stage-schedule-active-border-color: var(--festapp-color-primary-4);
+  --festapp-stage-schedule-font-size: var(--festapp-font-size-xl, 1.75rem);
+  --festapp-stage-schedule-font-weight: var(--festapp-font-weight-light, 300);
+  
+  /* Drawer related variables */
+  --festapp-drawer-bg-color: var(--festapp-color-primary-7);
+  --festapp-drawer-text-color: var(--festapp-color-primary-1);
+  --festapp-drawer-underline-color: var(--festapp-color-primary-5);
+  --festapp-drawer-active-bg-color: var(--festapp-color-primary-5);
+  --festapp-drawer-timepill-bg-color: var(--festapp-color-primary-8);
+  --festapp-drawer-font-size: var(--festapp-font-size-xl, 1.75rem);
 }
